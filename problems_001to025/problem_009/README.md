@@ -1,9 +1,10 @@
 ## 9. Special Pythagorean triplet
 
-Pythagorean triplet은 다음을 만족하는 자연수 (a, b, c)이다.
+Pythagorean triplet은 다음을 만족하는 자연수 a < b < c 이다.
 
-1. a < b < c
-2. a&sup2; + b&sup2; = c&sup2;
+<p align="center">
+  a&sup2; + b&sup2; = c&sup2;
+</p>
 
 예를 들면, 3&sup2; + 4&sup2; = 9 + 16 = 25 = 5&sup2; 같은 것이 있다.
 
