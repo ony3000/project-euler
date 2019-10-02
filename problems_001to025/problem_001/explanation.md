@@ -9,4 +9,6 @@
 
 따라서, 중복 계산된 값을 빼주면 문제의 답을 얻을 수 있고, 계산식은 다음과 같다.
 
-![\large \sum_{k=1}^{\left \lfloor \frac{999}{3} \right \rfloor} 3k + \sum_{k=1}^{\left \lfloor \frac{999}{5} \right \rfloor} 5k - \sum_{k=1}^{\left \lfloor \frac{999}{15} \right \rfloor} 15k](https://latex.codecogs.com/png.latex?\large&space;\sum_{k=1}^{\left&space;\lfloor&space;\frac{999}{3}&space;\right&space;\rfloor}&space;3k&space;&plus;&space;\sum_{k=1}^{\left&space;\lfloor&space;\frac{999}{5}&space;\right&space;\rfloor}&space;5k&space;-&space;\sum_{k=1}^{\left&space;\lfloor&space;\frac{999}{15}&space;\right&space;\rfloor}&space;15k)
+<p align="center">
+  <img src="https://latex.codecogs.com/png.latex?\large&space;\sum_{k=1}^{\left&space;\lfloor&space;\frac{999}{3}&space;\right&space;\rfloor}&space;3k&space;&plus;&space;\sum_{k=1}^{\left&space;\lfloor&space;\frac{999}{5}&space;\right&space;\rfloor}&space;5k&space;-&space;\sum_{k=1}^{\left&space;\lfloor&space;\frac{999}{15}&space;\right&space;\rfloor}&space;15k" width="263" height="75">
+</p>
