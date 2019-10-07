@@ -19,7 +19,7 @@ def positive_divisors(n):
         exponents = [int(digit) for digit in format(case, f'0{len(prime_factors)}b')]
         pairs = [Power(*pair) for pair in zip(prime_factors, exponents)]
         powered = [pair.base ** pair.exponent for pair in pairs]
-        divisor = reduce(lambda a, b: a*b, powered)
+        divisor = reduce(lambda a, b: a*b, powered, 1)
         unique_divisors.add(divisor)
     ordered_divisors = list(unique_divisors)
     ordered_divisors.sort()

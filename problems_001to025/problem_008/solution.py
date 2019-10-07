@@ -26,7 +26,7 @@ if __name__ == '__main__':
 '
     digit_length = 13
     for index in range(len(num) + 1 - digit_length):
-        product = reduce(lambda a, b: a*b, [int(digit) for digit in num[index:index+digit_length]])
+        product = reduce(lambda a, b: a*b, [int(digit) for digit in num[index:index+digit_length]], 1)
         if result < product:
             result = product
     print(result)
