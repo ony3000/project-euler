@@ -1,4 +1,3 @@
-from functools import reduce
 from math import floor, sqrt
 
 
@@ -25,5 +24,5 @@ def smaller_primes(n):
     return primes
 
 if __name__ == '__main__':
-    result = reduce(lambda a, b: a+b, smaller_primes(2000000), 0)
+    result = sum(smaller_primes(2000000))
     print(result)
