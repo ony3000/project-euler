@@ -1,4 +1,3 @@
-from collections import namedtuple
 from functools import reduce
 
 from ..problem_003.solution import prime_factorization
@@ -13,15 +12,13 @@ def positive_divisors(n):
     if abs(n) == 1:
         return [1]
     prime_factors = prime_factorization(n)
-    unique_divisors = set()
-    Power = namedtuple('Power', ['base', 'exponent'])
-    for case in range(2 ** len(prime_factors)):
-        exponents = [int(digit) for digit in format(case, f'0{len(prime_factors)}b')]
-        pairs = [Power(*pair) for pair in zip(prime_factors, exponents)]
-        powered = [pair.base ** pair.exponent for pair in pairs]
-        divisor = reduce(lambda a, b: a*b, powered, 1)
-        unique_divisors.add(divisor)
-    ordered_divisors = list(unique_divisors)
+    involutions = []
+    while len(prime_factors) > 0:
+        base = prime_factors[0]
+        count = prime_factors.count(base)
+        involutions.append([base ** exponent for exponent in range(count + 1)])
+        prime_factors = prime_factors[count:]
+    ordered_divisors = reduce(lambda a, b: [x*y for x in a for y in b], involutions, [1])
     ordered_divisors.sort()
     return ordered_divisors
 
