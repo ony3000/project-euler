@@ -10,5 +10,5 @@
 따라서, 중복 계산된 값을 빼주면 문제의 답을 얻을 수 있고, 계산식은 다음과 같다.
 
 <p align="center">
-  <img src="https://latex.codecogs.com/png.latex?\large&space;\sum_{k=1}^{\left&space;\lfloor&space;\frac{999}{3}&space;\right&space;\rfloor}&space;3k&space;&plus;&space;\sum_{k=1}^{\left&space;\lfloor&space;\frac{999}{5}&space;\right&space;\rfloor}&space;5k&space;-&space;\sum_{k=1}^{\left&space;\lfloor&space;\frac{999}{15}&space;\right&space;\rfloor}&space;15k" width="263" height="75">
+  <img src="https://latex.codecogs.com/png.latex?%5Clarge%20%5Csum_%7Bk%3D1%7D%5E%7B%5Cleft%20%5Clfloor%20%5Cfrac%7B999%7D%7B3%7D%20%5Cright%20%5Crfloor%7D%203k%20&plus;%20%5Csum_%7Bk%3D1%7D%5E%7B%5Cleft%20%5Clfloor%20%5Cfrac%7B999%7D%7B5%7D%20%5Cright%20%5Crfloor%7D%205k%20-%20%5Csum_%7Bk%3D1%7D%5E%7B%5Cleft%20%5Clfloor%20%5Cfrac%7B999%7D%7B15%7D%20%5Cright%20%5Crfloor%7D%2015k" width="263" height="75">
 </p>
