@@ -1,6 +1,6 @@
 ## 3. Largest prime factor
 
-정수 N이 다음과 같이 소인수분해 된다고 하자.
+1보다 큰 정수 N이 다음과 같이 소인수분해 된다고 하자.
 
 <p align="center">
   <img src="https://latex.codecogs.com/png.latex?%5Clarge%20N%20%3D%20p_%7B1%7D%5E%7Be_%7B1%7D%7D%20p_%7B2%7D%5E%7Be_%7B2%7D%7D%20%5Ccdots%20p_%7Bn%7D%5E%7Be_%7Bn%7D%7D" width="156" height="23"> (<img src="https://latex.codecogs.com/png.latex?%5Clarge%20p_%7Bk%7D" width="20" height="14">는 소수, <img src="https://latex.codecogs.com/png.latex?%5Clarge%20e_%7Bk%7D" width="18" height="14">는 자연수, <img src="https://latex.codecogs.com/png.latex?%5Clarge%20p_%7B1%7D%20%3C%20p_%7B2%7D%20%3C%20%5Ccdots%20%3C%20p_%7Bn%7D" width="172" height="18">)
