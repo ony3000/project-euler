@@ -25,14 +25,17 @@ if __name__ == '__main__':
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 """
     grid = [[int(element) for element in row.split()] for row in numbers.strip().split('\n')]
-    number_length = 4
-    for i in range(len(grid) + 1 - number_length):
+    for i in range(len(grid)):
         row = grid[i]
-        for j in range(len(row) + 1 - number_length):
-            horizontal = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]
-            vertical = grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j]
-            diagonal = grid[i][j] * grid[i+1][j+1] * grid[i+2][j+2] * grid[i+3][j+3]
-            another_diagonal = grid[i][j+3] * grid[i+1][j+2] * grid[i+2][j+1] * grid[i+3][j]
+        for j in range(len(row)):
+            horizontal = vertical = diagonal = another_diagonal = 1
+            if j+3 < len(row):
+                horizontal = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]
+            if i+3 < len(grid):
+                vertical = grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j]
+            if i+3 < len(grid) and j+3 < len(row):
+                diagonal = grid[i][j] * grid[i+1][j+1] * grid[i+2][j+2] * grid[i+3][j+3]
+                another_diagonal = grid[i][j+3] * grid[i+1][j+2] * grid[i+2][j+1] * grid[i+3][j]
             new_products = [
                 horizontal,
                 vertical,
