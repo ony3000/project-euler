@@ -7,3 +7,6 @@ A number n is called deficient if the sum of its proper divisors is less than n 
 As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest number that can be written as the sum of two abundant numbers is 24. By mathematical analysis, it can be shown that all integers greater than 28123 can be written as the sum of two abundant numbers. However, this upper limit cannot be reduced any further by analysis even though it is known that the greatest number that cannot be expressed as the sum of two abundant numbers is less than this limit.
 
 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
+
+* 정답: NDE3OTg3MQ== (스포일러 방지를 위해 base64로 인코딩 됨)
+* 풀이: [링크](./explanation.md)
