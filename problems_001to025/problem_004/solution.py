@@ -1,7 +1,11 @@
+import os
+import sys
 from functools import reduce
 
-from ..problem_003.solution import prime_factorization
+PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(PROJECT_PATH)
 
+from problems_001to025.problem_003.solution import prime_factorization
 
 def positive_divisors(n):
     """0이 아닌 정수 n에 대해, 정수 범위 안에서 양의 약수를 구한다."""

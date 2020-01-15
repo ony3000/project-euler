@@ -1,5 +1,10 @@
-from ..problem_001.solution import natural_sum
+import os
+import sys
 
+PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(PROJECT_PATH)
+
+from problems_001to025.problem_001.solution import natural_sum
 
 def square_sum(n):
     """자연수 n에 대해, 1부터 n까지 제곱의 합을 구한다."""

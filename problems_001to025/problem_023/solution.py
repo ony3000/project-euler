@@ -1,5 +1,11 @@
-from ..problem_001.solution import natural_sum
-from ..problem_004.solution import positive_divisors
+import os
+import sys
+
+PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(PROJECT_PATH)
+
+from problems_001to025.problem_001.solution import natural_sum
+from problems_001to025.problem_004.solution import positive_divisors
 
 if __name__ == '__main__':
     result = None
