@@ -1,11 +1,11 @@
 ## 21. Amicable numbers
 
-Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).<br>
-If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and each of a and b are called amicable numbers.
+자연수 n에 대해, n의 진약수(n을 나머지 없이 나눌 수 있는 자연수 중 n보다 작은 수)들의 합을 d(n)이라 정의하자.<br>
+서로 다른 두 수 a, b에 대하여 d(a) = b 이고 d(b) = a 이면, a와 b 각각을 친화수라 하고, 이 둘을 묶어서 친화쌍이라 한다.
 
-For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
+예를 들면, 220의 진약수들은 1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110이 있고, 따라서 d(220) = 284 이다. 284의 진약수들은 1, 2, 4, 71, 142가 있고, 따라서 d(284) = 220 이다.
 
-Evaluate the sum of all the amicable numbers under 10000.
+10000 미만의 모든 친화수들의 합을 구하여라.
 
 ### 정답과 풀이
 

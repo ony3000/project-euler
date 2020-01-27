@@ -1,10 +1,10 @@
 ## 25. 1000-digit Fibonacci number
 
-The Fibonacci sequence is defined by the recurrence relation:
+피보나치 수열은 다음과 같은 점화관계로 정의될 수 있다.
 
-* ![\large F_{n} = F_{n-1} + F_{n-2}](https://latex.codecogs.com/png.latex?%5Clarge%20F_%7Bn%7D%20%3D%20F_%7Bn-1%7D%20&plus;%20F_%7Bn-2%7D), where ![\large F_{1} = 1](https://latex.codecogs.com/png.latex?%5Clarge%20F_%7B1%7D%20%3D%201) and ![\large F_{2} = 1](https://latex.codecogs.com/png.latex?%5Clarge%20F_%7B2%7D%20%3D%201).
+* ![\large F_{n} = F_{n-1} + F_{n-2}](https://latex.codecogs.com/png.latex?%5Clarge%20F_%7Bn%7D%20%3D%20F_%7Bn-1%7D%20&plus;%20F_%7Bn-2%7D) (단, ![\large F_{1} = 1](https://latex.codecogs.com/png.latex?%5Clarge%20F_%7B1%7D%20%3D%201), ![\large F_{2} = 1](https://latex.codecogs.com/png.latex?%5Clarge%20F_%7B2%7D%20%3D%201) 이다.)
 
-Hence the first 12 terms will be:
+따라서 처음 열두 개의 항은 다음과 같다.
 
 * ![\large F_{1} = 1](https://latex.codecogs.com/png.latex?%5Clarge%20F_%7B1%7D%20%3D%201)
 * ![\large F_{2} = 1](https://latex.codecogs.com/png.latex?%5Clarge%20F_%7B2%7D%20%3D%201)
@@ -19,6 +19,6 @@ Hence the first 12 terms will be:
 * ![\large F_{11} = 89](https://latex.codecogs.com/png.latex?%5Clarge%20F_%7B11%7D%20%3D%2089)
 * ![\large F_{12} = 144](https://latex.codecogs.com/png.latex?%5Clarge%20F_%7B12%7D%20%3D%20144)
 
-The 12th term, ![\large F_{12}](https://latex.codecogs.com/png.latex?%5Clarge%20F_%7B12%7D), is the first term to contain three digits.
+열두 번째 항 ![\large F_{12}](https://latex.codecogs.com/png.latex?%5Clarge%20F_%7B12%7D)는 처음으로 세 자리 수가 되는 항이다.
 
-What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
+피보나치 수열에서 처음으로 1000 자리 수가 되는 항은 몇 번째인지 구하여라.

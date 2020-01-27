@@ -1,10 +1,10 @@
 ## 22. Names scores
 
-Using [names.txt](./names.txt), a 46K text file containing over five-thousand first names, begin by sorting it into alphabetical order. Then working out the alphabetical value for each name, multiply this value by its alphabetical position in the list to obtain a name score.
+5천 개 이상의 이름이 들어있는 46K 텍스트 파일인 [names.txt](./names.txt)를 사용하여 알파벳 순서로 정렬하라. 그 다음, 각 이름의 알파벳 값을 계산하고, 이 알파벳 값과 해당 이름의 위치를 곱해서 이름 점수를 얻을 수 있다.
 
-For example, when the list is sorted into alphabetical order, COLIN, which is worth 3 + 15 + 12 + 9 + 14 = 53, is the 938th name in the list. So, COLIN would obtain a score of 938 × 53 = 49714.
+예를 들면, COLIN이라는 이름은 3 + 15 + 12 + 9 + 14 = 53의 알파벳 값을 가지며, 정렬된 리스트에서 938번째 위치에 있다. 따라서, COLIN은 938 &times; 53 = 49714의 이름 점수를 얻는다.
 
-What is the total of all the name scores in the file?
+파일에 들어있는 모든 이름의 이름 점수 합을 구하여라.
 
 ### 정답과 풀이
 
