@@ -45,6 +45,6 @@
 [#25](problems_001to025/problem_025) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
 [#26](problems_026to050/problem_026) | &nbsp; | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
 [#27](problems_026to050/problem_027) | &nbsp; | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#28](problems_026to050/problem_028) | &nbsp; | &nbsp; | &nbsp;
+[#28](problems_026to050/problem_028) | &nbsp; | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
 [#29](problems_026to050/problem_029) | &nbsp; | &nbsp; | &nbsp;
 [#30](problems_026to050/problem_030) | &nbsp; | &nbsp; | &nbsp;
