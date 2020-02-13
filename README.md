@@ -47,4 +47,4 @@
 [#27](problems_026to050/problem_027) | &nbsp; | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
 [#28](problems_026to050/problem_028) | &nbsp; | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
 [#29](problems_026to050/problem_029) | &nbsp; | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#30](problems_026to050/problem_030) | &nbsp; | &nbsp; | &nbsp;
+[#30](problems_026to050/problem_030) | &nbsp; | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
