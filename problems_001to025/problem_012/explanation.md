@@ -3,7 +3,7 @@
 1보다 큰 정수 N이 다음과 같이 소인수분해 된다고 하자.
 
 <p align="center">
-  <img src="https://latex.codecogs.com/png.latex?%5Clarge%20N%20%3D%20p_%7B1%7D%5E%7Be_%7B1%7D%7D%20p_%7B2%7D%5E%7Be_%7B2%7D%7D%20%5Ccdots%20p_%7Bn%7D%5E%7Be_%7Bn%7D%7D" width="156" height="23"> (<img src="https://latex.codecogs.com/png.latex?%5Clarge%20p_%7Bk%7D" width="20" height="14">는 소수, <img src="https://latex.codecogs.com/png.latex?%5Clarge%20e_%7Bk%7D" width="18" height="14">는 자연수, <img src="https://latex.codecogs.com/png.latex?%5Clarge%20p_%7B1%7D%20%3C%20p_%7B2%7D%20%3C%20%5Ccdots%20%3C%20p_%7Bn%7D" width="172" height="18">)
+  N = p<sub>1</sub><sup>e<sub>1</sub></sup>p<sub>2</sub><sup>e<sub>2</sub></sup> &ctdot; p<sub>n</sub><sup>e<sub>n</sub></sup> (단, p<sub>k</sub>는 소수, e<sub>k</sub>는 자연수, p<sub>1</sub> &lt; p<sub>2</sub> &lt; &ctdot; &lt; p<sub>n</sub> 이다.)
 </p>
 
 그러면 N의 약수의 개수는 다음과 같이 계산할 수 있다.
