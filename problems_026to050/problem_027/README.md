@@ -12,9 +12,9 @@ The incredible formula **n<sup>2</sup> - 79n + 1601** was discovered, which prod
 
 Considering quadratics of the form:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**n<sup>2</sup> + an + b**, where **|a| &lt; 1000** and **|b| &le; 1000**<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where **|n|** is the modulus/absolute value of **n**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g. **|11| = 11** and **|-4| = 4**
+> **n<sup>2</sup> + an + b**, where **|a| &lt; 1000** and **|b| &le; 1000**<br>
+> <br>
+> where **|n|** is the modulus/absolute value of **n**<br>
+> e.g. **|11| = 11** and **|-4| = 4**
 
 Find the product of the coefficients, **a** and **b**, for the quadratic expression that produces the maximum number of primes for consecutive values of **n**, starting with **n = 0**.

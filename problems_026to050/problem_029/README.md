@@ -2,10 +2,10 @@
 
 Consider all integer combinations of a<sup>b</sup> for 2 &le; a &le; 5 and 2 &le; b &le; 5:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2<sup>2</sup> = 4, 2<sup>3</sup> = 8, 2<sup>4</sup> = 16, 2<sup>5</sup> = 32<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3<sup>2</sup> = 9, 3<sup>3</sup> = 27, 3<sup>4</sup> = 81, 3<sup>5</sup> = 243<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4<sup>2</sup> = 16, 4<sup>3</sup> = 64, 4<sup>4</sup> = 256, 4<sup>5</sup> = 1024<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5<sup>2</sup> = 25, 5<sup>3</sup> = 125, 5<sup>4</sup> = 625, 5<sup>5</sup> = 3125
+> 2<sup>2</sup> = 4, 2<sup>3</sup> = 8, 2<sup>4</sup> = 16, 2<sup>5</sup> = 32<br>
+> 3<sup>2</sup> = 9, 3<sup>3</sup> = 27, 3<sup>4</sup> = 81, 3<sup>5</sup> = 243<br>
+> 4<sup>2</sup> = 16, 4<sup>3</sup> = 64, 4<sup>4</sup> = 256, 4<sup>5</sup> = 1024<br>
+> 5<sup>2</sup> = 25, 5<sup>3</sup> = 125, 5<sup>4</sup> = 625, 5<sup>5</sup> = 3125
 
 If they are then placed in numerical order, with any repeats removed, we get the following sequence of 15 distinct terms:
 

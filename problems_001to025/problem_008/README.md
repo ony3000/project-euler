@@ -1,9 +1,5 @@
 ## 8. Largest product in a series
 
-**NOTE**: This problem was modified on 18 May 2014. The wording was improved for clarity and the parameters were changed from 5 adjacent digits to 13 adjacent digits to encourage a programmatic approach.
-
----
-
 다음 1000 자리 수 안에서, 인접한 네 자리 수로 만들 수 있는 가장 큰 곱은 9 &times; 9 &times; 8 &times; 9 = 5832 이다.
 
 <p align="center">
