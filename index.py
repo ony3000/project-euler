@@ -5,6 +5,7 @@ from problems_001to025.problem_006.solution import square_sum
 from problems_001to025.problem_007.solution import first_primes
 from problems_001to025.problem_010.solution import smaller_primes
 from problems_026to050.problem_027.solution import is_prime
+from problems_026to050.problem_031.solution import number_of_partitions
 
 if __name__ == '__main__':
     functions = [
@@ -15,6 +16,7 @@ if __name__ == '__main__':
         first_primes,
         smaller_primes,
         is_prime,
+        number_of_partitions,
     ]
     for func in functions:
         formatted = f"""
