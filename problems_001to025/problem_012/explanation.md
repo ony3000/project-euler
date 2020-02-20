@@ -9,7 +9,7 @@
 그러면 N의 약수의 개수는 다음과 같이 계산할 수 있다.
 
 <p align="center">
-  <img src="https://latex.codecogs.com/png.latex?%5Clarge%20%5Cprod_%7Bk%3D1%7D%5E%7Bn%7D%20%281%20&plus;%20e_%7Bk%7D%29" width="100" height="62">
+  (1 + e<sub>1</sub>)(1 + e<sub>2</sub>) &ctdot; (1 + e<sub>n</sub>)
 </p>
 
 3번 문제를 먼저 풀어봤다면, **가장 작은 소인수를 구하는** 알고리즘을 응용하여 소인수분해를 구현할 수 있다.
