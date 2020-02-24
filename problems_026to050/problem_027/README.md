@@ -1,20 +1,20 @@
 ## 27. Quadratic primes
 
-Euler discovered the remarkable quadratic formula:
+오일러는 놀라운 2차 식을 발견하였다.
 
 <p align="center">
   <strong>n<sup>2</sup> + n + 41</strong>
 </p>
 
-It turns out that the formula will produce 40 primes for the consecutive integer values **0 &le; n &le; 39**. However, when **n = 40, 40<sup>2</sup> + 40 + 41 = 40(40 + 1) + 41** is divisible by 41, and certainly when **n = 41, 41<sup>2</sup> + 41 + 41** is clearly divisible by 41.
+위 식은 연속되는 정수 **0 &le; n &le; 39** 에 대하여 총 40개의 소수를 만들어낸다. 하지만 **n = 40** 인 경우 **40<sup>2</sup> + 40 + 41 = 40(40 + 1) + 41** 은 41로 나눌 수 있고, **n = 41** 인 경우 **41<sup>2</sup> + 41 + 41** 은 분명히 41로 나눌 수 있다.
 
-The incredible formula **n<sup>2</sup> - 79n + 1601** was discovered, which produces 80 primes for the consecutive values **0 &le; n &le; 79**. The product of the coefficients, −79 and 1601, is −126479.
+또 다른 엄청난 2차 식 **n<sup>2</sup> - 79n + 1601** 이 발견되었는데, 이 식은 연속되는 정수 **0 &le; n &le; 79** 에 대하여 총 80개의 소수를 만들어낸다. 이 식의 계수들의 곱을 구하면 -79 &times; 1601 = -126479 이다.
 
-Considering quadratics of the form:
+다음과 같은 2차 식을 생각해보자.
 
-> **n<sup>2</sup> + an + b**, where **|a| &lt; 1000** and **|b| &le; 1000**<br>
+> **n<sup>2</sup> + an + b** (단, **|a| &lt; 1000** 이고 **|b| &le; 1000** 이다.)<br>
 > <br>
-> where **|n|** is the modulus/absolute value of **n**<br>
-> e.g. **|11| = 11** and **|-4| = 4**
+> 여기서 **|n|** 은 **n** 의 절대값이다.<br>
+> 예를 들면, **|11| = 11** 이고 **|-4| = 4** 이다.
 
-Find the product of the coefficients, **a** and **b**, for the quadratic expression that produces the maximum number of primes for consecutive values of **n**, starting with **n = 0**.
+**n = 0**부터 시작해서 연속되는 정수 **n** 에 대하여 가장 많은 소수를 만들어내는 2차 식을 찾고, 그 식의 계수들(=**a**와 **b**)의 곱을 구하여라.

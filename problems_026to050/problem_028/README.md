@@ -1,6 +1,6 @@
 ## 28. Number spiral diagonals
 
-Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is formed as follows:
+1부터 시작해서 시계방향으로 이동하는 5 &times; 5 나선은 다음과 같다.
 
 <p align="center">
   <strong>21</strong> 22 23 24 <strong>25</strong><br>
@@ -10,6 +10,6 @@ Starting with the number 1 and moving to the right in a clockwise direction a 5 
   <strong>17</strong> 16 15 14 <strong>13</strong>
 </p>
 
-It can be verified that the sum of the numbers on the diagonals is 101.
+여기서 우리는 대각선상의 숫자들의 합이 101임을 알 수 있다.
 
-What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
+위와 같은 방법으로 만들어진 1001 &times; 1001 나선에서 대각선상의 숫자들의 합을 구하여라.

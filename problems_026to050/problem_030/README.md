@@ -1,13 +1,13 @@
 ## 30. Digit fifth powers
 
-Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:
+각 자리수를 네 제곱해서 더했을 때 자기 자신이 되는 수는, 놀랍게도 다음 세 가지 뿐이다.
 
 > 1634 = 1<sup>4</sup> + 6<sup>4</sup> + 3<sup>4</sup> + 4<sup>4</sup><br>
 > 8208 = 8<sup>4</sup> + 2<sup>4</sup> + 0<sup>4</sup> + 8<sup>4</sup><br>
 > 9474 = 9<sup>4</sup> + 4<sup>4</sup> + 7<sup>4</sup> + 4<sup>4</sup>
 
-As 1 = 1<sup>4</sup> is not a sum it is not included.
+1 = 1<sup>4</sup> 은 합의 형태가 아니므로 포함하지 않는다.
 
-The sum of these numbers is 1634 + 8208 + 9474 = 19316.
+위 숫자들을 더하면 1634 + 8208 + 9474 = 19316 이다.
 
-Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
+각 자리수를 다섯 제곱해서 더했을 때 자기 자신이 되는 수들의 합을 구하여라.
