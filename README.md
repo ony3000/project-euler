@@ -26,6 +26,6 @@
 [#30](problems_026to050/problem_030) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
 [#31](problems_026to050/problem_031) | &nbsp; | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
 [#32](problems_026to050/problem_032) | &nbsp; | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#33](problems_026to050/problem_033) | &nbsp; | &nbsp; | &nbsp;
+[#33](problems_026to050/problem_033) | &nbsp; | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
 [#34](problems_026to050/problem_034) | &nbsp; | &nbsp; | &nbsp;
 [#35](problems_026to050/problem_035) | &nbsp; | &nbsp; | &nbsp;
