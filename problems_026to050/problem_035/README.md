@@ -1,7 +1,11 @@
 ## 35. Circular primes
 
-The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.
+197은, 각 자리수를 회전시켜서 얻을 수 있는 197, 971, 719가 모두 소수이므로, 원형 소수라 한다.
 
-There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
+100 미만의 숫자들 중 원형 소수는 다음 13개만 존재한다.
 
-How many circular primes are there below one million?
+<p align="center">
+  2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, 97
+</p>
+
+100만 미만의 숫자들 중 원형 소수의 개수를 구하여라.

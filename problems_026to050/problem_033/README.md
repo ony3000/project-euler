@@ -1,9 +1,9 @@
 ## 33. Digit cancelling fractions
 
-The fraction <sup>49</sup>/<sub>98</sub> is a curious fraction, as an inexperienced mathematician in attempting to simplify it may incorrectly believe that <sup>49</sup>/<sub>98</sub> = <sup>4</sup>/<sub>8</sub>, which is correct, is obtained by cancelling the 9s.
+어떤 미숙한 수학자는 <sup>49</sup>/<sub>98</sub>에서 9를 소거함으로써 <sup>49</sup>/<sub>98</sub> = <sup>4</sup>/<sub>8</sub> 가 된다고 믿었는데, 올바른 약분이 아니지만 등식은 성립한다. 그래서 <sup>49</sup>/<sub>98</sub>은 특이한 분수이다.
 
-We shall consider fractions like, <sup>30</sup>/<sub>50</sub> = <sup>3</sup>/<sub>5</sub>, to be trivial examples.
+여기서 <sup>30</sup>/<sub>50</sub> = <sup>3</sup>/<sub>5</sub> 같은 경우는 자명한 것으로 간주한다.
 
-There are exactly four non-trivial examples of this type of fraction, less than one in value, and containing two digits in the numerator and denominator.
+1보다 작고 분모와 분자가 두 자리 수인 분수 중, 자명하지 않은 예는 4개만 존재한다.
 
-If the product of these four fractions is given in its lowest common terms, find the value of the denominator.
+이 4개 분수의 곱을 기약분수로 썼을 때, 분모의 값을 구하여라.

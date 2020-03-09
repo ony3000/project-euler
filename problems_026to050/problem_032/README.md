@@ -1,9 +1,9 @@
 ## 32. Pandigital products
 
-We shall say that an <var>n</var>-digit number is pandigital if it makes use of all the digits 1 to <var>n</var> exactly once; for example, the 5-digit number, 15234, is 1 through 5 pandigital.
+어떤 <var>n</var>자리 수가 1부터 <var>n</var>까지 한 번 씩만 사용해서 만들어졌다면, 그 수를 팬 디지털이라 한다. 예를 들면, 5자리 수 15234는 1~5 팬 디지털이다.
 
-The product 7254 is unusual, as the identity, 39 &times; 186 = 7254, containing multiplicand, multiplier, and product is 1 through 9 pandigital.
+7254는 특이한 곱이다. 39 &times; 186 = 7254 와 같은 곱셈식으로 표현했을 때, 피승수, 승수, 그리고 곱이 1~9 팬 디지털이다.
 
-Find the sum of all products whose multiplicand/multiplier/product identity can be written as a 1 through 9 pandigital.
+피승수, 승수, 곱이 1~9 팬 디지털인 곱셈식들에 대하여, 곱들의 합을 구하여라.
 
-HINT: Some products can be obtained in more than one way so be sure to only include it once in your sum.
+힌트: 어떤 곱은 두 가지 이상의 방법으로 얻을 수 있으므로, 합을 구할 때 한 번만 포함해야 한다.

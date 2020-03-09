@@ -1,7 +1,7 @@
 ## 34. Digit factorials
 
-145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
+145는 1! + 4! + 5! (= 1 + 24 + 120 = 145)로 표현할 수 있는 특이한 숫자이다.
 
-Find the sum of all numbers which are equal to the sum of the factorial of their digits.
+각 자리수의 팩토리얼 값을 더했을 때 자기 자신이 되는 수들의 합을 구하여라.
 
-Note: as 1! = 1 and 2! = 2 are not sums they are not included.
+참고: 1! = 1 과 2! = 2 는 합의 형태가 아니므로 포함하지 않는다.
