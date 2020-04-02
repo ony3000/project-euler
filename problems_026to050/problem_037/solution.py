@@ -4,19 +4,7 @@ import sys
 PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_PATH)
 
-from problems_001to025.problem_003.solution import prime_factorization
-
-def is_prime_naive(n):
-    """정수 n에 대해, 소수 판정을 한다."""
-    if type(n) != int:
-        raise TypeError('정수가 아닙니다')
-    if n < 2:
-        return False
-    if n == 2:
-        return True
-    if n % 2 == 0:
-        return False
-    return prime_factorization(n)[-1] == n
+from toolbox import is_prime_naive
 
 if __name__ == '__main__':
     result = None

@@ -1,30 +1,10 @@
 import os
 import sys
-from functools import reduce
 
 PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_PATH)
 
-from problems_001to025.problem_003.solution import prime_factorization
-
-def positive_divisors(n):
-    """0이 아닌 정수 n에 대해, 정수 범위 안에서 양의 약수를 구한다."""
-    if type(n) != int:
-        raise TypeError('정수가 아닙니다')
-    if n == 0:
-        raise ValueError('0이 아니어야 합니다')
-    if abs(n) == 1:
-        return [1]
-    prime_factors = prime_factorization(n)
-    involutions = []
-    while len(prime_factors) > 0:
-        base = prime_factors[0]
-        count = prime_factors.count(base)
-        involutions.append([base ** exponent for exponent in range(count + 1)])
-        prime_factors = prime_factors[count:]
-    ordered_divisors = reduce(lambda a, b: [x*y for x in a for y in b], involutions, [1])
-    ordered_divisors.sort()
-    return ordered_divisors
+from toolbox import positive_divisors, prime_factorization
 
 if __name__ == '__main__':
     result = None

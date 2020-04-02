@@ -4,7 +4,7 @@ import sys
 PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_PATH)
 
-from problems_001to025.problem_010.solution import smaller_primes
+from toolbox import smaller_primes
 
 if __name__ == '__main__':
     result = None
