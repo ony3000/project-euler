@@ -5,7 +5,7 @@ PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 sys.path.append(PROJECT_PATH)
 
 from measurement import Stopwatch
-from toolbox import positive_divisors, prime_factorization
+from toolbox import positive_divisors
 
 
 class Solution(Stopwatch):
