@@ -30,3 +30,21 @@ class Stopwatch():
             print(f'Final Lap: {lap_time} sec')
         print(f'Total execution time: {total_time} sec')
         self.is_running = False
+        self.laps = []
+
+if __name__ == '__main__':
+    watch = Stopwatch()
+    problems_per_group = 25
+    solved_problems = 37
+
+    for num in range(1, solved_problems+1):
+        group_num = (num - 1)//problems_per_group + 1
+        start_num = (group_num - 1)*problems_per_group + 1
+        end_num = group_num * problems_per_group
+        module_name = f'problems_{start_num:03d}to{end_num:03d}.problem_{num:03d}.solution'
+
+        print(f'Problem #{num}')
+        module = import_module(module_name)
+        watch.start()
+        module.Solution().execute()
+        watch.stop()
