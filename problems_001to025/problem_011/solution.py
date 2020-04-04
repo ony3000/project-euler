@@ -1,8 +1,20 @@
+import os
+import sys
 from functools import reduce
 
-if __name__ == '__main__':
-    result = 0
-    numbers = """
+PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(PROJECT_PATH)
+
+from measurement import Stopwatch
+
+
+class Solution(Stopwatch):
+    def __init__(self):
+        super().__init__()
+
+    def execute(self):
+        answer = 0
+        numbers = """
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
@@ -24,23 +36,28 @@ if __name__ == '__main__':
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 """
-    grid = [[int(element) for element in row.split()] for row in numbers.strip().split('\n')]
-    for i in range(len(grid)):
-        row = grid[i]
-        for j in range(len(row)):
-            horizontal = vertical = diagonal = another_diagonal = 1
-            if j+3 < len(row):
-                horizontal = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]
-            if i+3 < len(grid):
-                vertical = grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j]
-            if i+3 < len(grid) and j+3 < len(row):
-                diagonal = grid[i][j] * grid[i+1][j+1] * grid[i+2][j+2] * grid[i+3][j+3]
-                another_diagonal = grid[i][j+3] * grid[i+1][j+2] * grid[i+2][j+1] * grid[i+3][j]
-            new_products = [
-                horizontal,
-                vertical,
-                diagonal,
-                another_diagonal,
-            ]
-            result = reduce(lambda a, b: a if a > b else b, [result, *new_products], result)
+        grid = [[int(element) for element in row.split()] for row in numbers.strip().split('\n')]
+        for i in range(len(grid)):
+            row = grid[i]
+            for j in range(len(row)):
+                horizontal = vertical = diagonal = another_diagonal = 1
+                if j+3 < len(row):
+                    horizontal = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]
+                if i+3 < len(grid):
+                    vertical = grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j]
+                if i+3 < len(grid) and j+3 < len(row):
+                    diagonal = grid[i][j] * grid[i+1][j+1] * grid[i+2][j+2] * grid[i+3][j+3]
+                    another_diagonal = grid[i][j+3] * grid[i+1][j+2] * grid[i+2][j+1] * grid[i+3][j]
+                new_products = [
+                    horizontal,
+                    vertical,
+                    diagonal,
+                    another_diagonal,
+                ]
+                answer = reduce(lambda a, b: a if a > b else b, [answer, *new_products], answer)
+        return answer
+
+if __name__ == '__main__':
+    soln = Solution()
+    result = soln.execute()
     print(result)

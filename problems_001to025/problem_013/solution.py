@@ -1,6 +1,19 @@
-if __name__ == '__main__':
-    result = None
-    numbers = """
+import os
+import sys
+
+PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(PROJECT_PATH)
+
+from measurement import Stopwatch
+
+
+class Solution(Stopwatch):
+    def __init__(self):
+        super().__init__()
+
+    def execute(self):
+        answer = None
+        numbers = """
 37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
 74324986199524741059474233309513058123726617309629
@@ -102,6 +115,11 @@ if __name__ == '__main__':
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690
 """
-    total = sum(int(num) for num in numbers.strip().split('\n'))
-    result = str(total)[:10]
+        total = sum(int(num) for num in numbers.strip().split('\n'))
+        answer = str(total)[:10]
+        return answer
+
+if __name__ == '__main__':
+    soln = Solution()
+    result = soln.execute()
     print(result)

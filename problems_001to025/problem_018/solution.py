@@ -1,8 +1,20 @@
+import os
+import sys
 from functools import reduce
 
-if __name__ == '__main__':
-    result = 0
-    numbers = """
+PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(PROJECT_PATH)
+
+from measurement import Stopwatch
+
+
+class Solution(Stopwatch):
+    def __init__(self):
+        super().__init__()
+
+    def execute(self):
+        answer = 0
+        numbers = """
 75
 95 64
 17 47 82
@@ -19,14 +31,19 @@ if __name__ == '__main__':
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 """
-    triangle = [[int(element) for element in row.split()] for row in numbers.strip().split('\n')]
-    partial_path_sum = [0, 0]
-    for i in range(len(triangle)):
-        row = triangle[i]
-        for j in range(len(row)):
-            left_path_sum = row[j] + partial_path_sum[j]
-            right_path_sum = row[j] + partial_path_sum[j+1]
-            row[j] = left_path_sum if left_path_sum > right_path_sum else right_path_sum
-        partial_path_sum = [0, *row, 0]
-    result = reduce(lambda a, b: a if a > b else b, partial_path_sum, result)
+        triangle = [[int(element) for element in row.split()] for row in numbers.strip().split('\n')]
+        partial_path_sum = [0, 0]
+        for i in range(len(triangle)):
+            row = triangle[i]
+            for j in range(len(row)):
+                left_path_sum = row[j] + partial_path_sum[j]
+                right_path_sum = row[j] + partial_path_sum[j+1]
+                row[j] = left_path_sum if left_path_sum > right_path_sum else right_path_sum
+            partial_path_sum = [0, *row, 0]
+        answer = reduce(lambda a, b: a if a > b else b, partial_path_sum, answer)
+        return answer
+
+if __name__ == '__main__':
+    soln = Solution()
+    result = soln.execute()
     print(result)

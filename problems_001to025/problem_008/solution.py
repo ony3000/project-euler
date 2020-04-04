@@ -1,8 +1,20 @@
+import os
+import sys
 from functools import reduce
 
-if __name__ == '__main__':
-    result = 0
-    num = '\
+PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(PROJECT_PATH)
+
+from measurement import Stopwatch
+
+
+class Solution(Stopwatch):
+    def __init__(self):
+        super().__init__()
+
+    def execute(self):
+        answer = 0
+        num = '\
 73167176531330624919225119674426574742355349194934\
 96983520312774506326239578318016984801869478851843\
 85861560789112949495459501737958331952853208805511\
@@ -24,9 +36,14 @@ if __name__ == '__main__':
 05886116467109405077541002256983155200055935729725\
 71636269561882670428252483600823257530420752963450\
 '
-    digit_length = 13
-    for index in range(len(num) + 1 - digit_length):
-        product = reduce(lambda a, b: a*b, [int(digit) for digit in num[index:index+digit_length]], 1)
-        if result < product:
-            result = product
+        digit_length = 13
+        for index in range(len(num) + 1 - digit_length):
+            product = reduce(lambda a, b: a*b, [int(digit) for digit in num[index:index+digit_length]], 1)
+            if answer < product:
+                answer = product
+        return answer
+
+if __name__ == '__main__':
+    soln = Solution()
+    result = soln.execute()
     print(result)
