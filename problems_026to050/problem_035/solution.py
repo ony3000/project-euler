@@ -5,7 +5,7 @@ PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 sys.path.append(PROJECT_PATH)
 
 from measurement import Stopwatch
-from toolbox import smaller_primes
+from toolbox import is_prime_naive, smaller_primes
 
 
 class Solution(Stopwatch):
@@ -24,7 +24,7 @@ class Solution(Stopwatch):
                 temp = str(num)
                 for index in range(1, len(temp)):
                     rotated_num = int(temp[index:] + temp[:index])
-                    if rotated_num in primes:
+                    if is_prime_naive(rotated_num):
                         circular_prime_candidates.add(rotated_num)
                     else:
                         is_circular_prime = False
