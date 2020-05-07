@@ -35,7 +35,7 @@ class Stopwatch():
 if __name__ == '__main__':
     watch = Stopwatch()
     problems_per_group = 25
-    solved_problems = 41
+    solved_problems = 42
 
     for num in range(1, solved_problems+1):
         group_num = (num - 1)//problems_per_group + 1
