@@ -20,3 +20,8 @@
 43. [Sub-string divisibility](./problem_043)
 44. [Pentagon numbers](./problem_044)
 45. [Triangular, pentagonal, and hexagonal](./problem_045)
+46. [Goldbach's other conjecture](./problem_046)
+47. [Distinct primes factors](./problem_047)
+48. [Self powers](./problem_048)
+49. [Prime permutations](./problem_049)
+50. [Consecutive prime sum](./problem_050)
