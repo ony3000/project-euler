@@ -1,13 +1,13 @@
 ## 50. Consecutive prime sum
 
-The prime 41, can be written as the sum of six consecutive primes:
+소수 41은, 연속되는 소수 여섯 개의 합으로 나타낼 수 있다.
 
 <p align="center">
   41 = 2 + 3 + 5 + 7 + 11 + 13
 </p>
 
-This is the longest sum of consecutive primes that adds to a prime below one-hundred.
+이것은 100보다 작은 소수 중, 연속되는 소수를 가장 많이 사용한 합이다.
 
-The longest sum of consecutive primes below one-thousand that adds to a prime, contains 21 terms, and is equal to 953.
+1000보다 작은 소수 중, 연속되는 소수를 가장 많이 사용한 합은 953이고, 이것은 총 21개의 소수가 사용되었다.
 
-Which prime, below one-million, can be written as the sum of the most consecutive primes?
+100만보다 작은 소수 중, 연속되는 소수를 가장 많이 사용한 합을 구하여라.
