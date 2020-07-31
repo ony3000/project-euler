@@ -16,31 +16,7 @@
 
 ## 문제 현황
 
-번호 | 번역 여부 | 코드 유무 | 설명 유무
+번호 | 한국어 번역 여부 | 코드 유무 | 설명 유무
 --- | --- | --- | ---
-[#1 ~ #25](problems_001to025) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | ![Explanation exists](https://img.shields.io/badge/-explained-success)
-[#26](problems_026to050/problem_026) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#27](problems_026to050/problem_027) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#28](problems_026to050/problem_028) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#29](problems_026to050/problem_029) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#30](problems_026to050/problem_030) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#31](problems_026to050/problem_031) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#32](problems_026to050/problem_032) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#33](problems_026to050/problem_033) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#34](problems_026to050/problem_034) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#35](problems_026to050/problem_035) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | ![Explanation exists](https://img.shields.io/badge/-explained-success)
-[#36](problems_026to050/problem_036) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | ![Explanation exists](https://img.shields.io/badge/-explained-success)
-[#37](problems_026to050/problem_037) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | ![Explanation exists](https://img.shields.io/badge/-explained-success)
-[#38](problems_026to050/problem_038) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#39](problems_026to050/problem_039) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#40](problems_026to050/problem_040) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#41](problems_026to050/problem_041) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#42](problems_026to050/problem_042) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#43](problems_026to050/problem_043) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#44](problems_026to050/problem_044) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#45](problems_026to050/problem_045) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#46](problems_026to050/problem_046) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#47](problems_026to050/problem_047) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#48](problems_026to050/problem_048) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#49](problems_026to050/problem_049) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
-[#50](problems_026to050/problem_050) | ![Translated into Korean](https://img.shields.io/badge/translated-Korean-red) | ![Solved in Python](https://img.shields.io/badge/solved-Python-blue) | &nbsp;
+[#1 ~ #25](problems_001to025) | ![Translated into Korean](https://img.shields.io/badge/Translated-25%2F25-brightgreen) | ![Solved in Python](https://img.shields.io/badge/Solved-25%2F25-brightgreen) | ![Explanation exists](https://img.shields.io/badge/Explained-25%2F25-brightgreen)
+[#26 ~ #50](problems_026to050) | ![Translated into Korean](https://img.shields.io/badge/Translated-25%2F25-brightgreen) | ![Solved in Python](https://img.shields.io/badge/Solved-25%2F25-brightgreen) | ![Explanation exists](https://img.shields.io/badge/Explained-3%2F25-lightgrey)
