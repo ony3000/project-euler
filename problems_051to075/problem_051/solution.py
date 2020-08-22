@@ -26,13 +26,13 @@ class Solution(Stopwatch):
             temp = str(num)
             unique_digits = set(temp[:-1])
             for digit in unique_digits:
-                replacing_pattern = temp[:-1].replace(digit, '*') + temp[-1:]
-                if replacing_pattern in prime_count_per_pattern:
+                generating_pattern = temp[:-1].replace(digit, '*') + temp[-1:]
+                if generating_pattern in prime_count_per_pattern:
                     continue
 
                 prime_count = 0
                 for substitute in '0123456789':
-                    decimal = replacing_pattern.replace('*', substitute)
+                    decimal = generating_pattern.replace('*', substitute)
                     if decimal[0] == '0':
                         continue
 
@@ -43,7 +43,7 @@ class Solution(Stopwatch):
                     answer = num
                     break
 
-                prime_count_per_pattern[replacing_pattern] = prime_count
+                prime_count_per_pattern[generating_pattern] = prime_count
 
         return answer
 
