@@ -14,7 +14,7 @@ class Solution(Stopwatch):
         super().__init__()
 
     def execute(self):
-        answer = reduce(lambda a, b: a*b//gcd(a, b), range(1, 21), 1)
+        answer = reduce(lambda accumulator, current_value: accumulator * current_value // gcd(accumulator, current_value), range(1, 21), 1)
         return answer
 
 if __name__ == '__main__':

@@ -38,7 +38,7 @@ class Solution(Stopwatch):
 '
         digit_length = 13
         for index in range(len(num) + 1 - digit_length):
-            product = reduce(lambda a, b: a*b, [int(digit) for digit in num[index:index+digit_length]], 1)
+            product = reduce(lambda accumulator, current_value: accumulator*current_value, [int(digit) for digit in num[index:index+digit_length]], 1)
             if answer < product:
                 answer = product
         return answer

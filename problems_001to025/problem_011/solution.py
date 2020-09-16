@@ -54,7 +54,7 @@ class Solution(Stopwatch):
                     diagonal,
                     another_diagonal,
                 ]
-                answer = reduce(lambda a, b: a if a > b else b, [answer, *new_products], answer)
+                answer = reduce(lambda accumulator, current_value: accumulator if accumulator > current_value else current_value, [answer, *new_products], answer)
         return answer
 
 if __name__ == '__main__':
