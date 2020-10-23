@@ -1,5 +1,8 @@
 ## 53. Combinatoric selections
 
+### Translation
+* [한국어](./translation-ko.md)
+
 There are exactly ten ways of selecting three from five, 12345:
 
 <p align="center">
