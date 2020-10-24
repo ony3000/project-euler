@@ -26,7 +26,7 @@ class Solution(Stopwatch):
                 reversed_num = int(''.join(digits))
                 num += reversed_num
 
-                if is_palindrome(num):
+                if is_palindrome(str(num)):
                     break
 
                 iteration_count += 1

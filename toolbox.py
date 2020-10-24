@@ -230,13 +230,16 @@ def is_prime_naive(n):
     return prime_factorization(n)[-1] == n
 
 
-def is_palindrome(n):
-    """자연수 n에 대해, n이 회문수인지 판정한다."""
-    if type(n) != int:
-        raise TypeError('자연수가 아닙니다')
-    if n <= 0:
-        raise ValueError('자연수가 아닙니다')
-    digits = [digit for digit in str(n)]
-    digits.reverse()
-    reversed_n = int(''.join(digits))
-    return n == reversed_n
+def is_palindrome(s):
+    """문자열 s에 대해, s가 회문인지 판정한다."""
+    if type(s) != str:
+        raise TypeError('문자열이 아닙니다')
+    judgment = True
+    half_length = len(s) // 2
+    for index in range(half_length):
+        front_letter = s[index]
+        rear_letter = s[len(s)-1-index]
+        if front_letter != rear_letter:
+            judgment = False
+            break
+    return judgment
