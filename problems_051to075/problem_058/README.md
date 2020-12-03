@@ -1,5 +1,8 @@
 ## 58. Spiral primes
 
+### Translation
+* [한국어](./translation-ko.md)
+
 Starting with 1 and spiralling anticlockwise in the following way, a square spiral with side length 7 is formed.
 
 <p align="center">
