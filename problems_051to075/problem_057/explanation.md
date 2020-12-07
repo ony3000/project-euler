@@ -11,6 +11,10 @@
 
 여기서 반복적으로 나타나는 부분을 잘 살펴보면 ![\frac{a_{n+1}}{b_{n+1}} = 1 + \frac{1}{1 + \frac{a_{n}}{b_{n}}}](https://latex.codecogs.com/svg.latex?%5Cfrac%7Ba_%7Bn&plus;1%7D%7D%7Bb_%7Bn&plus;1%7D%7D%20%3D%201%20&plus;%20%5Cfrac%7B1%7D%7B1%20&plus;%20%5Cfrac%7Ba_%7Bn%7D%7D%7Bb_%7Bn%7D%7D%7D) 임을 알 수 있고, 우변을 보통의 분수 형태가 되도록 계산하면 ![\frac{a_{n+1}}{b_{n+1}} = \frac{a_{n} + 2b_{n}}{a_{n} + b_{n}}](https://latex.codecogs.com/svg.latex?%5Cfrac%7Ba_%7Bn&plus;1%7D%7D%7Bb_%7Bn&plus;1%7D%7D%20%3D%20%5Cfrac%7Ba_%7Bn%7D%20&plus;%202b_%7Bn%7D%7D%7Ba_%7Bn%7D%20&plus;%20b_%7Bn%7D%7D) 가 된다.
 
-이 때, ![\frac{a_{n} + 2b_{n}}{a_{n} + b_{n}}](https://latex.codecogs.com/svg.latex?%5Cfrac%7Ba_%7Bn%7D%20&plus;%202b_%7Bn%7D%7D%7Ba_%7Bn%7D%20&plus;%20b_%7Bn%7D%7D) 은 약분되지 않으므로 ![a_{n+1} = a_{n} + 2b_{n}](https://latex.codecogs.com/svg.latex?a_%7Bn&plus;1%7D%20%3D%20a_%7Bn%7D%20&plus;%202b_%7Bn%7D), ![b_{n+1} = a_{n} + b_{n}](https://latex.codecogs.com/svg.latex?b_%7Bn&plus;1%7D%20%3D%20a_%7Bn%7D%20&plus;%20b_%7Bn%7D) 이라 할 수 있고, ![a_{0} = b_{0} = 1](https://latex.codecogs.com/svg.latex?a_%7B0%7D%20%3D%20b_%7B0%7D%20%3D%201) 로 정의하면, 첫 번째 전개의 분자와 분모도 공식을 통해 얻어낼 수 있다.
+이 때, ![\frac{a_{n} + 2b_{n}}{a_{n} + b_{n}}](https://latex.codecogs.com/svg.latex?%5Cfrac%7Ba_%7Bn%7D%20&plus;%202b_%7Bn%7D%7D%7Ba_%7Bn%7D%20&plus;%20b_%7Bn%7D%7D) 은 약분되지 않으므로<sup><a id="footnote-ref-1" href="#footnote-1">[1]</a></sup> ![a_{n+1} = a_{n} + 2b_{n}](https://latex.codecogs.com/svg.latex?a_%7Bn&plus;1%7D%20%3D%20a_%7Bn%7D%20&plus;%202b_%7Bn%7D), ![b_{n+1} = a_{n} + b_{n}](https://latex.codecogs.com/svg.latex?b_%7Bn&plus;1%7D%20%3D%20a_%7Bn%7D%20&plus;%20b_%7Bn%7D) 이라 할 수 있고, ![a_{0} = b_{0} = 1](https://latex.codecogs.com/svg.latex?a_%7B0%7D%20%3D%20b_%7B0%7D%20%3D%201) 로 정의하면, 첫 번째 전개의 분자와 분모도 공식을 통해 얻어낼 수 있다.
 
 이제 공식을 사용해서 천 번의 분자와 분모를 계산하고, 분자의 자리수가 분모의 자리수보다 많아지는 횟수만 세면 된다.
+
+---
+
+<a id="footnote-1" href="#footnote-ref-1">**[1]**</a> 수학적 귀납법으로 증명할 수 있다.
