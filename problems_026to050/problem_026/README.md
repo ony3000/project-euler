@@ -1,6 +1,9 @@
 ## 26. Reciprocal cycles
 
-단위분수란, 분자가 1인 분수를 말한다. 2부터 10까지의 분모에 대한 단위분수를 소수로 표현하면 다음과 같다.
+### Translation
+* [한국어](./translation-ko.md)
+
+A unit fraction contains 1 in the numerator. The decimal representation of the unit fractions with denominators 2 to 10 are given:
 
 > <sup>1</sup>/<sub>2</sub>&nbsp;&nbsp; = 0.5<br>
 > <sup>1</sup>/<sub>3</sub>&nbsp;&nbsp; = 0.(3)<br>
@@ -12,6 +15,6 @@
 > <sup>1</sup>/<sub>9</sub>&nbsp;&nbsp; = 0.(1)<br>
 > <sup>1</sup>/<sub>10</sub> = 0.1
 
-여기서 0.1(6)은 0.166666...을 의미하며, 한 자리의 순환 주기를 갖는다. 따라서 <sup>1</sup>/<sub>7</sub>의 순환 주기는 여섯 자리임을 알 수 있다.
+Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. It can be seen that <sup>1</sup>/<sub>7</sub> has a 6-digit recurring cycle.
 
-1000 미만의 <var>d</var>에 대하여, <sup>1</sup>/<sub><var>d</var></sub>의 순환 주기가 가장 길게 되는 d의 값을 구하여라.
+Find the value of <var>d</var> < 1000 for which <sup>1</sup>/<sub><var>d</var></sub> contains the longest recurring cycle in its decimal fraction part.
