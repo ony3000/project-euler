@@ -2,8 +2,8 @@
 
 자연수 집합에서 정의되는 다음과 같은 수열이 있다.
 
-> n이 짝수일 때: n &rarr; n/2<br>
-> n이 홀수일 때: n &rarr; 3n+1
+> <var>n</var>이 짝수일 때: <var>n</var> &rarr; <var>n</var>/2<br>
+> <var>n</var>이 홀수일 때: <var>n</var> &rarr; 3<var>n</var>+1
 
 위 규칙을 이용하여 첫 번째 항이 13인 수열을 만들면,
 

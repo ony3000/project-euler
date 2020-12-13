@@ -2,7 +2,7 @@
 
 피보나치 수열은 다음과 같은 점화관계로 정의될 수 있다.
 
-> F<sub>n</sub> = F<sub>n-1</sub> + F<sub>n-2</sub> (단, F<sub>1</sub> = 1, F<sub>2</sub> = 1 이다.)
+> F<sub><var>n</var></sub> = F<sub><var>n</var>-1</sub> + F<sub><var>n</var>-2</sub> (단, F<sub>1</sub> = 1, F<sub>2</sub> = 1 이다.)
 
 따라서 처음 열두 개의 항은 다음과 같다.
 

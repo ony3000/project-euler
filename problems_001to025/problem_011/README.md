@@ -1,6 +1,9 @@
 ## 11. Largest product in a grid
 
-아래의 20 &times; 20 그리드에서, 대각선을 따라 네 숫자가 붉게 표시되어있다.
+### Translation
+* [한국어](./translation-ko.md)
+
+In the 20&times;20 grid below, four numbers along a diagonal line have been marked in red.
 
 <p align="center">
   <img
@@ -28,6 +31,6 @@
   >
 </p>
 
-이 숫자들의 곱은 26 &times; 63 &times; 78 &times; 14 = 1788696 이다.
+The product of these numbers is 26 &times; 63 &times; 78 &times; 14 = 1788696.
 
-20 &times; 20 그리드 안에서, 직선(가로, 세로, 대각선)상에 놓인 인접한 네 숫자들의 곱 중 가장 큰 것을 구하여라.
+What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20&times;20 grid?
