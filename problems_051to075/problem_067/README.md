@@ -3,10 +3,13 @@
 By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
 
 <p align="center">
-  <strong>3</strong><br>
-  <strong>7</strong> 4<br>
-  2 <strong>4</strong> 6<br>
-  8 5 <strong>9</strong> 3
+  <img
+    src="./triangle.png"
+    alt="<strong>3</strong><br>
+<strong>7</strong> 4<br>
+2 <strong>4</strong> 6<br>
+8 5 <strong>9</strong> 3"
+  >
 </p>
 
 That is, 3 + 7 + 4 + 9 = 23.

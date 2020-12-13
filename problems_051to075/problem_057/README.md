@@ -6,7 +6,10 @@
 It is possible to show that the square root of two can be expressed as an infinite continued fraction.
 
 <p align="center">
-  <img src="https://latex.codecogs.com/svg.latex?%5Csqrt%7B2%7D%20%3D%201%20&plus;%20%5Cfrac%7B1%7D%7B2%20&plus;%20%5Cfrac%7B1%7D%7B2%20&plus;%20%5Cfrac%7B1%7D%7B2%20&plus;%20%5Cfrac%7B1%7D%7B...%7D%7D%7D%7D" width="158" height="56" alt="\sqrt{2} = 1 &plus; \frac{1}{2 &plus; \frac{1}{2 &plus; \frac{1}{2 &plus; \frac{1}{...}}}}">
+  <img
+    src="https://latex.codecogs.com/svg.latex?%5Csqrt%7B2%7D%20%3D%201%20&plus;%20%5Cfrac%7B1%7D%7B2%20&plus;%20%5Cfrac%7B1%7D%7B2%20&plus;%20%5Cfrac%7B1%7D%7B2%20&plus;%20%5Cfrac%7B1%7D%7B...%7D%7D%7D%7D"
+    alt="\sqrt{2} = 1 &plus; \frac{1}{2 &plus; \frac{1}{2 &plus; \frac{1}{2 &plus; \frac{1}{...}}}}"
+  >
 </p>
 
 By expanding this for the first four iterations, we get:

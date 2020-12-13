@@ -3,7 +3,10 @@
 2의 제곱근은 무한 연분수로 표현할 수 있다.
 
 <p align="center">
-  <img src="https://latex.codecogs.com/svg.latex?%5Csqrt%7B2%7D%20%3D%201%20&plus;%20%5Cfrac%7B1%7D%7B2%20&plus;%20%5Cfrac%7B1%7D%7B2%20&plus;%20%5Cfrac%7B1%7D%7B2%20&plus;%20%5Cfrac%7B1%7D%7B...%7D%7D%7D%7D" width="158" height="56" alt="\sqrt{2} = 1 &plus; \frac{1}{2 &plus; \frac{1}{2 &plus; \frac{1}{2 &plus; \frac{1}{...}}}}">
+  <img
+    src="https://latex.codecogs.com/svg.latex?%5Csqrt%7B2%7D%20%3D%201%20&plus;%20%5Cfrac%7B1%7D%7B2%20&plus;%20%5Cfrac%7B1%7D%7B2%20&plus;%20%5Cfrac%7B1%7D%7B2%20&plus;%20%5Cfrac%7B1%7D%7B...%7D%7D%7D%7D"
+    alt="\sqrt{2} = 1 &plus; \frac{1}{2 &plus; \frac{1}{2 &plus; \frac{1}{2 &plus; \frac{1}{...}}}}"
+  >
 </p>
 
 이 연분수의 처음 네 단계를 전개해보면, 다음과 같다.

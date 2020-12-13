@@ -2,9 +2,9 @@
 
 Consider quadratic Diophantine equations of the form:
 
-> <var>x</var><sup>2</sup> - D<var>y</var><sup>2</sup> = 1
+> <var>x</var><sup>2</sup> &minus; D<var>y</var><sup>2</sup> = 1
 
-For example, when D=13, the minimal solution in <var>x</var> is 649<sup>2</sup> - 13&times;180<sup>2</sup> = 1.
+For example, when D=13, the minimal solution in <var>x</var> is 649<sup>2</sup> &minus; 13&times;180<sup>2</sup> = 1.
 
 It can be assumed that there are no solutions in positive integers when D is square.
 
