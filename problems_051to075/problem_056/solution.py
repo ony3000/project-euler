@@ -1,5 +1,6 @@
 import os
 import sys
+from itertools import product
 
 PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_PATH)
@@ -14,13 +15,12 @@ class Solution(Stopwatch):
     def execute(self):
         answer = 0
 
-        for a in range(1, 100):
-            for b in range(1, 100):
-                num = a ** b
-                sum_of_digits = sum(int(digit) for digit in str(num))
+        for (a, b) in product(range(1, 100), repeat=2):
+            num = a ** b
+            sum_of_digits = sum(int(digit) for digit in str(num))
 
-                if answer < sum_of_digits:
-                    answer = sum_of_digits
+            if answer < sum_of_digits:
+                answer = sum_of_digits
 
         return answer
 

@@ -1,6 +1,7 @@
 import os
 import sys
 from functools import reduce
+from itertools import product
 
 PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_PATH)
@@ -37,24 +38,23 @@ class Solution(Stopwatch):
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 """
         grid = [[int(element) for element in row.split()] for row in numbers.strip().split('\n')]
-        for i in range(len(grid)):
-            row = grid[i]
-            for j in range(len(row)):
-                horizontal = vertical = diagonal = another_diagonal = 1
-                if j+3 < len(row):
-                    horizontal = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]
-                if i+3 < len(grid):
-                    vertical = grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j]
-                if i+3 < len(grid) and j+3 < len(row):
-                    diagonal = grid[i][j] * grid[i+1][j+1] * grid[i+2][j+2] * grid[i+3][j+3]
-                    another_diagonal = grid[i][j+3] * grid[i+1][j+2] * grid[i+2][j+1] * grid[i+3][j]
-                new_products = [
-                    horizontal,
-                    vertical,
-                    diagonal,
-                    another_diagonal,
-                ]
-                answer = reduce(lambda accumulator, current_value: accumulator if accumulator > current_value else current_value, [answer, *new_products], answer)
+        grid_length = 20
+        for (i, j) in product(range(grid_length), repeat=2):
+            horizontal = vertical = diagonal = another_diagonal = 1
+            if j+3 < grid_length:
+                horizontal = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]
+            if i+3 < grid_length:
+                vertical = grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j]
+            if i+3 < grid_length and j+3 < grid_length:
+                diagonal = grid[i][j] * grid[i+1][j+1] * grid[i+2][j+2] * grid[i+3][j+3]
+                another_diagonal = grid[i][j+3] * grid[i+1][j+2] * grid[i+2][j+1] * grid[i+3][j]
+            new_products = [
+                horizontal,
+                vertical,
+                diagonal,
+                another_diagonal,
+            ]
+            answer = reduce(lambda accumulator, current_value: accumulator if accumulator > current_value else current_value, [answer, *new_products], answer)
         return answer
 
 if __name__ == '__main__':
