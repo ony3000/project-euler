@@ -36,8 +36,8 @@ class Card():
 class PokerHands():
     def __init__(self, text_array):
         self.cards = [Card(text) for text in text_array]
-        self.valueCounter = Counter([card.value for card in self.cards])
-        self.suitCounter = Counter([card.suit for card in self.cards])
+        self.value_counter = Counter([card.value for card in self.cards])
+        self.suit_counter = Counter([card.suit for card in self.cards])
 
     def score(self):
         result = None
@@ -46,10 +46,10 @@ class PokerHands():
         ordered_values.sort(reverse=True)
         high_card_value = reduce(lambda accumulator, current_value: accumulator*0x10 + current_value, ordered_values, 0)
 
-        (first_most_value, first_most_value_count) = self.valueCounter.most_common()[0]
-        (_, second_most_value_count) = self.valueCounter.most_common()[1]
+        (first_most_value, first_most_value_count) = self.value_counter.most_common()[0]
+        (_, second_most_value_count) = self.value_counter.most_common()[1]
 
-        (_, first_most_suit_count) = self.suitCounter.most_common()[0]
+        (_, first_most_suit_count) = self.suit_counter.most_common()[0]
 
         is_straight = (first_most_value_count == 1 and ordered_values[0]-ordered_values[-1] == len(ordered_values)-1)
         is_flush = first_most_suit_count == 5
