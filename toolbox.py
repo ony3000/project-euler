@@ -243,3 +243,38 @@ def is_palindrome(s):
             judgment = False
             break
     return judgment
+
+
+def nth_polygonal_number(p, n):
+    """자연수 p, n에 대해, n번째 p각수를 구한다."""
+    if type(p) != int or type(n) != int:
+        raise TypeError('자연수가 아닙니다')
+    if p <= 0 or n <= 0:
+        raise ValueError('자연수가 아닙니다')
+    if p == 1:
+        return 1
+    return n * ((p-2)*n + (4-p)) // 2
+
+
+def nth_triangle_number(n):
+    return nth_polygonal_number(3, n)
+
+
+def nth_square_number(n):
+    return nth_polygonal_number(4, n)
+
+
+def nth_pentagonal_number(n):
+    return nth_polygonal_number(5, n)
+
+
+def nth_hexagonal_number(n):
+    return nth_polygonal_number(6, n)
+
+
+def nth_heptagonal_number(n):
+    return nth_polygonal_number(7, n)
+
+
+def nth_octagonal_number(n):
+    return nth_polygonal_number(8, n)
