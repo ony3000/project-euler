@@ -20,4 +20,4 @@
 --- | --- | --- | ---
 [#1 ~ #25](problems_001to025) | ![Translated into Korean](https://img.shields.io/badge/Translated-25%2F25-brightgreen) | ![Solved in Python](https://img.shields.io/badge/Solved-25%2F25-brightgreen) | ![Explanation exists](https://img.shields.io/badge/Explained-25%2F25-brightgreen)
 [#26 ~ #50](problems_026to050) | ![Translated into Korean](https://img.shields.io/badge/Translated-25%2F25-brightgreen) | ![Solved in Python](https://img.shields.io/badge/Solved-25%2F25-brightgreen) | ![Explanation exists](https://img.shields.io/badge/Explained-3%2F25-lightgrey)
-[#51 ~ #75](problems_051to075) | ![Translated into Korean](https://img.shields.io/badge/Translated-13%2F25-yellow) | ![Solved in Python](https://img.shields.io/badge/Solved-13%2F25-yellow) | ![Explanation exists](https://img.shields.io/badge/Explained-8%2F25-lightgrey)
+[#51 ~ #75](problems_051to075) | ![Translated into Korean](https://img.shields.io/badge/Translated-14%2F25-yellow) | ![Solved in Python](https://img.shields.io/badge/Solved-13%2F25-yellow) | ![Explanation exists](https://img.shields.io/badge/Explained-8%2F25-lightgrey)
