@@ -1,5 +1,8 @@
 ## 66. Diophantine equation
 
+### Translation
+* [한국어](./translation-ko.md)
+
 Consider quadratic Diophantine equations of the form:
 
 > <var>x</var><sup>2</sup> &minus; D<var>y</var><sup>2</sup> = 1
