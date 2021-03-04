@@ -14,6 +14,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = 0
+
         numbers = """
 75
 95 64
@@ -32,15 +33,21 @@ class Solution(Stopwatch):
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 """
         triangle = [[int(element) for element in row.split()] for row in numbers.strip().split('\n')]
+
         partial_path_sum = [0, 0]
+
         for i in range(len(triangle)):
             row = triangle[i]
+
             for j in range(len(row)):
                 left_path_sum = row[j] + partial_path_sum[j]
                 right_path_sum = row[j] + partial_path_sum[j+1]
                 row[j] = left_path_sum if left_path_sum > right_path_sum else right_path_sum
+
             partial_path_sum = [0, *row, 0]
+
         answer = reduce(lambda accumulator, current_value: accumulator if accumulator > current_value else current_value, partial_path_sum, answer)
+
         return answer
 
 if __name__ == '__main__':
