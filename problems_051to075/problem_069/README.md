@@ -1,5 +1,8 @@
 ## 69. Totient maximum
 
+### Translation
+* [한국어](./translation-ko.md)
+
 Euler's Totient function, &phi;(<var>n</var>) [sometimes called the phi function], is used to determine the number of numbers less than <var>n</var> which are relatively prime to <var>n</var>. For example, as 1, 2, 4, 5, 7, and 8, are all less than nine and relatively prime to nine, &phi;(9)=6.
 
 <var>n</var> | Relatively Prime | &phi;(<var>n</var>) | <var>n</var>/&phi;(<var>n</var>)
