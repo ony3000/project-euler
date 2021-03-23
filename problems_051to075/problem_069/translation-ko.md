@@ -14,9 +14,9 @@
 9 | 1,2,4,5,7,8 | 6 | 1.5
 10 | 1,3,7,9 | 4 | 2.5
 
-위 표를 보면, <var>n</var> &le; 10에서 <var>n</var>/&phi;(<var>n</var>)의 값을 최대로 만드는 <var>n</var>은 6이다.
+위 표를 보면, <var>n</var> &le; 10에 대해서 <var>n</var>/&phi;(<var>n</var>)의 값을 최대로 만드는 <var>n</var>은 6이다.
 
-<var>n</var> &le; 1,000,000에서 <var>n</var>/&phi;(<var>n</var>)의 값을 최대로 만드는 <var>n</var>을 구하여라.
+<var>n</var> &le; 1,000,000에 대해서 <var>n</var>/&phi;(<var>n</var>)의 값을 최대로 만드는 <var>n</var>을 구하여라.
 
 ---
 
