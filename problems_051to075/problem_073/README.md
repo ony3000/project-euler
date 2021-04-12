@@ -1,5 +1,8 @@
 ## 73. Counting fractions in a range
 
+### Translation
+* [한국어](./translation-ko.md)
+
 Consider the fraction, <var>n</var>/<var>d</var>, where <var>n</var> and <var>d</var> are positive integers. If <var>n</var><<var>d</var> and HCF(<var>n</var>,<var>d</var>)=1, it is called a reduced proper fraction.
 
 If we list the set of reduced proper fractions for <var>d</var> &le; 8 in ascending order of size, we get:
