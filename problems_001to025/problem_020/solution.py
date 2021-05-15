@@ -14,6 +14,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = sum(int(digit) for digit in str(factorial(100)))
+
         return answer
 
 if __name__ == '__main__':

@@ -14,6 +14,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = natural_sum(100)**2 - square_sum(100)
+
         return answer
 
 if __name__ == '__main__':

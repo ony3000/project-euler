@@ -13,10 +13,13 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = 2
+
         a, b = 1, 1
+
         while len(str(b)) < 1000:
             a, b = b, a+b
             answer += 1
+
         return answer
 
 if __name__ == '__main__':

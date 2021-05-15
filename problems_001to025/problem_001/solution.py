@@ -14,6 +14,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = 3*natural_sum(999//3) + 5*natural_sum(999//5) - 15*natural_sum(999//15)
+
         return answer
 
 if __name__ == '__main__':

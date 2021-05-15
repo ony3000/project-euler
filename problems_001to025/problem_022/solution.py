@@ -15,13 +15,16 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = 0
+
         stream = open(f'{PROBLEM_PATH}/names.txt', 'r')
         names = stream.readline().strip().split(',')
         names.sort()
+
         for order, name in enumerate(names, start=1):
             name = name.strip('"')
             worth = sum(ord(letter)-ord('A')+1 for letter in name)
             answer += order * worth
+
         return answer
 
 if __name__ == '__main__':

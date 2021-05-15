@@ -14,10 +14,13 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = 0
+
         day_of_week = 1
+
         for (year, month) in product(range(1900, 2001), range(1, 13)):
             if year >= 1901 and day_of_week == 0:
                 answer += 1
+
             if month == 4 or month == 6 or month == 9 or month == 11:
                 day_of_week += 30
             elif month != 2:
@@ -27,7 +30,9 @@ class Solution(Stopwatch):
                     day_of_week += 29
                 else:
                     day_of_week += 28
+
             day_of_week %= 7
+
         return answer
 
 if __name__ == '__main__':

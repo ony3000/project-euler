@@ -14,6 +14,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = nth_lexicographic_permutation(1000000, list('0123456789'))
+
         return answer
 
 if __name__ == '__main__':

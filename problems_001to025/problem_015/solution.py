@@ -14,6 +14,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = factorial(40) // (factorial(20) * factorial(20))
+
         return answer
 
 if __name__ == '__main__':

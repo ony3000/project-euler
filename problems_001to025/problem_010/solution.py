@@ -14,6 +14,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = sum(smaller_primes(2000000))
+
         return answer
 
 if __name__ == '__main__':
