@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { isPrime } = require('mathjs');
+const { range, setCartesian } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -7,21 +7,14 @@ class Solution extends Stopwatch {
   execute() {
     let answer = null;
 
-    let count = 1;
-    let num = 3;
+    const integers = range(2, 101).valueOf();
+    const terms = new Set();
 
-    while (true) {
-      if (isPrime(num)) {
-        count += 1;
-
-        if (count === 10001) {
-          answer = num;
-          break;
-        }
-      }
-
-      num += 2;
+    for (let [ a, b ] of setCartesian(integers, integers)) {
+      terms.add(a ** b);
     }
+
+    answer = terms.size;
 
     return answer;
   }

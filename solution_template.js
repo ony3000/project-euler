@@ -1,5 +1,18 @@
 const rootPath = require('app-root-path');
 /* Import node library here. */
+const {
+  bignumber,
+  gcd,
+  range,
+  setCartesian,
+  setDifference,
+  setIntersect,
+  setIsSubset,
+  setUnion,
+  prod,
+  sum,
+  isPrime,
+} = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 /* Import custom made library here. */

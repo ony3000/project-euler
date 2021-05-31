@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { isPrime } = require('mathjs');
+const { range, sum } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -7,21 +7,7 @@ class Solution extends Stopwatch {
   execute() {
     let answer = null;
 
-    let count = 1;
-    let num = 3;
-
-    while (true) {
-      if (isPrime(num)) {
-        count += 1;
-
-        if (count === 10001) {
-          answer = num;
-          break;
-        }
-      }
-
-      num += 2;
-    }
+    answer = sum(range(1, 1001).valueOf().map((num) => Number((BigInt(num) ** BigInt(num)) % (10n ** 10n)))) % (10 ** 10);
 
     return answer;
   }

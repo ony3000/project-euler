@@ -1,4 +1,5 @@
 const rootPath = require('app-root-path');
+const { range } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 const { positiveDivisors } = require(`${rootPath}/lib/toolbox.js`);
@@ -7,7 +8,7 @@ class Solution extends Stopwatch {
   execute() {
     let answer = null;
 
-    for (let num = 997; num >= 100; num -= 1) {
+    for (let num of range(997, 99, -1).valueOf()) {
       const reversedNum = Number(String(num).split('').reverse().join(''));
       const palindrome = num * 1000 + reversedNum;
 

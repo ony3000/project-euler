@@ -1,26 +1,18 @@
 const rootPath = require('app-root-path');
-const { isPrime } = require('mathjs');
+const { range, sum } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
 class Solution extends Stopwatch {
   execute() {
-    let answer = null;
+    let answer = 0;
 
-    let count = 1;
-    let num = 3;
+    for (let num of range(10, 354295).valueOf()) {
+      const sumOfPowers = sum(String(num).split('').map((digit) => Number(digit) ** 5));
 
-    while (true) {
-      if (isPrime(num)) {
-        count += 1;
-
-        if (count === 10001) {
-          answer = num;
-          break;
-        }
+      if (sumOfPowers === num) {
+        answer += num;
       }
-
-      num += 2;
     }
 
     return answer;

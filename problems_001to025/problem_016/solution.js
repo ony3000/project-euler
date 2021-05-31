@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { sum } = require('mathjs/number');
+const { sum } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 

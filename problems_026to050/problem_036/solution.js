@@ -1,26 +1,21 @@
 const rootPath = require('app-root-path');
-const { isPrime } = require('mathjs');
+const { range } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
+const { isPalindrome } = require(`${rootPath}/lib/toolbox.js`);
 
 class Solution extends Stopwatch {
   execute() {
-    let answer = null;
+    let answer = 0;
 
-    let count = 1;
-    let num = 3;
+    for (let num of range(1, 1000000).valueOf()) {
+      if (isPalindrome(String(num))) {
+        const binary = num.toString(2);
 
-    while (true) {
-      if (isPrime(num)) {
-        count += 1;
-
-        if (count === 10001) {
-          answer = num;
-          break;
+        if (isPalindrome(binary)) {
+          answer += num;
         }
       }
-
-      num += 2;
     }
 
     return answer;

@@ -1,4 +1,5 @@
 const rootPath = require('app-root-path');
+const { range, prod } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -27,12 +28,12 @@ class Solution extends Stopwatch {
 84580156166097919133875499200524063689912560717606
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450
-`.trim();
+`.trim().replace(/\n/g, '');
     const digitLength = 13;
 
-    for (let index = 0; index < num.length + 1 - digitLength; index += 1) {
-      const partialDigits = num.slice(index, index + digitLength).split('');
-      const product = partialDigits.reduce((accumulator, currentValue) => (accumulator * Number(currentValue)), 1);
+    for (let index of range(0, num.length + 1 - digitLength).valueOf()) {
+      const partialDigits = num.slice(index, index + digitLength).split('').map((digit) => Number(digit));
+      const product = prod(partialDigits);
 
       if (answer < product) {
         answer = product;

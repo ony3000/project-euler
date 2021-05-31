@@ -1,4 +1,5 @@
 const rootPath = require('app-root-path');
+const { range } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -38,7 +39,7 @@ class Solution extends Stopwatch {
       100: 'hundred',
     };
 
-    for (let num = 1; num < 1000; num += 1) {
+    for (let num of range(1, 1000).valueOf()) {
       let wordCount = 0;
       const hundredsPlace = Math.floor(num / 100);
       const tensPlace = Math.floor((num % 100) / 10);

@@ -1,4 +1,5 @@
 const rootPath = require('app-root-path');
+const { range } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -9,7 +10,7 @@ class Solution extends Stopwatch {
     let maxSequenceLength = 0;
     const lengthPerStarter = {};
 
-    for (let starter = 1; starter <= 1000000; starter += 1) {
+    for (let starter of range(1, 1000000).valueOf()) {
       let num = starter;
       let length = 1;
 

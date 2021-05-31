@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { sum } = require('mathjs/number');
+const { range, sum } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 const { naturalSum, positiveDivisors } = require(`${rootPath}/lib/toolbox.js`);
@@ -11,7 +11,7 @@ class Solution extends Stopwatch {
     let abundantNumbers = [];
     let twoAbundantSums = new Set();
 
-    for (let num = 1; num < 28124; num += 1) {
+    for (let num of range(1, 28124).valueOf()) {
       let properDivisors = positiveDivisors(num).slice(0, -1);
       let divisorSum = sum(properDivisors);
 
