@@ -1,5 +1,8 @@
 ## 76. Counting summations
 
+### Translation
+* [한국어](./translation-ko.md)
+
 It is possible to write five as a sum in exactly six different ways:
 
 > 4 + 1<br>
