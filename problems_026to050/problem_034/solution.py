@@ -14,10 +14,13 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = 0
+
         for num in range(10, 2540161):
             sum_of_factorials = sum(factorial(int(digit)) for digit in str(num))
+
             if sum_of_factorials == num:
                 answer += num
+
         return answer
 
 if __name__ == '__main__':

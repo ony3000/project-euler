@@ -14,6 +14,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = number_of_partitions(200, [1, 2, 5, 10, 20, 50, 100, 200])
+
         return answer
 
 if __name__ == '__main__':

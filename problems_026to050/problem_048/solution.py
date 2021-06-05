@@ -12,7 +12,8 @@ class Solution(Stopwatch):
         super().__init__()
 
     def execute(self):
-        answer = str(sum(num ** num for num in range(1, 1001)))[-10:]
+        answer = sum(num ** num for num in range(1, 1001)) % (10**10)
+
         return answer
 
 if __name__ == '__main__':

@@ -16,6 +16,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = None
+
         primes_per_digits = {}
 
         for prime in smaller_primes(10000):
@@ -24,6 +25,7 @@ class Solution(Stopwatch):
 
             digit_set = Counter(str(prime))
             combination = ''.join(sorted(digit_set.elements()))
+
             if combination in primes_per_digits:
                 primes_per_digits[combination].append(prime)
             else:
@@ -34,10 +36,13 @@ class Solution(Stopwatch):
                 continue
 
             permutable_primes = primes_per_digits[combination]
+
             for (a, b) in product(permutable_primes, repeat=2):
                 if a >= b:
                     continue
+
                 c = 2*b - a
+
                 if c in permutable_primes and b != 4817 and a != 1487:
                     answer = str(a) + str(b) + str(c)
 

@@ -14,11 +14,14 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = 0
+
         for num in range(1, 1000000):
             if is_palindrome(str(num)):
                 binary = format(num, 'b')
+
                 if is_palindrome(binary):
                     answer += num
+
         return answer
 
 if __name__ == '__main__':

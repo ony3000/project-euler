@@ -191,19 +191,24 @@ def is_prime(n):
     """정수 n에 대해, 소수 판정을 한다.
 
     출처: https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test#Miller_test"""
+
     if type(n) != int:
         raise TypeError('정수가 아닙니다')
+
     if n < 2:
         return False
     if n == 2:
         return True
     if n % 2 == 0:
         return False
+
     temp = n - 1
     r = 0
+
     while temp % 2 == 0:
         temp //= 2
         r += 1
+
     d = temp
     if n < 2047:
         test_bases = [2]
@@ -211,18 +216,24 @@ def is_prime(n):
         test_bases = [2, 3]
     else:
         raise ValueError('소수 판정 테스트 집합을 확장해야 합니다.')
+
     for a in test_bases:
         x = a ** d % n
+
         if x == 1 or x == n-1:
             continue
+
         composite_witness = True
         for _ in range(r-1):
             x = x ** 2 % n
+
             if x == n-1:
                 composite_witness = False
                 break
+
         if composite_witness:
             return False
+
     return True
 
 
@@ -230,10 +241,12 @@ def number_of_partitions(n, parts=None):
     """음이 아닌 정수 n에 대해, n을 분할하는 방법의 수를 구한다.
 
     기본적으로는 1부터 n까지의 자연수들로 분할하지만, 임의의 자연수 리스트를 지정할 수도 있다."""
+
     if type(n) != int:
         raise TypeError('정수가 아닙니다')
     if n < 0:
         raise ValueError('음의 정수가 아니어야 합니다')
+
     if parts is None:
         parts = [x for x in range(n, 0, -1)]
     elif type(parts) != list:
@@ -241,7 +254,9 @@ def number_of_partitions(n, parts=None):
     else:
         if any(type(part) != int or part <= 0 for part in parts):
             raise ValueError('자연수로만 분할 가능합니다')
+
         parts.sort(reverse=True)
+
     def recursive_closure(n, sorted_parts):
         if n == 0:
             return 1
@@ -249,54 +264,69 @@ def number_of_partitions(n, parts=None):
             return 0
         elif len(sorted_parts) == 1:
             largest_part = sorted_parts[0]
+
             return (1 if n % largest_part == 0 else 0)
         else:
             result = 0
             largest_part = sorted_parts[0]
             max_available_count = n // largest_part
+
             for used_count in range(max_available_count, -1, -1):
                 remainder = n - largest_part * used_count
                 result += recursive_closure(remainder, sorted_parts[1:])
+
             return result
+
     return recursive_closure(n, parts)
 
 
 def is_prime_naive(n):
     """정수 n에 대해, 소수 판정을 한다."""
+
     if type(n) != int:
         raise TypeError('정수가 아닙니다')
+
     if n < 2:
         return False
     if n == 2:
         return True
     if n % 2 == 0:
         return False
+
     return prime_factorization(n)[-1] == n
 
 
 def is_palindrome(s):
     """문자열 s에 대해, s가 회문인지 판정한다."""
+
     if type(s) != str:
         raise TypeError('문자열이 아닙니다')
+
     judgment = True
     half_length = len(s) // 2
+
     for index in range(half_length):
         front_letter = s[index]
         rear_letter = s[len(s)-1-index]
+
         if front_letter != rear_letter:
             judgment = False
             break
+
     return judgment
 
 
 def nth_polygonal_number(p, n):
     """자연수 p, n에 대해, n번째 p각수를 구한다."""
+
     if type(p) != int or type(n) != int:
         raise TypeError('자연수가 아닙니다')
     if p <= 0 or n <= 0:
         raise ValueError('자연수가 아닙니다')
+
     if p == 1:
         return 1
+
     return n * ((p-2)*n + (4-p)) // 2
 
 
