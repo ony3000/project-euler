@@ -14,6 +14,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = prime_factorization(600851475143)[-1]
+
         return answer
 
 if __name__ == '__main__':

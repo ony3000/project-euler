@@ -14,18 +14,25 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = 0
+
         pandigital_set = Counter('123456789')
         multiplicand_candidates = [1, 3, *range(5, 10), *range(25, 34), *range(100, 334), *range(5000, 10000)]
+
         for multiplicand in multiplicand_candidates:
             concatenated_product = ''
+
             for n in range(1, 10):
                 product = multiplicand * n
                 concatenated_product += str(product)
+
                 if len(concatenated_product) == 9:
                     break
+
             product_digit_set = Counter(concatenated_product)
-            if product_digit_set == pandigital_set and answer < int(concatenated_product):
+
+            if answer < int(concatenated_product) and product_digit_set == pandigital_set:
                 answer = int(concatenated_product)
+
         return answer
 
 if __name__ == '__main__':

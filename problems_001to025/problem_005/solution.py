@@ -1,6 +1,5 @@
 import os
 import sys
-from functools import reduce
 from math import gcd
 
 PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -14,7 +13,11 @@ class Solution(Stopwatch):
         super().__init__()
 
     def execute(self):
-        answer = reduce(lambda accumulator, current_value: accumulator * current_value // gcd(accumulator, current_value), range(1, 21), 1)
+        answer = 1
+
+        for num in range(1, 21):
+            answer = answer * num // gcd(answer, num)
+
         return answer
 
 if __name__ == '__main__':

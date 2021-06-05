@@ -1,5 +1,6 @@
 import os
 import sys
+from itertools import product
 
 PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_PATH)
@@ -13,9 +14,11 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = None
+
         integers = range(2, 101)
-        terms = set(a**b for a in integers for b in integers)
+        terms = set(a**b for (a, b) in product(integers, repeat=2))
         answer = len(terms)
+
         return answer
 
 if __name__ == '__main__':

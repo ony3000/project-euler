@@ -13,8 +13,10 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = 0
+
         spiral_size = 1001
         contour_count = (spiral_size + 1) // 2
+
         for index in range(contour_count):
             if index == 0:
                 answer += 1
@@ -22,6 +24,7 @@ class Solution(Stopwatch):
                 contour_size = 2*index + 1
                 max_inner_number = (contour_size-2) ** 2
                 answer += max_inner_number*4 + (contour_size-1)*10
+
         return answer
 
 if __name__ == '__main__':

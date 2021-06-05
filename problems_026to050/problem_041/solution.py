@@ -15,12 +15,16 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = 0
+
         for pandigital_length in [4, 5, 7, 8]:
             digits = [str(num) for num in range(1, pandigital_length+1)]
+
             for order in range(1, factorial(pandigital_length)+1):
                 permutation = int(nth_lexicographic_permutation(order, digits))
+
                 if is_prime_naive(permutation) and answer < permutation:
                     answer = permutation
+
         return answer
 
 if __name__ == '__main__':

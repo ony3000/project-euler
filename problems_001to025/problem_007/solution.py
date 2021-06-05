@@ -14,6 +14,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = first_primes(10001)[-1]
+
         return answer
 
 if __name__ == '__main__':

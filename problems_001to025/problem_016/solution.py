@@ -13,6 +13,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = sum(int(digit) for digit in str(2**1000))
+
         return answer
 
 if __name__ == '__main__':

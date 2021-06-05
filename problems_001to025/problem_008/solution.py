@@ -14,6 +14,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = 0
+
         num = '\
 73167176531330624919225119674426574742355349194934\
 96983520312774506326239578318016984801869478851843\
@@ -37,10 +38,13 @@ class Solution(Stopwatch):
 71636269561882670428252483600823257530420752963450\
 '
         digit_length = 13
+
         for index in range(len(num) + 1 - digit_length):
             product = reduce(lambda accumulator, current_value: accumulator*current_value, [int(digit) for digit in num[index:index+digit_length]], 1)
+
             if answer < product:
                 answer = product
+
         return answer
 
 if __name__ == '__main__':

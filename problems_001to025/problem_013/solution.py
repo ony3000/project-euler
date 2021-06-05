@@ -13,6 +13,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = None
+
         numbers = """
 37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
@@ -114,9 +115,10 @@ class Solution(Stopwatch):
 72107838435069186155435662884062257473692284509516
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690
-"""
-        total = sum(int(num) for num in numbers.strip().split('\n'))
+""".strip()
+        total = sum(int(num) for num in numbers.split('\n'))
         answer = str(total)[:10]
+
         return answer
 
 if __name__ == '__main__':

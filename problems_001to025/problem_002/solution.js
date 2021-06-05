@@ -1,0 +1,26 @@
+const rootPath = require('app-root-path');
+
+const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
+
+class Solution extends Stopwatch {
+  execute() {
+    let answer = 0;
+
+    let [ a, b ] = [ 1, 2 ];
+
+    while (b <= 4000000) {
+      answer += b;
+      [ a, b ] = [ (a + 2 * b), (2 * a + 3 * b) ];
+    }
+
+    return answer;
+  }
+}
+
+(() => {
+  const solution = new Solution();
+
+  const result = solution.execute();
+
+  console.log(result);
+})();

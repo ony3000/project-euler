@@ -14,13 +14,18 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = None
+
         number_of_prime_factors = [0, 0, 0, 0]
         num = 2
+
         while answer is None:
             number_of_prime_factors[num % 4] = len(set(prime_factorization(num)))
+
             if all(prime_factor_count == 4 for prime_factor_count in number_of_prime_factors):
                 answer = num - 3
+
             num += 1
+
         return answer
 
 if __name__ == '__main__':

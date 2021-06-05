@@ -14,14 +14,19 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = None
+
         num = 1
+
         while answer is None:
             triangle_number = natural_sum(num)
             divisors = positive_divisors(triangle_number)
-            num += 1
+
             if len(divisors) > 500:
                 answer = triangle_number
                 break
+
+            num += 1
+
         return answer
 
 if __name__ == '__main__':

@@ -15,16 +15,20 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = None
-        limit = 1000000
 
+        limit = 1000000
         n = 1
+
         while True:
             approximate_value = n**2 * log(n) / 2
+
             if approximate_value >= limit:
                 break
+
             n += 1
 
         primes = first_primes(n)
+
         for length in range(n, 0, -1):
             for start_index in range(0, n-length+1):
                 end_index = start_index + length

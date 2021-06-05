@@ -16,14 +16,18 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = 0
+
         stream = open(f'{PROBLEM_PATH}/words.txt', 'r')
         names = stream.readline().strip().split(',')
+
         for name in names:
             name = name.strip('"')
             word_value = sum(ord(letter)-ord('A')+1 for letter in name)
             num = floor(sqrt(word_value * 2))
+
             if num * (num+1) // 2 == word_value:
                 answer += 1
+
         return answer
 
 if __name__ == '__main__':
