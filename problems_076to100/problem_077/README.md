@@ -1,5 +1,8 @@
 ## 77. Prime summations
 
+### Translation
+* [한국어](./translation-ko.md)
+
 It is possible to write ten as the sum of primes in exactly five different ways:
 
 > 7 + 3<br>
