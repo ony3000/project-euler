@@ -1,5 +1,8 @@
 ## 78. Coin partitions
 
+### Translation
+* [한국어](./translation-ko.md)
+
 Let p(<var>n</var>) represent the number of different ways in which <var>n</var> coins can be separated into piles. For example, five coins can be separated into piles in exactly seven different ways, so p(5)=7.
 
 > OOOOO<br>
