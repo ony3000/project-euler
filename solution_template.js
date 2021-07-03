@@ -3,6 +3,7 @@ const rootPath = require('app-root-path');
 const {
   bignumber,
   gcd,
+  sqrt,
   range,
   setCartesian,
   setDifference,
@@ -11,6 +12,7 @@ const {
   setUnion,
   prod,
   sum,
+  isInteger,
   isPrime,
 } = require('mathjs');
 
