@@ -15,10 +15,12 @@ class Solution extends Stopwatch {
       matrix[index] = line.trim().split(',').map((value) => Number(value));
     });
 
-    const pathSumMatrix = Array(matrix.length).fill(null).map(() => Array(matrix[0].length).fill(null));
+    const MATRIX_SIZE = matrix.length;
 
-    const LAST_ROW_INDEX = matrix.length - 1;
-    const LAST_COLUMN_INDEX = matrix[0].length - 1;
+    const pathSumMatrix = Array(MATRIX_SIZE).fill(null).map(() => Array(MATRIX_SIZE).fill(null));
+
+    const LAST_ROW_INDEX = MATRIX_SIZE - 1;
+    const LAST_COLUMN_INDEX = MATRIX_SIZE - 1;
 
     const recursion = (rowIndex, columnIndex) => {
       if (pathSumMatrix[rowIndex][columnIndex] !== null) {
