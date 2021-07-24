@@ -40,10 +40,10 @@ class Solution extends Stopwatch {
           pathSumMatrix[rowIndex][columnIndex] = matrix[rowIndex][columnIndex] + pathSumMatrix[rowIndex][columnIndex + 1];
         });
 
-        let needRevision = true;
+        let needOptimization = true;
 
-        while (needRevision) {
-          needRevision = false;
+        while (needOptimization) {
+          needOptimization = false;
 
           rowIndexes.forEach((rowIndex) => {
             const nonStraightPathSum = matrix[rowIndex][columnIndex] + Math.min(
@@ -53,7 +53,7 @@ class Solution extends Stopwatch {
 
             if (pathSumMatrix[rowIndex][columnIndex] > nonStraightPathSum) {
               pathSumMatrix[rowIndex][columnIndex] = nonStraightPathSum;
-              needRevision = true;
+              needOptimization = true;
             }
           });
         }
