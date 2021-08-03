@@ -1,5 +1,8 @@
 ## 84. Monopoly odds
 
+### Translation
+* [한국어](./translation-ko.md)
+
 In the game, _Monopoly_, the standard board is set up in the following way:
 
 <p align="center">
