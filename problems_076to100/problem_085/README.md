@@ -1,5 +1,8 @@
 ## 85. Counting rectangles
 
+### Translation
+* [한국어](./translation-ko.md)
+
 By counting carefully it can be seen that a rectangular grid measuring 3 by 2 contains eighteen rectangles:
 
 <p align="center">
