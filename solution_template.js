@@ -11,6 +11,7 @@ const {
   setUnion,
   prod,
   sum,
+  isInteger,
   isPrime,
 } = require('mathjs');
 

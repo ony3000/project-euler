@@ -27,10 +27,10 @@ class Solution extends Stopwatch {
     const triangle = numbers.split('\n').map((row) => row.split(' ').map((num) => Number(num)));
     const partialPathSum = [0, 0];
 
-    for (let i of range(0, triangle.length).valueOf()) {
+    for (const i of range(0, triangle.length).valueOf()) {
       const row = triangle[i];
 
-      for (let j of range(0, row.length).valueOf()) {
+      for (const j of range(0, row.length).valueOf()) {
         const leftPathSum = row[j] + partialPathSum[j];
         const rightPathSum = row[j] + partialPathSum[j + 1];
 

@@ -1,14 +1,13 @@
 const rootPath = require('app-root-path');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
+const { nthPentagonalNumber } = require(`${rootPath}/lib/toolbox.js`);
 
 class Solution extends Stopwatch {
   execute() {
     let answer = null;
 
     const pentagonalNumbers = [];
-
-    const nthPentagonalNumber = (n) => (n * (3 * n - 1) / 2);
 
     const isPentagonalNumber = (num) => {
       const guessedN = Math.ceil(Math.sqrt(num * 2 / 3));

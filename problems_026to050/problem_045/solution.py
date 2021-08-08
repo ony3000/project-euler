@@ -6,6 +6,7 @@ PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 sys.path.append(PROJECT_PATH)
 
 from measurement import Stopwatch
+from toolbox import nth_hexagonal_number, nth_pentagonal_number, nth_triangle_number
 
 
 class Solution(Stopwatch):
@@ -14,15 +15,6 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = None
-
-        def nth_triangle_number(n):
-            return n * (n + 1) // 2
-
-        def nth_pentagonal_number(n):
-            return n * (3*n - 1) // 2
-
-        def nth_hexagonal_number(n):
-            return n * (2*n - 1)
 
         def is_triangle_number(num):
             guessed_n = floor(sqrt(num * 2))
