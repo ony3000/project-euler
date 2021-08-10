@@ -14,6 +14,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = 0
+
         iteration_limit = 49
 
         for starter in range(1, 10000):

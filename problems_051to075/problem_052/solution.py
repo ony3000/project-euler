@@ -16,6 +16,7 @@ class Solution(Stopwatch):
         answer = None
 
         exponent = 0
+
         while answer is None:
             start = 10 ** exponent
             end = start * 10 // 6

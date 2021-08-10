@@ -7,7 +7,6 @@ class Solution extends Stopwatch {
   execute() {
     let answer = null;
 
-    let orderedPrimes = [2];
     const primeDict = {
       2: true,
     };
@@ -59,6 +58,7 @@ class Solution extends Stopwatch {
       return null;
     };
 
+    let orderedPrimes = [2];
     let num = 3;
 
     while (answer === null) {

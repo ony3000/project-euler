@@ -50,10 +50,8 @@ class PokerHands {
 
     const orderedValues = this.cards.map((card) => card.value).sort((former, latter) => (latter - former));
     const highCardValue = orderedValues.reduce((accumulator, currentValue) => (accumulator * 0x10 + currentValue), 0);
-
     const [ firstMostValue, firstMostValueCount ] = this.valueCounter[0];
     const [ , secondMostValueCount ] = this.valueCounter[1];
-
     const [ , firstMostSuitCount ] = this.suitCounter[0];
 
     const isStraight = (
@@ -61,7 +59,6 @@ class PokerHands {
         && orderedValues[0] - orderedValues[orderedValues.length - 1] === orderedValues.length - 1
     );
     const isFlush = firstMostSuitCount === 5;
-
     const baseExponent = 4;
     let extraExponent = 0;
 

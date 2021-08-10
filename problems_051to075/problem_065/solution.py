@@ -15,6 +15,7 @@ class Solution(Stopwatch):
         answer = None
 
         reversed_sequence = [2]
+
         for order in range(2, 101):
             if order % 3 == 0:
                 quotient = order // 3

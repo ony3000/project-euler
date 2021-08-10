@@ -15,6 +15,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = None
+
         min_ratio = None
 
         for num in range(2, 10**7 + 1):

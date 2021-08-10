@@ -15,7 +15,6 @@ class Solution(Stopwatch):
     def execute(self):
         answer = None
 
-        ordered_primes = [2]
         prime_dict = {
             2: True,
         }
@@ -53,7 +52,9 @@ class Solution(Stopwatch):
 
             return None
 
+        ordered_primes = [2]
         num = 3
+
         while answer is None:
             if num not in prime_dict:
                 prime_dict[num] = is_prime_naive(num)
@@ -61,8 +62,8 @@ class Solution(Stopwatch):
             if prime_dict[num]:
                 smaller_primes = ordered_primes[:]
                 ordered_primes = [num] + smaller_primes
-
                 prime_pair_set = find_prime_pair_set([num], smaller_primes)
+
                 if prime_pair_set is not None:
                     answer = sum(prime_pair_set)
 

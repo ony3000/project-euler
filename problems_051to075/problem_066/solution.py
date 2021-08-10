@@ -97,7 +97,6 @@ class Solution(Stopwatch):
                 numerator=CombinedNumber(nonsquare_positive_integer=num, extra_integer=-integer_part),
                 denominator=1,
             )
-
             reversed_sequence = [integer_part]
             (numerator, denominator) = compute_convergents(reversed_sequence)
 
@@ -106,9 +105,7 @@ class Solution(Stopwatch):
                     numerator=decimal_part.denominator,
                     denominator=decimal_part.numerator,
                 )
-
                 next_integer_part = int(float(inverse))
-
                 next_decimal_part = RationalNumber(
                     numerator=CombinedNumber(
                         nonsquare_positive_integer=inverse.numerator.nonsquare_positive_integer,
@@ -119,7 +116,6 @@ class Solution(Stopwatch):
 
                 reversed_sequence[:0] = [next_integer_part]
                 (numerator, denominator) = compute_convergents(reversed_sequence)
-
                 decimal_part = next_decimal_part
 
             if max_x < numerator:

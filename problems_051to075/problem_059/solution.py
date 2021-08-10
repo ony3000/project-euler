@@ -93,6 +93,7 @@ class Solution(Stopwatch):
                 encryption_key = candidate_key
 
         plain_message = decrypt_message(codes, encryption_key)
+
         for letter in plain_message:
             answer += ord(letter)
 
