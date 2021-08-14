@@ -96,5 +96,6 @@ class Solution extends Stopwatch {
 
   solution.stop();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();
