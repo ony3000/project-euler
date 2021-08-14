@@ -13,5 +13,10 @@ module.exports = {
   plugins: [
   ],
   rules: {
+    'brace-style': [
+      'error',
+      'stroustrup',
+    ],
+    'linebreak-style': 'off',
   },
 };
