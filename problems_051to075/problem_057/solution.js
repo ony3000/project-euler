@@ -11,7 +11,7 @@ class Solution extends Stopwatch {
     let denominator = 1n;
 
     for (const _ of range(0, 1000).toArray()) {
-      [ numerator, denominator ] = [ (numerator + 2n * denominator), (numerator + denominator) ];
+      [numerator, denominator] = [(numerator + 2n * denominator), (numerator + denominator)];
 
       if (String(numerator).length > String(denominator).length) {
         answer += 1;

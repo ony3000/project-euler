@@ -13,7 +13,7 @@ class Solution extends Stopwatch {
     const primeSetSize = 5;
 
     const findPrimePairSet = (baseConnectablePrimes, otherPrimes) => {
-      for (const [ index, anotherPrime ] of Object.entries(otherPrimes)) {
+      for (const [index, anotherPrime] of Object.entries(otherPrimes)) {
         let isAllPrime = true;
 
         for (const connectablePrime of baseConnectablePrimes) {
@@ -37,7 +37,7 @@ class Solution extends Stopwatch {
         if (isAllPrime) {
           const extendedConnectablePrimes = [
             ...baseConnectablePrimes,
-            anotherPrime
+            anotherPrime,
           ];
 
           if (baseConnectablePrimes.length === primeSetSize - 1) {
@@ -69,7 +69,7 @@ class Solution extends Stopwatch {
       if (primeDict[num]) {
         const smallerPrimes = orderedPrimes.slice();
 
-        orderedPrimes = [ num, ...smallerPrimes ];
+        orderedPrimes = [num, ...smallerPrimes];
 
         const primePairSet = findPrimePairSet([num], smallerPrimes);
 

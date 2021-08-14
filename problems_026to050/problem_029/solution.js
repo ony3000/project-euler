@@ -10,7 +10,7 @@ class Solution extends Stopwatch {
     const integers = range(2, 101).valueOf();
     const terms = new Set();
 
-    for (let [ a, b ] of setCartesian(integers, integers)) {
+    for (const [a, b] of setCartesian(integers, integers)) {
       terms.add(a ** b);
     }
 

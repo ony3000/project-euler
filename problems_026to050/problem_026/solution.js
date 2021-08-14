@@ -10,7 +10,7 @@ class Solution extends Stopwatch {
 
     let maxCycleLength = 0;
 
-    for (let num of range(2, 1000).valueOf()) {
+    for (const num of range(2, 1000).valueOf()) {
       const primeFactors = primeFactorization(num);
       const hasRecurringCycle = primeFactors.some((factor) => (factor !== 2 && factor !== 5));
       let recurringCycleLength = 1;

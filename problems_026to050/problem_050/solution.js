@@ -31,8 +31,8 @@ class Solution extends Stopwatch {
       num += 2;
     }
 
-    for (let length of range(n, 0, -1).valueOf()) {
-      for (let startIndex of range(0, n - length + 1).valueOf()) {
+    for (const length of range(n, 0, -1).valueOf()) {
+      for (const startIndex of range(0, n - length + 1).valueOf()) {
         const endIndex = startIndex + length;
         const consecutiveSum = sum(primes.slice(startIndex, endIndex));
 

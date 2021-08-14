@@ -9,12 +9,12 @@ class Solution extends Stopwatch {
 
     let maxTriangleCount = 0;
 
-    for (let p of range(12, 1001, 2).valueOf()) {
+    for (const p of range(12, 1001, 2).valueOf()) {
       let triangleCount = 0;
       const maxA = Math.ceil(p / 3) - 1;
 
-      for (let a of range(maxA, 0, -1).valueOf()) {
-        for (let b of range(a + 1, Math.ceil((p - a) / 2)).valueOf()) {
+      for (const a of range(maxA, 0, -1).valueOf()) {
+        for (const b of range(a + 1, Math.ceil((p - a) / 2)).valueOf()) {
           const c = p - (a + b);
 
           if (a ** 2 + b ** 2 === c ** 2) {

@@ -9,7 +9,7 @@ class Solution extends Stopwatch {
 
     const integers = range(1, 100).toArray();
 
-    for (const [ a, b ] of setCartesian(integers, integers)) {
+    for (const [a, b] of setCartesian(integers, integers)) {
       const num = BigInt(a) ** BigInt(b);
       const sumOfDigits = sum(String(num).split('').map((digit) => Number(digit)));
 

@@ -10,7 +10,7 @@ class Solution extends Stopwatch {
 
     const factorialPerDigit = Array(10).fill(null).map((_, index) => Number(factorial(index)));
 
-    for (let num of range(10, 2540161).valueOf()) {
+    for (const num of range(10, 2540161).valueOf()) {
       const sumOfFactorials = sum(String(num).split('').map((digit) => factorialPerDigit[digit]));
 
       if (sumOfFactorials === num) {

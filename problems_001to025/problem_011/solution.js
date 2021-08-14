@@ -32,23 +32,23 @@ class Solution extends Stopwatch {
     const grid = numbers.split('\n').map((row) => row.split(' ').map((num) => Number(num)));
     const gridLength = 20;
 
-    for (let [ i, j ] of setCartesian(range(0, gridLength).valueOf(), range(0, gridLength).valueOf())) {
+    for (const [i, j] of setCartesian(range(0, gridLength).valueOf(), range(0, gridLength).valueOf())) {
       let horizontalProduct = 1;
       let verticalProduct = 1;
       let diagonalProduct = 1;
       let anotherDiagonalProduct = 1;
 
       if (j + 3 < gridLength) {
-        horizontalProduct = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3];
+        horizontalProduct = grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3];
       }
 
       if (i + 3 < gridLength) {
-        verticalProduct = grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j];
+        verticalProduct = grid[i][j] * grid[i + 1][j] * grid[i + 2][j] * grid[i + 3][j];
       }
 
       if (i + 3 < gridLength && j + 3 < gridLength) {
-        diagonalProduct = grid[i][j] * grid[i+1][j+1] * grid[i+2][j+2] * grid[i+3][j+3];
-        anotherDiagonalProduct = grid[i][j+3] * grid[i+1][j+2] * grid[i+2][j+1] * grid[i+3][j];
+        diagonalProduct = grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3];
+        anotherDiagonalProduct = grid[i][j + 3] * grid[i + 1][j + 2] * grid[i + 2][j + 1] * grid[i + 3][j];
       }
 
       const newProducts = [

@@ -7,7 +7,7 @@ class Solution extends Stopwatch {
   execute() {
     let answer = 0;
 
-    for (const denominator of range(2, 12000+1).toArray()) {
+    for (const denominator of range(2, 12000 + 1).toArray()) {
       let maxNumerator = Math.floor(denominator * 1 / 2);
 
       if (maxNumerator === denominator * 1 / 2) {

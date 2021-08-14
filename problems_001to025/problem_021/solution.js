@@ -13,7 +13,7 @@ class Solution extends Stopwatch {
       0: 0,
     };
 
-    for (let num of range(1, 10000).valueOf()) {
+    for (const num of range(1, 10000).valueOf()) {
       const properDivisors = positiveDivisors(num).slice(0, -1);
       const divisorSum = sum(properDivisors);
 

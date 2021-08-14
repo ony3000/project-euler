@@ -12,7 +12,7 @@ class Solution extends Stopwatch {
 
     while (b < 1001) {
       if (isPrime(b)) {
-        for (let a of range(-b + 1, 1000).valueOf()) {
+        for (const a of range(-b + 1, 1000).valueOf()) {
           let n = 0;
 
           while (isPrime(n ** 2 + a * n + b)) {

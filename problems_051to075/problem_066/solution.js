@@ -85,7 +85,7 @@ class Solution extends Stopwatch {
         numerator += term * denominator;
 
         if (index < reversedSequence.length - 1) {
-          [ numerator, denominator ] = [ denominator, numerator ];
+          [numerator, denominator] = [denominator, numerator];
         }
       });
 
@@ -104,7 +104,7 @@ class Solution extends Stopwatch {
         1,
       );
       const reversedSequence = [BigInt(integerPart)];
-      let [ numerator, denominator ] = computeConvergents(reversedSequence);
+      let [numerator, denominator] = computeConvergents(reversedSequence);
 
       while (numerator ** 2n - BigInt(num) * denominator ** 2n !== 1n) {
         const inverse = new RationalNumber(
@@ -121,7 +121,7 @@ class Solution extends Stopwatch {
         );
 
         reversedSequence.unshift(BigInt(nextIntegerPart));
-        [ numerator, denominator ] = computeConvergents(reversedSequence);
+        [numerator, denominator] = computeConvergents(reversedSequence);
         decimalPart = nextDecimalPart;
       }
 

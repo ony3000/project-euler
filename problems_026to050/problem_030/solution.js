@@ -7,7 +7,7 @@ class Solution extends Stopwatch {
   execute() {
     let answer = 0;
 
-    for (let num of range(10, 354295).valueOf()) {
+    for (const num of range(10, 354295).valueOf()) {
       const sumOfPowers = sum(String(num).split('').map((digit) => Number(digit) ** 5));
 
       if (sumOfPowers === num) {

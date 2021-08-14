@@ -16,7 +16,7 @@ class Solution extends Stopwatch {
           let isTruncatablePrime = true;
           const temp = String(num);
 
-          for (let index of range(1, temp.length).valueOf()) {
+          for (const index of range(1, temp.length).valueOf()) {
             const leftTruncated = Number(temp.slice(index));
             const rightTruncated = Number(temp.slice(0, index));
 

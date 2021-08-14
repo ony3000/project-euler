@@ -10,7 +10,7 @@ class Solution extends Stopwatch {
 
     let minRatio = null;
 
-    for (const num of range(2, 10**7 + 1).toArray()) {
+    for (const num of range(2, 10 ** 7 + 1).toArray()) {
       const primeFactors = primeFactorization(num);
       const counter = {};
 
@@ -20,7 +20,7 @@ class Solution extends Stopwatch {
 
       let phiValue = 1;
 
-      for (const [ primeString, exponent ] of Object.entries(counter)) {
+      for (const [primeString, exponent] of Object.entries(counter)) {
         const prime = Number(primeString);
 
         phiValue *= (prime ** (exponent - 1) * (prime - 1));

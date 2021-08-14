@@ -22,14 +22,14 @@ class Solution extends Stopwatch {
       primesPerDigits[combination].push(prime);
     }
 
-    for (let combination of Object.keys(primesPerDigits)) {
+    for (const combination of Object.keys(primesPerDigits)) {
       if (primesPerDigits[combination].length < 3) {
         continue;
       }
 
       const permutablePrimes = primesPerDigits[combination];
 
-      for (let [ a, b ] of setCartesian(permutablePrimes, permutablePrimes)) {
+      for (const [a, b] of setCartesian(permutablePrimes, permutablePrimes)) {
         if (a >= b) {
           continue;
         }

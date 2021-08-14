@@ -14,7 +14,7 @@ class Solution extends Stopwatch {
         let isWritableAsSum = false;
         const baseLimit = Math.floor(Math.sqrt((num - 3) / 2));
 
-        for (let squareBase of range(1, baseLimit + 1).valueOf()) {
+        for (const squareBase of range(1, baseLimit + 1).valueOf()) {
           if (isPrime(num - 2 * squareBase ** 2)) {
             isWritableAsSum = true;
             break;

@@ -24,7 +24,7 @@ class Solution extends Stopwatch {
 
       for (const j of range(0, row.length).toArray()) {
         const leftPathSum = row[j] + partialPathSum[j];
-        const rightPathSum = row[j] + partialPathSum[j+1];
+        const rightPathSum = row[j] + partialPathSum[j + 1];
 
         row[j] = Math.max(leftPathSum, rightPathSum);
       }

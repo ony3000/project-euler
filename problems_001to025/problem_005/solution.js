@@ -7,7 +7,7 @@ class Solution extends Stopwatch {
   execute() {
     let answer = 1;
 
-    for (let num of range(1, 21).valueOf()) {
+    for (const num of range(1, 21).valueOf()) {
       answer = answer * num / gcd(answer, num);
     }
 

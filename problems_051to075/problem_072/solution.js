@@ -8,7 +8,7 @@ class Solution extends Stopwatch {
   execute() {
     let answer = 0;
 
-    for (const num of range(2, 1000000+1).toArray()) {
+    for (const num of range(2, 1000000 + 1).toArray()) {
       const primeFactors = primeFactorization(num);
       const counter = {};
 
@@ -18,7 +18,7 @@ class Solution extends Stopwatch {
 
       let phiValue = 1;
 
-      for (const [ primeString, exponent ] of Object.entries(counter)) {
+      for (const [primeString, exponent] of Object.entries(counter)) {
         const prime = Number(primeString);
 
         phiValue *= (prime ** (exponent - 1) * (prime - 1));

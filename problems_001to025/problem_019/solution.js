@@ -9,7 +9,7 @@ class Solution extends Stopwatch {
 
     let dayOfWeek = 1;
 
-    for (let [ year, month ] of setCartesian(range(1900, 2001).valueOf(), range(1, 13).valueOf())) {
+    for (const [year, month] of setCartesian(range(1900, 2001).valueOf(), range(1, 13).valueOf())) {
       if (year >= 1901 && dayOfWeek === 0) {
         answer += 1;
       }

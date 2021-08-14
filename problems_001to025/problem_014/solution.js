@@ -10,7 +10,7 @@ class Solution extends Stopwatch {
     let maxSequenceLength = 0;
     const lengthPerStarter = {};
 
-    for (let starter of range(1, 1000000).valueOf()) {
+    for (const starter of range(1, 1000000).valueOf()) {
       let num = starter;
       let length = 1;
 

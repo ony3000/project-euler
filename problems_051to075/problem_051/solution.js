@@ -20,7 +20,7 @@ class Solution extends Stopwatch {
       const temp = String(num);
       const uniqueDigits = new Set(temp.slice(0, -1));
 
-      for (const digit of [ ...uniqueDigits ]) {
+      for (const digit of [...uniqueDigits]) {
         const generatingPattern = temp.slice(0, -1).replace(new RegExp(digit, 'g'), '*') + temp.slice(-1);
 
         if (generatingPattern in primeCountPerPattern) {

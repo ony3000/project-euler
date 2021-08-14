@@ -8,7 +8,7 @@ class Solution extends Stopwatch {
   execute() {
     let answer = 0;
 
-    for (let num of range(1, 1000000).valueOf()) {
+    for (const num of range(1, 1000000).valueOf()) {
       if (isPalindrome(String(num))) {
         const binary = num.toString(2);
 

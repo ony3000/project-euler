@@ -9,7 +9,7 @@ class Solution extends Stopwatch {
 
     let maxRatio = 0;
 
-    for (const denominator of range(2, 1000000+1).toArray()) {
+    for (const denominator of range(2, 1000000 + 1).toArray()) {
       let maxNumerator = Math.floor(denominator * 3 / 7);
 
       if (maxNumerator === denominator * 3 / 7) {

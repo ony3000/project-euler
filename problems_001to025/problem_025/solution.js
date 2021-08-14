@@ -6,10 +6,10 @@ class Solution extends Stopwatch {
   execute() {
     let answer = 2;
 
-    let [ a, b ] = [ 1n, 1n ];
+    let [a, b] = [1n, 1n];
 
     while (String(b).length < 1000) {
-      [ a, b ] = [ b, (a + b) ];
+      [a, b] = [b, (a + b)];
       answer += 1;
     }
 

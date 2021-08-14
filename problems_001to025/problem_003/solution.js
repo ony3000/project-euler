@@ -7,7 +7,7 @@ class Solution extends Stopwatch {
   execute() {
     let answer = null;
 
-    [ answer ] = primeFactorization(600851475143).slice(-1);
+    [answer] = primeFactorization(600851475143).slice(-1);
 
     return answer;
   }

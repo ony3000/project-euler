@@ -8,18 +8,18 @@ class Solution extends Stopwatch {
   execute() {
     let answer = null;
 
-    let abundantNumbers = [];
-    let twoAbundantSums = new Set();
+    const abundantNumbers = [];
+    const twoAbundantSums = new Set();
 
-    for (let num of range(1, 28124).valueOf()) {
-      let properDivisors = positiveDivisors(num).slice(0, -1);
-      let divisorSum = sum(properDivisors);
+    for (const num of range(1, 28124).valueOf()) {
+      const properDivisors = positiveDivisors(num).slice(0, -1);
+      const divisorSum = sum(properDivisors);
 
       if (divisorSum > num) {
         abundantNumbers.push(num);
 
-        for (let abundant of abundantNumbers) {
-          let abundantSum = abundant + num;
+        for (const abundant of abundantNumbers) {
+          const abundantSum = abundant + num;
 
           if (abundantSum > 28123) {
             break;
@@ -31,7 +31,7 @@ class Solution extends Stopwatch {
       }
     }
 
-    answer = naturalSum(28123) - sum([ ...twoAbundantSums ]);
+    answer = naturalSum(28123) - sum([...twoAbundantSums]);
 
     return answer;
   }

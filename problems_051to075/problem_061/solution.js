@@ -11,7 +11,7 @@ class Solution extends Stopwatch {
     const polygonalNumbers = {};
 
     const findCyclicNumbers = (overlappingNumbers, polygonalAngles) => {
-      const [ lastNumber ] = overlappingNumbers.slice(-1);
+      const [lastNumber] = overlappingNumbers.slice(-1);
 
       for (const angle of polygonalAngles) {
         for (const num of polygonalNumbers[angle]) {
@@ -20,12 +20,12 @@ class Solution extends Stopwatch {
               const firstNumber = overlappingNumbers[0];
 
               if (String(num).slice(2) === String(firstNumber).slice(0, 2)) {
-                return [ ...overlappingNumbers, num ];
+                return [...overlappingNumbers, num];
               }
             }
             else {
               const otherAngles = polygonalAngles.filter((polygonalAngle) => (polygonalAngle !== angle));
-              const cyclicNumbers = findCyclicNumbers([ ...overlappingNumbers, num ], otherAngles);
+              const cyclicNumbers = findCyclicNumbers([...overlappingNumbers, num], otherAngles);
 
               if (cyclicNumbers !== null) {
                 return cyclicNumbers;

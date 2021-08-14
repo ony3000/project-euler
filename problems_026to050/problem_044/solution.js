@@ -22,7 +22,7 @@ class Solution extends Stopwatch {
 
       pentagonalNumbers.push(newPentagonal);
 
-      for (let existingPentagonal of pentagonalNumbers) {
+      for (const existingPentagonal of pentagonalNumbers) {
         const pentagonalSum = existingPentagonal + newPentagonal;
         const pentagonalDiff = Math.abs(existingPentagonal - newPentagonal);
 

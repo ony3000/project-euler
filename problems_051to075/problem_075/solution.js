@@ -40,7 +40,7 @@ class Solution extends Stopwatch {
       }
     }
 
-    for (const wireLength of range(12, maxWireLength+1, 2).toArray()) {
+    for (const wireLength of range(12, maxWireLength + 1, 2).toArray()) {
       const triangleCount = primitiveLengths.filter((primitiveLength) => (wireLength % primitiveLength === 0)).length;
 
       if (triangleCount === 1) {

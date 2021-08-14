@@ -27,7 +27,7 @@ class Solution extends Stopwatch {
       numerator += BigInt(term) * denominator;
 
       if (index < reversedSequence.length - 1) {
-        [ numerator, denominator ] = [ denominator, numerator ];
+        [numerator, denominator] = [denominator, numerator];
       }
     });
 

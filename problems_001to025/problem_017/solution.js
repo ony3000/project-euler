@@ -39,7 +39,7 @@ class Solution extends Stopwatch {
       100: 'hundred',
     };
 
-    for (let num of range(1, 1000).valueOf()) {
+    for (const num of range(1, 1000).valueOf()) {
       let wordCount = 0;
       const hundredsPlace = Math.floor(num / 100);
       const tensPlace = Math.floor((num % 100) / 10);

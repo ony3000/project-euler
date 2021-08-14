@@ -11,7 +11,7 @@ class Solution extends Stopwatch {
     const pandigitalProducts = new Set();
     const limit = Number(factorial(9));
 
-    for (let order of range(1, limit + 1).valueOf()) {
+    for (const order of range(1, limit + 1).valueOf()) {
       const permutation = nthLexicographicPermutation(order, '123456789'.split(''));
       const product = Number(permutation.slice(5));
 
@@ -23,7 +23,7 @@ class Solution extends Stopwatch {
       }
     }
 
-    for (let product of pandigitalProducts) {
+    for (const product of pandigitalProducts) {
       answer += product;
     }
 

@@ -31,7 +31,7 @@ class Solution extends Stopwatch {
 `.trim().replace(/\n/g, '');
     const digitLength = 13;
 
-    for (let index of range(0, num.length + 1 - digitLength).valueOf()) {
+    for (const index of range(0, num.length + 1 - digitLength).valueOf()) {
       const partialDigits = num.slice(index, index + digitLength).split('').map((digit) => Number(digit));
       const product = prod(partialDigits);
 
