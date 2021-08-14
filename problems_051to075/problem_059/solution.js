@@ -11,6 +11,7 @@ class Solution extends Stopwatch {
 
     const decryptMessage = (asciiCodes, candidateKey) => {
       const copyOfCodes = asciiCodes.map((code, index) => {
+        // eslint-disable-next-line no-bitwise
         const decryptedCharacter = String.fromCharCode(code ^ candidateKey[index % candidateKey.length]);
 
         return decryptedCharacter;

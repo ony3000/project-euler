@@ -20,7 +20,6 @@ module.exports = {
     'linebreak-style': 'off',
 
     // disable temporarily
-    'no-bitwise': 'off',
     'no-console': 'off',
     'no-constant-condition': 'off',
     'no-continue': 'off',
