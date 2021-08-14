@@ -8,16 +8,12 @@ class Solution extends Stopwatch {
     let answer = null;
 
     const limit = 1000000;
-    let n = 1;
+    let n = 0;
+    let approximateValue = 0;
 
-    while (true) {
-      const approximateValue = n ** 2 * Math.log(n) / 2;
-
-      if (approximateValue >= limit) {
-        break;
-      }
-
+    while (approximateValue < limit) {
       n += 1;
+      approximateValue = n ** 2 * Math.log(n) / 2;
     }
 
     const primes = [2];

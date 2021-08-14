@@ -7,19 +7,18 @@ class Solution extends Stopwatch {
     let answer = null;
 
     let num = 0;
+    const maxBase = 10;
+    let minBase = null;
+    let baseCount = null;
 
-    while (true) {
-      num += 1;
-
-      const minBase = Math.ceil(10 ** ((num - 1) / num));
-      const maxBase = 10;
-      const baseCount = maxBase - minBase;
-
-      if (baseCount === 0) {
-        break;
+    while (baseCount !== 0) {
+      if (baseCount !== null) {
+        answer += baseCount;
       }
 
-      answer += baseCount;
+      num += 1;
+      minBase = Math.ceil(10 ** ((num - 1) / num));
+      baseCount = maxBase - minBase;
     }
 
     return answer;

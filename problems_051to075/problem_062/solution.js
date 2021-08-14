@@ -9,7 +9,7 @@ class Solution extends Stopwatch {
     const permutationDict = {};
     let num = 0;
 
-    while (true) {
+    while (answer === null) {
       num += 1;
 
       const cubeNum = num ** 3;

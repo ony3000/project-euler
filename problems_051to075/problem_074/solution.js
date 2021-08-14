@@ -15,11 +15,7 @@ class Solution extends Stopwatch {
       const chain = [];
       let lengthOfChain = null;
 
-      while (true) {
-        if (chain.includes(target)) {
-          break;
-        }
-
+      while (!chain.includes(target)) {
         chain.push(target);
         target = sum(String(target).split('').map((digit) => Number(factorial(Number(digit)))));
 

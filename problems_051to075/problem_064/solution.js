@@ -89,27 +89,29 @@ class Solution extends Stopwatch {
       let lastDecimalPart = decimalPart;
       let period = 0;
 
-      while (true) {
+      let inverse = null;
+      let nextIntegerPart = null;
+      let nextDecimalPart = null;
+
+      while (Number(nextDecimalPart) !== Number(decimalPart)) {
+        if (nextDecimalPart !== null) {
+          lastDecimalPart = nextDecimalPart;
+        }
+
         period += 1;
 
-        const inverse = new RationalNumber(
+        inverse = new RationalNumber(
           lastDecimalPart.denominator,
           lastDecimalPart.numerator,
         );
-        const nextIntegerPart = Math.floor(Number(inverse));
-        const nextDecimalPart = new RationalNumber(
+        nextIntegerPart = Math.floor(Number(inverse));
+        nextDecimalPart = new RationalNumber(
           new CombinedNumber(
             inverse.numerator.nonsquarePositiveInteger,
             inverse.numerator.extraInteger - inverse.denominator * nextIntegerPart,
           ),
           inverse.denominator,
         );
-
-        if (Number(nextDecimalPart) === Number(decimalPart)) {
-          break;
-        }
-
-        lastDecimalPart = nextDecimalPart;
       }
 
       if (period % 2 === 1) {
