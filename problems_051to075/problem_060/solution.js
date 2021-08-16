@@ -43,14 +43,12 @@ class Solution extends Stopwatch {
           if (baseConnectablePrimes.length === primeSetSize - 1) {
             return extendedConnectablePrimes;
           }
-          else {
-            const moreSmallerPrimes = otherPrimes.slice(Number(index) + 1);
 
-            const primePairSet = findPrimePairSet(extendedConnectablePrimes, moreSmallerPrimes);
+          const moreSmallerPrimes = otherPrimes.slice(Number(index) + 1);
+          const primePairSet = findPrimePairSet(extendedConnectablePrimes, moreSmallerPrimes);
 
-            if (primePairSet !== null) {
-              return primePairSet;
-            }
+          if (primePairSet !== null) {
+            return primePairSet;
           }
         }
       }
