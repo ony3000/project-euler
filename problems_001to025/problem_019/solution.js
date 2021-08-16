@@ -20,13 +20,11 @@ class Solution extends Stopwatch {
       else if (month !== 2) {
         dayOfWeek += 31;
       }
+      else if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+        dayOfWeek += 29;
+      }
       else {
-        if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
-          dayOfWeek += 29;
-        }
-        else {
-          dayOfWeek += 28;
-        }
+        dayOfWeek += 28;
       }
 
       dayOfWeek %= 7;
