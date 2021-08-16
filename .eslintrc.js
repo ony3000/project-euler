@@ -18,9 +18,9 @@ module.exports = {
       'stroustrup',
     ],
     'linebreak-style': 'off',
+    'no-extend-native': 'off',
 
     // disable temporarily
-    'no-extend-native': 'off',
     'no-labels': 'off',
     'no-lonely-if': 'off',
     'no-mixed-operators': 'off',
