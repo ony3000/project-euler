@@ -26,13 +26,11 @@ class Solution extends Stopwatch {
         phiValue *= (prime ** (exponent - 1) * (prime - 1));
       }
 
-      if (String(num).split('').sort().join('') !== String(phiValue).split('').sort().join('')) {
-        continue;
-      }
-
-      if (minRatio === null || minRatio > num / phiValue) {
-        minRatio = num / phiValue;
-        answer = num;
+      if (String(num).split('').sort().join('') === String(phiValue).split('').sort().join('')) {
+        if (minRatio === null || minRatio > num / phiValue) {
+          minRatio = num / phiValue;
+          answer = num;
+        }
       }
     }
 

@@ -13,40 +13,34 @@ class Solution extends Stopwatch {
     while (answer === null) {
       num += 2;
 
-      if (!isPrime(num)) {
-        continue;
-      }
+      if (isPrime(num)) {
+        const temp = String(num);
+        const uniqueDigits = new Set(temp.slice(0, -1));
 
-      const temp = String(num);
-      const uniqueDigits = new Set(temp.slice(0, -1));
+        for (const digit of [...uniqueDigits]) {
+          const generatingPattern = temp.slice(0, -1).replace(new RegExp(digit, 'g'), '*') + temp.slice(-1);
 
-      for (const digit of [...uniqueDigits]) {
-        const generatingPattern = temp.slice(0, -1).replace(new RegExp(digit, 'g'), '*') + temp.slice(-1);
+          if (!(generatingPattern in primeCountPerPattern)) {
+            let primeCount = 0;
 
-        if (generatingPattern in primeCountPerPattern) {
-          continue;
-        }
+            for (const substitute of '0123456789') {
+              const decimal = generatingPattern.replace(/\*/g, substitute);
 
-        let primeCount = 0;
+              if (decimal[0] !== '0') {
+                if (isPrime(Number(decimal))) {
+                  primeCount += 1;
+                }
+              }
+            }
 
-        for (const substitute of '0123456789') {
-          const decimal = generatingPattern.replace(/\*/g, substitute);
+            if (primeCount === 8) {
+              answer = num;
+              break;
+            }
 
-          if (decimal[0] === '0') {
-            continue;
+            primeCountPerPattern[generatingPattern] = primeCount;
           }
-
-          if (isPrime(Number(decimal))) {
-            primeCount += 1;
-          }
         }
-
-        if (primeCount === 8) {
-          answer = num;
-          break;
-        }
-
-        primeCountPerPattern[generatingPattern] = primeCount;
       }
     }
 

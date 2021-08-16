@@ -17,25 +17,19 @@ class Solution extends Stopwatch {
           break;
         }
 
-        if (bcDiff % 2 !== a % 2) {
-          continue;
-        }
+        if (bcDiff % 2 === a % 2) {
+          const b = Math.floor((a ** 2 - bcDiff ** 2) / (2 * bcDiff));
 
-        const b = Math.floor((a ** 2 - bcDiff ** 2) / (2 * bcDiff));
+          if (a <= b) {
+            const c = b + bcDiff;
+            const wireLength = a + b + c;
 
-        if (a > b) {
-          continue;
-        }
-
-        const c = b + bcDiff;
-        const wireLength = a + b + c;
-
-        if (wireLength > maxWireLength) {
-          continue;
-        }
-
-        if (a ** 2 + b ** 2 === c ** 2 && gcd(a, b, c) === 1) {
-          primitiveLengths.push(wireLength);
+            if (wireLength <= maxWireLength) {
+              if (a ** 2 + b ** 2 === c ** 2 && gcd(a, b, c) === 1) {
+                primitiveLengths.push(wireLength);
+              }
+            }
+          }
         }
       }
     }

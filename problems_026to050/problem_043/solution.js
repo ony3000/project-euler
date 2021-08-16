@@ -21,24 +21,20 @@ class Solution extends Stopwatch {
         const [prime] = primes;
 
         for (const subnumber of range(0, 1000, prime).valueOf()) {
-          if (prefix % 100 !== Math.floor(subnumber / 10)) {
-            continue;
-          }
+          if (prefix % 100 === Math.floor(subnumber / 10)) {
+            const unitsPlace = subnumber % 10;
+            const longerPrefix = String(prefix) + String(unitsPlace);
 
-          const unitsPlace = subnumber % 10;
-          const longerPrefix = String(prefix) + String(unitsPlace);
+            if (setDifference(longerPrefix.split(''), pandigitalSet).length === 0) {
+              const suffixes = recursion(Number(longerPrefix), primes.slice(1));
 
-          if (setDifference(longerPrefix.split(''), pandigitalSet).length > 0) {
-            continue;
-          }
-
-          const suffixes = recursion(Number(longerPrefix), primes.slice(1));
-
-          if (suffixes === null) {
-            result.push(String(unitsPlace));
-          }
-          else {
-            result.push(...suffixes.map((suffix) => String(unitsPlace) + suffix));
+              if (suffixes === null) {
+                result.push(String(unitsPlace));
+              }
+              else {
+                result.push(...suffixes.map((suffix) => String(unitsPlace) + suffix));
+              }
+            }
           }
         }
 

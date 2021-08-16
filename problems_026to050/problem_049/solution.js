@@ -10,35 +10,29 @@ class Solution extends Stopwatch {
     const primesPerDigits = {};
 
     for (let num = 3; num < 10000; num += 2) {
-      if (num < 1000 || !isPrime(num)) {
-        continue;
+      if (num >= 1000 && isPrime(num)) {
+        const prime = num;
+        const digitSet = String(prime).split('');
+        const combination = digitSet.slice().sort().join('');
+
+        primesPerDigits[combination] = primesPerDigits[combination] || [];
+        primesPerDigits[combination].push(prime);
       }
-
-      const prime = num;
-      const digitSet = String(prime).split('');
-      const combination = digitSet.slice().sort().join('');
-
-      primesPerDigits[combination] = primesPerDigits[combination] || [];
-      primesPerDigits[combination].push(prime);
     }
 
     for (const combination of Object.keys(primesPerDigits)) {
-      if (primesPerDigits[combination].length < 3) {
-        continue;
-      }
+      if (primesPerDigits[combination].length >= 3) {
+        const permutablePrimes = primesPerDigits[combination];
 
-      const permutablePrimes = primesPerDigits[combination];
+        for (const [a, b] of setCartesian(permutablePrimes, permutablePrimes)) {
+          if (a < b) {
+            const c = 2 * b - a;
 
-      for (const [a, b] of setCartesian(permutablePrimes, permutablePrimes)) {
-        if (a >= b) {
-          continue;
-        }
-
-        const c = 2 * b - a;
-
-        if (permutablePrimes.includes(c) && b !== 4817 && a !== 1487) {
-          answer = String(a) + String(b) + String(c);
-          break;
+            if (permutablePrimes.includes(c) && b !== 4817 && a !== 1487) {
+              answer = String(a) + String(b) + String(c);
+              break;
+            }
+          }
         }
       }
     }

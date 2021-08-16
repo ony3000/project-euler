@@ -95,39 +95,37 @@ class Solution extends Stopwatch {
     for (const num of range(2, 1001).toArray()) {
       const integerPart = Math.floor(Math.sqrt(num));
 
-      if (integerPart ** 2 === num) {
-        continue;
-      }
-
-      let decimalPart = new RationalNumber(
-        new CombinedNumber(num, -integerPart),
-        1,
-      );
-      const reversedSequence = [BigInt(integerPart)];
-      let [numerator, denominator] = computeConvergents(reversedSequence);
-
-      while (numerator ** 2n - BigInt(num) * denominator ** 2n !== 1n) {
-        const inverse = new RationalNumber(
-          decimalPart.denominator,
-          decimalPart.numerator,
+      if (integerPart ** 2 !== num) {
+        let decimalPart = new RationalNumber(
+          new CombinedNumber(num, -integerPart),
+          1,
         );
-        const nextIntegerPart = Math.floor(Number(inverse));
-        const nextDecimalPart = new RationalNumber(
-          new CombinedNumber(
-            inverse.numerator.nonsquarePositiveInteger,
-            inverse.numerator.extraInteger - inverse.denominator * nextIntegerPart,
-          ),
-          inverse.denominator,
-        );
+        const reversedSequence = [BigInt(integerPart)];
+        let [numerator, denominator] = computeConvergents(reversedSequence);
 
-        reversedSequence.unshift(BigInt(nextIntegerPart));
-        [numerator, denominator] = computeConvergents(reversedSequence);
-        decimalPart = nextDecimalPart;
-      }
+        while (numerator ** 2n - BigInt(num) * denominator ** 2n !== 1n) {
+          const inverse = new RationalNumber(
+            decimalPart.denominator,
+            decimalPart.numerator,
+          );
+          const nextIntegerPart = Math.floor(Number(inverse));
+          const nextDecimalPart = new RationalNumber(
+            new CombinedNumber(
+              inverse.numerator.nonsquarePositiveInteger,
+              inverse.numerator.extraInteger - inverse.denominator * nextIntegerPart,
+            ),
+            inverse.denominator,
+          );
 
-      if (maxX < numerator) {
-        maxX = numerator;
-        answer = num;
+          reversedSequence.unshift(BigInt(nextIntegerPart));
+          [numerator, denominator] = computeConvergents(reversedSequence);
+          decimalPart = nextDecimalPart;
+        }
+
+        if (maxX < numerator) {
+          maxX = numerator;
+          answer = num;
+        }
       }
     }
 

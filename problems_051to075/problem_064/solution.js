@@ -78,44 +78,42 @@ class Solution extends Stopwatch {
     for (const num of range(2, 10001).toArray()) {
       const integerPart = Math.floor(Math.sqrt(num));
 
-      if (integerPart ** 2 === num) {
-        continue;
-      }
+      if (integerPart ** 2 !== num) {
+        const decimalPart = new RationalNumber(
+          new CombinedNumber(num, -integerPart),
+          1,
+        );
+        let lastDecimalPart = decimalPart;
+        let period = 0;
 
-      const decimalPart = new RationalNumber(
-        new CombinedNumber(num, -integerPart),
-        1,
-      );
-      let lastDecimalPart = decimalPart;
-      let period = 0;
+        let inverse = null;
+        let nextIntegerPart = null;
+        let nextDecimalPart = null;
 
-      let inverse = null;
-      let nextIntegerPart = null;
-      let nextDecimalPart = null;
+        while (Number(nextDecimalPart) !== Number(decimalPart)) {
+          if (nextDecimalPart !== null) {
+            lastDecimalPart = nextDecimalPart;
+          }
 
-      while (Number(nextDecimalPart) !== Number(decimalPart)) {
-        if (nextDecimalPart !== null) {
-          lastDecimalPart = nextDecimalPart;
+          period += 1;
+
+          inverse = new RationalNumber(
+            lastDecimalPart.denominator,
+            lastDecimalPart.numerator,
+          );
+          nextIntegerPart = Math.floor(Number(inverse));
+          nextDecimalPart = new RationalNumber(
+            new CombinedNumber(
+              inverse.numerator.nonsquarePositiveInteger,
+              inverse.numerator.extraInteger - inverse.denominator * nextIntegerPart,
+            ),
+            inverse.denominator,
+          );
         }
 
-        period += 1;
-
-        inverse = new RationalNumber(
-          lastDecimalPart.denominator,
-          lastDecimalPart.numerator,
-        );
-        nextIntegerPart = Math.floor(Number(inverse));
-        nextDecimalPart = new RationalNumber(
-          new CombinedNumber(
-            inverse.numerator.nonsquarePositiveInteger,
-            inverse.numerator.extraInteger - inverse.denominator * nextIntegerPart,
-          ),
-          inverse.denominator,
-        );
-      }
-
-      if (period % 2 === 1) {
-        answer += 1;
+        if (period % 2 === 1) {
+          answer += 1;
+        }
       }
     }
 
