@@ -13,7 +13,7 @@ class Solution extends Stopwatch {
 
     while (approximateValue < limit) {
       n += 1;
-      approximateValue = n ** 2 * Math.log(n) / 2;
+      approximateValue = ((n ** 2) * Math.log(n)) / 2;
     }
 
     const primes = [2];

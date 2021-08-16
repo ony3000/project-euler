@@ -21,7 +21,6 @@ module.exports = {
     'no-extend-native': 'off',
 
     // disable temporarily
-    'no-mixed-operators': 'off',
     'no-param-reassign': 'off',
     'no-restricted-syntax': 'off',
     'no-shadow': 'off',

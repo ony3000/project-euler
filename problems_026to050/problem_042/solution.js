@@ -18,7 +18,7 @@ class Solution extends Stopwatch {
       const wordValue = sum(name.split('').map((letter) => (letter.charCodeAt(0) - 'A'.charCodeAt(0) + 1)));
       const num = Math.floor(Math.sqrt(wordValue * 2));
 
-      if (num * (num + 1) / 2 === wordValue) {
+      if ((num * (num + 1)) / 2 === wordValue) {
         answer += 1;
       }
     }

@@ -11,7 +11,7 @@ class Solution extends Stopwatch {
 
     while (answer === null) {
       const start = 10 ** exponent;
-      const end = Math.floor(start * 10 / 6);
+      const end = Math.floor((start * 10) / 6);
 
       for (const num of range(start, end, true).toArray()) {
         let hasSameDigits = true;

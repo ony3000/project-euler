@@ -10,7 +10,7 @@ class Solution extends Stopwatch {
     const pentagonalNumbers = [];
 
     const isPentagonalNumber = (num) => {
-      const guessedN = Math.ceil(Math.sqrt(num * 2 / 3));
+      const guessedN = Math.ceil(Math.sqrt((num * 2) / 3));
 
       return guessedN > 0 && num === nthPentagonalNumber(guessedN);
     };

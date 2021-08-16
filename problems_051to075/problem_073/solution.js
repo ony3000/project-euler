@@ -8,15 +8,15 @@ class Solution extends Stopwatch {
     let answer = 0;
 
     for (const denominator of range(2, 12000 + 1).toArray()) {
-      let maxNumerator = Math.floor(denominator * 1 / 2);
+      let maxNumerator = Math.floor(denominator / 2);
 
-      if (maxNumerator === denominator * 1 / 2) {
+      if (maxNumerator === denominator / 2) {
         maxNumerator -= 1;
       }
 
-      let minNumerator = Math.ceil(denominator * 1 / 3);
+      let minNumerator = Math.ceil(denominator / 3);
 
-      if (minNumerator === denominator * 1 / 3) {
+      if (minNumerator === denominator / 3) {
         minNumerator += 1;
       }
 
