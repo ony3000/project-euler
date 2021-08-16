@@ -16,10 +16,7 @@ class Solution extends Stopwatch {
 
     names.forEach((name, index) => {
       const order = index + 1;
-
-      name = name.replace(/"/g, '');
-
-      const worth = sum(name.split('').map((letter) => (letter.charCodeAt(0) - 'A'.charCodeAt(0) + 1)));
+      const worth = sum(name.replace(/"/g, '').split('').map((letter) => (letter.charCodeAt(0) - 'A'.charCodeAt(0) + 1)));
 
       answer += order * worth;
     });
