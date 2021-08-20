@@ -13,10 +13,11 @@ class Solution extends Stopwatch {
     const primeSetSize = 5;
 
     const findPrimePairSet = (baseConnectablePrimes, otherPrimes) => {
-      for (const [index, anotherPrime] of Object.entries(otherPrimes)) {
+      for (let index = 0; index < otherPrimes.length; index += 1) {
+        const anotherPrime = otherPrimes[index];
         let isAllPrime = true;
 
-        for (const connectablePrime of baseConnectablePrimes) {
+        baseConnectablePrimes.every((connectablePrime) => {
           const forwardConnected = Number(`${connectablePrime}${anotherPrime}`);
           const reverseConnected = Number(`${anotherPrime}${connectablePrime}`);
 
@@ -30,9 +31,10 @@ class Solution extends Stopwatch {
 
           if (!primeDict[forwardConnected] || !primeDict[reverseConnected]) {
             isAllPrime = false;
-            break;
           }
-        }
+
+          return (primeDict[forwardConnected] && primeDict[reverseConnected]);
+        });
 
         if (isAllPrime) {
           const extendedConnectablePrimes = [

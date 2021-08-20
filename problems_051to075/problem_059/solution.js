@@ -71,9 +71,9 @@ class Solution extends Stopwatch {
     const baseCode = 'a'.charCodeAt(0);
     const alphabetIndexes = range(0, 26).toArray();
 
-    for (const firstIndex of alphabetIndexes) {
-      for (const secondIndex of alphabetIndexes) {
-        for (const thirdIndex of alphabetIndexes) {
+    alphabetIndexes.forEach((firstIndex) => {
+      alphabetIndexes.forEach((secondIndex) => {
+        alphabetIndexes.forEach((thirdIndex) => {
           const candidateKey = [
             baseCode + firstIndex,
             baseCode + secondIndex,
@@ -87,15 +87,15 @@ class Solution extends Stopwatch {
             maxCount = matchWordCount;
             encryptionKey = candidateKey;
           }
-        }
-      }
-    }
+        });
+      });
+    });
 
     const plainMessage = decryptMessage(codes, encryptionKey);
 
-    for (const letter of plainMessage) {
+    plainMessage.split('').forEach((letter) => {
       answer += letter.charCodeAt(0);
-    }
+    });
 
     return answer;
   }

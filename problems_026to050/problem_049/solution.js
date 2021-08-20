@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { setCartesian, isPrime } = require('mathjs');
+const { isPrime } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -20,22 +20,27 @@ class Solution extends Stopwatch {
       }
     }
 
-    for (const combination of Object.keys(primesPerDigits)) {
+    Object.keys(primesPerDigits).every((combination) => {
       if (primesPerDigits[combination].length >= 3) {
         const permutablePrimes = primesPerDigits[combination];
 
-        for (const [a, b] of setCartesian(permutablePrimes, permutablePrimes)) {
+        return permutablePrimes.every((a) => permutablePrimes.every((b) => {
           if (a < b) {
             const c = 2 * b - a;
 
             if (permutablePrimes.includes(c) && b !== 4817 && a !== 1487) {
               answer = String(a) + String(b) + String(c);
-              break;
             }
+
+            return answer === null;
           }
-        }
+
+          return true;
+        }));
       }
-    }
+
+      return true;
+    });
 
     return answer;
   }

@@ -1,5 +1,4 @@
 const rootPath = require('app-root-path');
-const { range } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 const { factorial } = require(`${rootPath}/lib/toolbox.js`);
@@ -8,10 +7,10 @@ class Solution extends Stopwatch {
   execute() {
     let answer = 0;
 
-    for (const n of range(1, 100, true).toArray()) {
+    for (let n = 1; n <= 100; n += 1) {
       const half = Math.floor(n / 2);
 
-      for (const r of range(0, half, true).toArray()) {
+      for (let r = 0; r <= half; r += 1) {
         const binomialCoefficient = factorial(n) / (factorial(r) * factorial(n - r));
 
         if (binomialCoefficient > 1000000) {

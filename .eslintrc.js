@@ -21,7 +21,6 @@ module.exports = {
     'no-extend-native': 'off',
 
     // disable temporarily
-    'no-restricted-syntax': 'off',
     'no-shadow': 'off',
     'no-unused-vars': 'off',
     'class-methods-use-this': 'off',

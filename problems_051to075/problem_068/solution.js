@@ -9,11 +9,11 @@ class Solution extends Stopwatch {
 
     const innerNodeCandidates = range(1, 10).toArray();
 
-    for (const firstNode of innerNodeCandidates) {
-      for (const secondNode of innerNodeCandidates) {
-        for (const thirdNode of innerNodeCandidates) {
-          for (const fourthNode of innerNodeCandidates) {
-            for (const fifthNode of innerNodeCandidates) {
+    innerNodeCandidates.forEach((firstNode) => {
+      innerNodeCandidates.forEach((secondNode) => {
+        innerNodeCandidates.forEach((thirdNode) => {
+          innerNodeCandidates.forEach((fourthNode) => {
+            innerNodeCandidates.forEach((fifthNode) => {
               const innerNodes = [
                 firstNode,
                 secondNode,
@@ -37,7 +37,7 @@ class Solution extends Stopwatch {
                     let concatenatedString = '';
                     const startingIndex = outerNodes.findIndex((value) => (value === Math.min(...outerNodes)));
 
-                    for (const index of range(0, 5).toArray()) {
+                    for (let index = 0; index < 5; index += 1) {
                       const currentIndex = (startingIndex + index) % 5;
                       const nextIndex = (currentIndex + 1) % 5;
 
@@ -52,11 +52,11 @@ class Solution extends Stopwatch {
                   }
                 }
               }
-            }
-          }
-        }
-      }
-    }
+            });
+          });
+        });
+      });
+    });
 
     return answer;
   }

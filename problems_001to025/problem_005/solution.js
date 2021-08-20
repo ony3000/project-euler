@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { gcd, range } = require('mathjs');
+const { gcd } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -7,7 +7,7 @@ class Solution extends Stopwatch {
   execute() {
     let answer = 1;
 
-    for (const num of range(1, 21).valueOf()) {
+    for (let num = 1; num <= 20; num += 1) {
       answer = (answer * num) / gcd(answer, num);
     }
 

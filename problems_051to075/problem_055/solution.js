@@ -1,5 +1,4 @@
 const rootPath = require('app-root-path');
-const { range } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 const { isPalindrome } = require(`${rootPath}/lib/toolbox.js`);
@@ -10,7 +9,7 @@ class Solution extends Stopwatch {
 
     const iterationLimit = 49;
 
-    for (const starter of range(1, 10000).toArray()) {
+    for (let starter = 1; starter < 10000; starter += 1) {
       let num = starter;
       let iterationCount = 0;
 

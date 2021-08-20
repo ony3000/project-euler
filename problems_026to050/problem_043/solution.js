@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { range, setDifference } = require('mathjs');
+const { setDifference } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -20,7 +20,7 @@ class Solution extends Stopwatch {
         const result = [];
         const [prime] = primes;
 
-        for (const subnumber of range(0, 1000, prime).valueOf()) {
+        for (let subnumber = 0; subnumber < 1000; subnumber += prime) {
           if (prefix % 100 === Math.floor(subnumber / 10)) {
             const unitsPlace = subnumber % 10;
             const longerPrefix = String(prefix) + String(unitsPlace);
@@ -44,10 +44,11 @@ class Solution extends Stopwatch {
       return recursion(prefix, primes);
     };
 
-    for (const prefix of range(102, 987 + 1).valueOf()) {
+    for (let prefix = 102; prefix <= 987; prefix += 1) {
       const suffixes = suffixesWithDivisibilityProperty(prefix);
 
-      for (const suffix of suffixes) {
+      for (let index = 0; index < suffixes.length; index += 1) {
+        const suffix = suffixes[index];
         const decimal = String(prefix) + suffix;
 
         if (setDifference(decimal.split(''), pandigitalSet).length === 0 && setDifference(pandigitalSet, decimal.split('')).length === 0) {

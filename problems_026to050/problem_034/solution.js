@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { range, sum } = require('mathjs');
+const { sum } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 const { factorial } = require(`${rootPath}/lib/toolbox.js`);
@@ -10,7 +10,7 @@ class Solution extends Stopwatch {
 
     const factorialPerDigit = Array(10).fill(null).map((_, index) => Number(factorial(index)));
 
-    for (const num of range(10, 2540161).valueOf()) {
+    for (let num = 10; num <= 2540160; num += 1) {
       const sumOfFactorials = sum(String(num).split('').map((digit) => factorialPerDigit[digit]));
 
       if (sumOfFactorials === num) {

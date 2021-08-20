@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { range, isPrime } = require('mathjs');
+const { isPrime } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -12,7 +12,7 @@ class Solution extends Stopwatch {
 
     while (b < 1001) {
       if (isPrime(b)) {
-        for (const a of range(-b + 1, 1000).valueOf()) {
+        for (let a = -b + 1; a < 1000; a += 1) {
           let n = 0;
 
           while (isPrime(n ** 2 + a * n + b)) {

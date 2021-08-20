@@ -1,5 +1,4 @@
 const rootPath = require('app-root-path');
-const { range } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 const { factorial, nthLexicographicPermutation } = require(`${rootPath}/lib/toolbox.js`);
@@ -11,7 +10,7 @@ class Solution extends Stopwatch {
     const pandigitalProducts = new Set();
     const limit = Number(factorial(9));
 
-    for (const order of range(1, limit + 1).valueOf()) {
+    for (let order = 1; order <= limit; order += 1) {
       const permutation = nthLexicographicPermutation(order, '123456789'.split(''));
       const product = Number(permutation.slice(5));
 
@@ -23,9 +22,9 @@ class Solution extends Stopwatch {
       }
     }
 
-    for (const product of pandigitalProducts) {
+    pandigitalProducts.forEach((product) => {
       answer += product;
-    }
+    });
 
     return answer;
   }

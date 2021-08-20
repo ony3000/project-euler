@@ -1,5 +1,4 @@
 const rootPath = require('app-root-path');
-const { range } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -27,10 +26,10 @@ class Solution extends Stopwatch {
     const triangle = numbers.split('\n').map((row) => row.split(' ').map((num) => Number(num)));
     const partialPathSum = [0, 0];
 
-    for (const i of range(0, triangle.length).valueOf()) {
+    for (let i = 0; i < triangle.length; i += 1) {
       const row = triangle[i];
 
-      for (const j of range(0, row.length).valueOf()) {
+      for (let j = 0; j < row.length; j += 1) {
         const leftPathSum = row[j] + partialPathSum[j];
         const rightPathSum = row[j] + partialPathSum[j + 1];
 

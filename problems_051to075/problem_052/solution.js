@@ -1,5 +1,4 @@
 const rootPath = require('app-root-path');
-const { range } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -13,11 +12,11 @@ class Solution extends Stopwatch {
       const start = 10 ** exponent;
       const end = Math.floor((start * 10) / 6);
 
-      for (const num of range(start, end, true).toArray()) {
+      for (let num = start; num <= end; num += 1) {
         let hasSameDigits = true;
         const ascendingDigits = String(num).split('').sort().join('');
 
-        for (const coefficient of range(2, 6, true).toArray()) {
+        for (let coefficient = 2; coefficient <= 6; coefficient += 1) {
           const anotherAscendingDigits = String(num * coefficient).split('').sort().join('');
 
           if (ascendingDigits !== anotherAscendingDigits) {

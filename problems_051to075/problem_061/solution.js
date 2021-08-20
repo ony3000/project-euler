@@ -13,8 +13,12 @@ class Solution extends Stopwatch {
     const findCyclicNumbers = (overlappingNumbers, polygonalAngles) => {
       const [lastNumber] = overlappingNumbers.slice(-1);
 
-      for (const angle of polygonalAngles) {
-        for (const num of polygonalNumbers[angle]) {
+      for (let angleIndex = 0; angleIndex < polygonalAngles.length; angleIndex += 1) {
+        const angle = polygonalAngles[angleIndex];
+
+        for (let index = 0; index < polygonalNumbers[angle].length; index += 1) {
+          const num = polygonalNumbers[angle][index];
+
           if (String(lastNumber).slice(2) === String(num).slice(0, 2)) {
             if (polygonalAngles.length === 1) {
               const firstNumber = overlappingNumbers[0];
@@ -38,7 +42,7 @@ class Solution extends Stopwatch {
       return null;
     };
 
-    for (const angle of range(3, 9).toArray()) {
+    for (let angle = 3; angle <= 8; angle += 1) {
       const limit = Math.ceil(Math.sqrt(20000 / (angle - 2) + 0.25) + 0.5);
 
       polygonalNumbers[angle] = range(1, limit)
@@ -47,14 +51,15 @@ class Solution extends Stopwatch {
         .filter((num) => (num >= 10 ** 3 && num < 10 ** 4));
     }
 
-    for (const num of polygonalNumbers[8]) {
+    polygonalNumbers[8].every((num) => {
       const cyclicNumbers = findCyclicNumbers([num], [3, 4, 5, 6, 7]);
 
       if (cyclicNumbers !== null) {
         answer = sum(cyclicNumbers);
-        break;
       }
-    }
+
+      return (cyclicNumbers === null);
+    });
 
     return answer;
   }

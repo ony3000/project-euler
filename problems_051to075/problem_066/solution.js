@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { range, isInteger } = require('mathjs');
+const { isInteger } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -92,7 +92,7 @@ class Solution extends Stopwatch {
       return [numerator, denominator];
     };
 
-    for (const num of range(2, 1001).toArray()) {
+    for (let num = 2; num <= 1000; num += 1) {
       const integerPart = Math.floor(Math.sqrt(num));
 
       if (integerPart ** 2 !== num) {

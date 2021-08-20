@@ -1,5 +1,4 @@
 const rootPath = require('app-root-path');
-const { range } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 const { primeFactorization } = require(`${rootPath}/lib/toolbox.js`);
@@ -10,7 +9,7 @@ class Solution extends Stopwatch {
 
     let minRatio = null;
 
-    for (const num of range(2, 10 ** 7 + 1).toArray()) {
+    for (let num = 2; num < 10 ** 7; num += 1) {
       const primeFactors = primeFactorization(num);
       const counter = {};
 
@@ -20,11 +19,11 @@ class Solution extends Stopwatch {
 
       let phiValue = 1;
 
-      for (const [primeString, exponent] of Object.entries(counter)) {
+      Object.entries(counter).forEach(([primeString, exponent]) => {
         const prime = Number(primeString);
 
         phiValue *= (prime ** (exponent - 1) * (prime - 1));
-      }
+      });
 
       if (String(num).split('').sort().join('') === String(phiValue).split('').sort().join('')) {
         if (minRatio === null || minRatio > num / phiValue) {

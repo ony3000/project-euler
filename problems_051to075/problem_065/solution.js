@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { range, sum } = require('mathjs');
+const { sum } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -9,7 +9,7 @@ class Solution extends Stopwatch {
 
     const reversedSequence = [2];
 
-    for (const order of range(2, 101).toArray()) {
+    for (let order = 2; order <= 100; order += 1) {
       if (order % 3 === 0) {
         const quotient = Math.floor(order / 3);
 

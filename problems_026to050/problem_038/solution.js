@@ -17,10 +17,10 @@ class Solution extends Stopwatch {
       ...range(5000, 10000).valueOf(),
     ];
 
-    for (const multiplicand of multiplicandCandidates) {
+    multiplicandCandidates.forEach((multiplicand) => {
       let concatenatedProduct = '';
 
-      for (const n of range(1, 10).valueOf()) {
+      for (let n = 1; n <= 9; n += 1) {
         const product = multiplicand * n;
 
         concatenatedProduct += String(product);
@@ -39,7 +39,7 @@ class Solution extends Stopwatch {
       ) {
         answer = Number(concatenatedProduct);
       }
-    }
+    });
 
     return answer;
   }

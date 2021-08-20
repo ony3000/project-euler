@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { range, sum } = require('mathjs');
+const { sum } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 const { factorial } = require(`${rootPath}/lib/toolbox.js`);
@@ -10,7 +10,7 @@ class Solution extends Stopwatch {
 
     const lengthPerStarter = {};
 
-    for (const num of range(1, 1000000).toArray()) {
+    for (let num = 1; num < 1000000; num += 1) {
       let target = num;
       const chain = [];
       let lengthOfChain = null;

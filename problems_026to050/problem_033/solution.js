@@ -1,10 +1,5 @@
 const rootPath = require('app-root-path');
-const {
-  gcd,
-  range,
-  setDifference,
-  setIntersect,
-} = require('mathjs');
+const { gcd, setDifference, setIntersect } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -15,8 +10,8 @@ class Solution extends Stopwatch {
     let numeratorProduct = 1;
     let denominatorProduct = 1;
 
-    for (const denominator of range(10, 100).valueOf()) {
-      for (const numerator of range(10, denominator).valueOf()) {
+    for (let denominator = 10; denominator <= 99; denominator += 1) {
+      for (let numerator = 10; numerator < denominator; numerator += 1) {
         const numeratorDigits = String(numerator).split('');
         const denominatorDigits = String(denominator).split('');
         const commonDigits = setIntersect(numeratorDigits, denominatorDigits);

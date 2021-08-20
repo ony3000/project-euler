@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { range, isPrime } = require('mathjs');
+const { isPrime } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -23,7 +23,7 @@ class Solution extends Stopwatch {
 
       numberCount += 4;
 
-      for (const num of range(minDiagonal, maxDiagonal, diagonalGap, true).toArray()) {
+      for (let num = minDiagonal; num <= maxDiagonal; num += diagonalGap) {
         if (isPrime(num)) {
           primeCount += 1;
         }

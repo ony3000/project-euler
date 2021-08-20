@@ -1,5 +1,4 @@
 const rootPath = require('app-root-path');
-const { range } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -10,7 +9,7 @@ class Solution extends Stopwatch {
     let numerator = 1n;
     let denominator = 1n;
 
-    for (const _ of range(0, 1000).toArray()) {
+    for (let num = 0; num < 1000; num += 1) {
       [numerator, denominator] = [(numerator + 2n * denominator), (numerator + denominator)];
 
       if (String(numerator).length > String(denominator).length) {

@@ -15,15 +15,16 @@ class Solution extends Stopwatch {
 
       if (isPrime(num)) {
         const temp = String(num);
-        const uniqueDigits = new Set(temp.slice(0, -1));
+        const uniqueDigits = [...new Set(temp.slice(0, -1))];
 
-        for (const digit of [...uniqueDigits]) {
+        for (let index = 0; index < uniqueDigits.length; index += 1) {
+          const digit = uniqueDigits[index];
           const generatingPattern = temp.slice(0, -1).replace(new RegExp(digit, 'g'), '*') + temp.slice(-1);
 
           if (!(generatingPattern in primeCountPerPattern)) {
             let primeCount = 0;
 
-            for (const substitute of '0123456789') {
+            '0123456789'.split('').forEach((substitute) => {
               const decimal = generatingPattern.replace(/\*/g, substitute);
 
               if (decimal[0] !== '0') {
@@ -31,7 +32,7 @@ class Solution extends Stopwatch {
                   primeCount += 1;
                 }
               }
-            }
+            });
 
             if (primeCount === 8) {
               answer = num;
