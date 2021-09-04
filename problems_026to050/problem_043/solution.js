@@ -9,9 +9,7 @@ class Solution extends Stopwatch {
 
     const pandigitalSet = '0123456789'.split('');
 
-    const suffixesWithDivisibilityProperty = (prefix) => {
-      const primes = [2, 3, 5, 7, 11, 13, 17];
-
+    const suffixesWithDivisibilityProperty = (initialPrefix) => {
       const recursion = (prefix, primes) => {
         if (primes.length === 0) {
           return null;
@@ -41,7 +39,7 @@ class Solution extends Stopwatch {
         return result;
       };
 
-      return recursion(prefix, primes);
+      return recursion(initialPrefix, [2, 3, 5, 7, 11, 13, 17]);
     };
 
     for (let prefix = 102; prefix <= 987; prefix += 1) {

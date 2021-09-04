@@ -21,11 +21,11 @@ class Solution extends Stopwatch {
     const filteredPrimes = primes.filter((prime) => !String(prime).includes('0') && !String(prime).includes('5'));
     let circularPrimes = [5];
 
-    filteredPrimes.forEach((num) => {
-      if (!circularPrimes.includes(num)) {
+    filteredPrimes.forEach((prime) => {
+      if (!circularPrimes.includes(prime)) {
         let isCircularPrime = true;
-        let circularPrimeCandidates = [num];
-        const temp = String(num);
+        let circularPrimeCandidates = [prime];
+        const temp = String(prime);
 
         for (let index = 1; index < temp.length; index += 1) {
           const rotatedNum = Number(temp.slice(index) + temp.slice(0, index));
