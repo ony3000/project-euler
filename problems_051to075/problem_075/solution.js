@@ -33,7 +33,9 @@ class Solution extends Stopwatch {
     }
 
     for (let wireLength = 12; wireLength <= maxWireLength; wireLength += 2) {
-      const triangleCount = primitiveLengths.filter((primitiveLength) => (wireLength % primitiveLength === 0)).length;
+      const triangleCount = primitiveLengths.filter(
+        (primitiveLength) => (wireLength % primitiveLength === 0),
+      ).length;
 
       if (triangleCount === 1) {
         answer += 1;

@@ -11,8 +11,10 @@ class Solution extends Stopwatch {
 
     const decryptMessage = (asciiCodes, candidateKey) => {
       const copyOfCodes = asciiCodes.map((code, index) => {
-        // eslint-disable-next-line no-bitwise
-        const decryptedCharacter = String.fromCharCode(code ^ candidateKey[index % candidateKey.length]);
+        const decryptedCharacter = String.fromCharCode(
+          // eslint-disable-next-line no-bitwise
+          code ^ candidateKey[index % candidateKey.length],
+        );
 
         return decryptedCharacter;
       });
@@ -81,7 +83,9 @@ class Solution extends Stopwatch {
           ];
 
           const decryptedMessage = decryptMessage(codes, candidateKey);
-          const matchWordCount = sum(commonEnglishWords.map((word) => (decryptedMessage.includes(word) ? 1 : 0)));
+          const matchWordCount = sum(
+            commonEnglishWords.map((word) => (decryptedMessage.includes(word) ? 1 : 0)),
+          );
 
           if (maxCount < matchWordCount) {
             maxCount = matchWordCount;

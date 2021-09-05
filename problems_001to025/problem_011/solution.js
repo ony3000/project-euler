@@ -1,4 +1,5 @@
 const rootPath = require('app-root-path');
+const { prod } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -30,6 +31,7 @@ class Solution extends Stopwatch {
 `.trim();
     const grid = numbers.split('\n').map((row) => row.split(' ').map((num) => Number(num)));
     const gridLength = 20;
+    const dummyArray = Array(4).fill(null);
 
     for (let i = 0; i < gridLength; i += 1) {
       for (let j = 0; j < gridLength; j += 1) {
@@ -39,16 +41,24 @@ class Solution extends Stopwatch {
         let anotherDiagonalProduct = 1;
 
         if (j + 3 < gridLength) {
-          horizontalProduct = grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3];
+          horizontalProduct = prod(
+            dummyArray.map((_, index) => grid[i][j + index]),
+          );
         }
 
         if (i + 3 < gridLength) {
-          verticalProduct = grid[i][j] * grid[i + 1][j] * grid[i + 2][j] * grid[i + 3][j];
+          verticalProduct = prod(
+            dummyArray.map((_, index) => grid[i + index][j]),
+          );
         }
 
         if (i + 3 < gridLength && j + 3 < gridLength) {
-          diagonalProduct = grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3];
-          anotherDiagonalProduct = grid[i][j + 3] * grid[i + 1][j + 2] * grid[i + 2][j + 1] * grid[i + 3][j];
+          diagonalProduct = prod(
+            dummyArray.map((_, index) => grid[i + index][j + index]),
+          );
+          anotherDiagonalProduct = prod(
+            dummyArray.map((_, index) => grid[i + index][j + 3 - index]),
+          );
         }
 
         const newProducts = [

@@ -50,9 +50,10 @@ class RationalNumber {
 
     if (denominator instanceof CombinedNumber) {
       const combined = denominator;
+      const { nonsquarePositiveInteger, extraInteger } = combined;
 
       this.numerator = combined.conjugate();
-      this.denominator = (combined.nonsquarePositiveInteger - combined.extraInteger ** 2) / numerator;
+      this.denominator = (nonsquarePositiveInteger - extraInteger ** 2) / numerator;
     }
   }
 

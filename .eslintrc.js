@@ -20,9 +20,6 @@ module.exports = {
     'linebreak-style': 'off',
     'no-extend-native': 'off',
 
-    // disable temporarily
-    'max-len': 'off',
-
     // check back later
     'class-methods-use-this': 'off',
     'import/no-dynamic-require': 'off',

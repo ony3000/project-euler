@@ -41,15 +41,22 @@ class PokerHands {
       suitCounter[card.suit] = (suitCounter[card.suit] || 0) + 1;
     });
 
-    this.valueCounter = Object.entries(valueCounter).sort(([, formerCount], [, latterCount]) => (latterCount - formerCount));
-    this.suitCounter = Object.entries(suitCounter).sort(([, formerCount], [, latterCount]) => (latterCount - formerCount));
+    this.valueCounter = Object.entries(valueCounter)
+      .sort(([, formerCount], [, latterCount]) => (latterCount - formerCount));
+    this.suitCounter = Object.entries(suitCounter)
+      .sort(([, formerCount], [, latterCount]) => (latterCount - formerCount));
   }
 
   score() {
     let result = null;
 
-    const orderedValues = this.cards.map((card) => card.value).sort((former, latter) => (latter - former));
-    const highCardValue = orderedValues.reduce((accumulator, currentValue) => (accumulator * 0x10 + currentValue), 0);
+    const orderedValues = this.cards
+      .map((card) => card.value)
+      .sort((former, latter) => (latter - former));
+    const highCardValue = orderedValues.reduce(
+      (accumulator, currentValue) => (accumulator * 0x10 + currentValue),
+      0,
+    );
     const [firstMostValue, firstMostValueCount] = this.valueCounter[0];
     const [, secondMostValueCount] = this.valueCounter[1];
     const [, firstMostSuitCount] = this.suitCounter[0];

@@ -35,7 +35,9 @@ class Solution extends Stopwatch {
                 if (outerNodes.every((num) => (num >= 1 && num <= 10))) {
                   if (new Set([...innerNodes, ...outerNodes]).size === 10) {
                     let concatenatedString = '';
-                    const startingIndex = outerNodes.findIndex((value) => (value === Math.min(...outerNodes)));
+                    const startingIndex = outerNodes.findIndex(
+                      (value) => (value === Math.min(...outerNodes)),
+                    );
 
                     for (let index = 0; index < 5; index += 1) {
                       const currentIndex = (startingIndex + index) % 5;

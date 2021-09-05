@@ -28,7 +28,9 @@ class Solution extends Stopwatch {
               }
             }
             else {
-              const otherAngles = polygonalAngles.filter((polygonalAngle) => (polygonalAngle !== angle));
+              const otherAngles = polygonalAngles.filter(
+                (polygonalAngle) => (polygonalAngle !== angle),
+              );
               const cyclicNumbers = findCyclicNumbers([...overlappingNumbers, num], otherAngles);
 
               if (cyclicNumbers !== null) {
