@@ -21,9 +21,11 @@ module.exports = {
     'no-extend-native': 'off',
 
     // disable temporarily
+    'max-len': 'off',
+
+    // check back later
     'class-methods-use-this': 'off',
     'import/no-dynamic-require': 'off',
     'max-classes-per-file': 'off',
-    'max-len': 'off',
   },
 };
