@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { range, sum, isPrime } = require('mathjs');
+const { sum, isPrime } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -16,7 +16,7 @@ class Solution extends Stopwatch {
           let isTruncatablePrime = true;
           const temp = String(num);
 
-          for (let index of range(1, temp.length).valueOf()) {
+          for (let index = 1; index < temp.length; index += 1) {
             const leftTruncated = Number(temp.slice(index));
             const rightTruncated = Number(temp.slice(0, index));
 
@@ -46,5 +46,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

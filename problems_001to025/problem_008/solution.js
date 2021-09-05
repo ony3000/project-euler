@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { range, prod } = require('mathjs');
+const { prod } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -31,7 +31,7 @@ class Solution extends Stopwatch {
 `.trim().replace(/\n/g, '');
     const digitLength = 13;
 
-    for (let index of range(0, num.length + 1 - digitLength).valueOf()) {
+    for (let index = 0; index <= num.length - digitLength; index += 1) {
       const partialDigits = num.slice(index, index + digitLength).split('').map((digit) => Number(digit));
       const product = prod(partialDigits);
 
@@ -49,5 +49,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

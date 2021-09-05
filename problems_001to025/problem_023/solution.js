@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { range, sum } = require('mathjs');
+const { sum } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 const { naturalSum, positiveDivisors } = require(`${rootPath}/lib/toolbox.js`);
@@ -8,30 +8,29 @@ class Solution extends Stopwatch {
   execute() {
     let answer = null;
 
-    let abundantNumbers = [];
-    let twoAbundantSums = new Set();
+    const abundantNumbers = [];
+    const twoAbundantSums = new Set();
 
-    for (let num of range(1, 28124).valueOf()) {
-      let properDivisors = positiveDivisors(num).slice(0, -1);
-      let divisorSum = sum(properDivisors);
+    for (let num = 1; num <= 28123; num += 1) {
+      const properDivisors = positiveDivisors(num).slice(0, -1);
+      const divisorSum = sum(properDivisors);
 
       if (divisorSum > num) {
         abundantNumbers.push(num);
 
-        for (let abundant of abundantNumbers) {
-          let abundantSum = abundant + num;
+        abundantNumbers.every((abundant) => {
+          const abundantSum = abundant + num;
 
-          if (abundantSum > 28123) {
-            break;
-          }
-          else {
+          if (abundantSum <= 28123) {
             twoAbundantSums.add(abundantSum);
           }
-        }
+
+          return abundantSum <= 28123;
+        });
       }
     }
 
-    answer = naturalSum(28123) - sum([ ...twoAbundantSums ]);
+    answer = naturalSum(28123) - sum([...twoAbundantSums]);
 
     return answer;
   }
@@ -42,5 +41,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

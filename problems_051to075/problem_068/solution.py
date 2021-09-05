@@ -23,7 +23,6 @@ class Solution(Stopwatch):
                 continue
 
             magic_sum = 10 + inner_nodes[0] + inner_nodes[1]
-
             outer_nodes = [
                 10,
                 magic_sum - (inner_nodes[1] + inner_nodes[2]),

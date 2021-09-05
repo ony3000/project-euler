@@ -45,15 +45,12 @@ class PokerHands():
         ordered_values = [card.value for card in self.cards]
         ordered_values.sort(reverse=True)
         high_card_value = reduce(lambda accumulator, current_value: accumulator*0x10 + current_value, ordered_values, 0)
-
         (first_most_value, first_most_value_count) = self.value_counter.most_common()[0]
         (_, second_most_value_count) = self.value_counter.most_common()[1]
-
         (_, first_most_suit_count) = self.suit_counter.most_common()[0]
 
         is_straight = (first_most_value_count == 1 and ordered_values[0]-ordered_values[-1] == len(ordered_values)-1)
         is_flush = first_most_suit_count == 5
-
         base_exponent = 4
         extra_exponent = 0
 
@@ -85,6 +82,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = 0
+
         stream = open(f'{PROBLEM_PATH}/poker.txt', 'r')
 
         while True:

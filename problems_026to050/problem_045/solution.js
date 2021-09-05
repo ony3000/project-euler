@@ -1,16 +1,15 @@
 const rootPath = require('app-root-path');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
+const {
+  nthTriangleNumber,
+  nthPentagonalNumber,
+  nthHexagonalNumber,
+} = require(`${rootPath}/lib/toolbox.js`);
 
 class Solution extends Stopwatch {
   execute() {
     let answer = null;
-
-    const nthTriangleNumber = (n) => (n * (n + 1) / 2);
-
-    const nthPentagonalNumber = (n) => (n * (3 * n - 1) / 2);
-
-    const nthHexagonalNumber = (n) => (n * (2 * n - 1));
 
     const isTriangleNumber = (num) => {
       const guessedN = Math.floor(Math.sqrt(num * 2));
@@ -19,7 +18,7 @@ class Solution extends Stopwatch {
     };
 
     const isPentagonalNumber = (num) => {
-      const guessedN = Math.ceil(Math.sqrt(num * 2 / 3));
+      const guessedN = Math.ceil(Math.sqrt((num * 2) / 3));
 
       return guessedN > 0 && num === nthPentagonalNumber(guessedN);
     };
@@ -46,5 +45,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

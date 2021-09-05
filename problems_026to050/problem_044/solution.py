@@ -6,6 +6,7 @@ PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 sys.path.append(PROJECT_PATH)
 
 from measurement import Stopwatch
+from toolbox import nth_pentagonal_number
 
 
 class Solution(Stopwatch):
@@ -16,9 +17,6 @@ class Solution(Stopwatch):
         answer = None
 
         pentagonal_numbers = []
-
-        def nth_pentagonal_number(n):
-            return n * (3*n - 1) // 2
 
         def is_pentagonal_number(num):
             guessed_n = ceil(sqrt(num * 2 / 3))

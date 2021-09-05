@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { range, sum, isPrime } = require('mathjs');
+const { sum, isPrime } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -8,16 +8,12 @@ class Solution extends Stopwatch {
     let answer = null;
 
     const limit = 1000000;
-    let n = 1;
+    let n = 0;
+    let approximateValue = 0;
 
-    while (true) {
-      const approximateValue = n ** 2 * Math.log(n) / 2;
-
-      if (approximateValue >= limit) {
-        break;
-      }
-
+    while (approximateValue < limit) {
       n += 1;
+      approximateValue = ((n ** 2) * Math.log(n)) / 2;
     }
 
     const primes = [2];
@@ -31,8 +27,8 @@ class Solution extends Stopwatch {
       num += 2;
     }
 
-    for (let length of range(n, 0, -1).valueOf()) {
-      for (let startIndex of range(0, n - length + 1).valueOf()) {
+    for (let length = n; length > 0; length -= 1) {
+      for (let startIndex = 0; startIndex <= n - length; startIndex += 1) {
         const endIndex = startIndex + length;
         const consecutiveSum = sum(primes.slice(startIndex, endIndex));
 
@@ -56,5 +52,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

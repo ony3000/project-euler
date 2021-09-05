@@ -7,7 +7,9 @@ class Solution extends Stopwatch {
   execute() {
     let answer = null;
 
-    answer = sum(range(1, 1001).valueOf().map((num) => Number((BigInt(num) ** BigInt(num)) % (10n ** 10n)))) % (10 ** 10);
+    answer = sum(
+      range(1, 1001).valueOf().map((num) => Number((BigInt(num) ** BigInt(num)) % (10n ** 10n))),
+    ) % (10 ** 10);
 
     return answer;
   }
@@ -18,5 +20,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

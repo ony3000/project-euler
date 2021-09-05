@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { setCartesian, isPrime } = require('mathjs');
+const { isPrime } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -10,38 +10,37 @@ class Solution extends Stopwatch {
     const primesPerDigits = {};
 
     for (let num = 3; num < 10000; num += 2) {
-      if (num < 1000 || !isPrime(num)) {
-        continue;
-      }
+      if (num >= 1000 && isPrime(num)) {
+        const prime = num;
+        const digitSet = String(prime).split('');
+        const combination = digitSet.slice().sort().join('');
 
-      const prime = num;
-      const digitSet = String(prime).split('');
-      const combination = digitSet.slice().sort().join('');
-
-      primesPerDigits[combination] = primesPerDigits[combination] || [];
-      primesPerDigits[combination].push(prime);
-    }
-
-    for (let combination of Object.keys(primesPerDigits)) {
-      if (primesPerDigits[combination].length < 3) {
-        continue;
-      }
-
-      const permutablePrimes = primesPerDigits[combination];
-
-      for (let [ a, b ] of setCartesian(permutablePrimes, permutablePrimes)) {
-        if (a >= b) {
-          continue;
-        }
-
-        const c = 2 * b - a;
-
-        if (permutablePrimes.includes(c) && b !== 4817 && a !== 1487) {
-          answer = String(a) + String(b) + String(c);
-          break;
-        }
+        primesPerDigits[combination] = primesPerDigits[combination] || [];
+        primesPerDigits[combination].push(prime);
       }
     }
+
+    Object.keys(primesPerDigits).every((combination) => {
+      if (primesPerDigits[combination].length >= 3) {
+        const permutablePrimes = primesPerDigits[combination];
+
+        return permutablePrimes.every((a) => permutablePrimes.every((b) => {
+          if (a < b) {
+            const c = 2 * b - a;
+
+            if (permutablePrimes.includes(c) && b !== 4817 && a !== 1487) {
+              answer = String(a) + String(b) + String(c);
+            }
+
+            return answer === null;
+          }
+
+          return true;
+        }));
+      }
+
+      return true;
+    });
 
     return answer;
   }
@@ -52,5 +51,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

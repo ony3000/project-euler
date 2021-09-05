@@ -1,6 +1,7 @@
 const rootPath = require('app-root-path');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
+const { nthPentagonalNumber } = require(`${rootPath}/lib/toolbox.js`);
 
 class Solution extends Stopwatch {
   execute() {
@@ -8,10 +9,8 @@ class Solution extends Stopwatch {
 
     const pentagonalNumbers = [];
 
-    const nthPentagonalNumber = (n) => (n * (3 * n - 1) / 2);
-
     const isPentagonalNumber = (num) => {
-      const guessedN = Math.ceil(Math.sqrt(num * 2 / 3));
+      const guessedN = Math.ceil(Math.sqrt((num * 2) / 3));
 
       return guessedN > 0 && num === nthPentagonalNumber(guessedN);
     };
@@ -23,7 +22,8 @@ class Solution extends Stopwatch {
 
       pentagonalNumbers.push(newPentagonal);
 
-      for (let existingPentagonal of pentagonalNumbers) {
+      for (let index = 0; index < pentagonalNumbers.length; index += 1) {
+        const existingPentagonal = pentagonalNumbers[index];
         const pentagonalSum = existingPentagonal + newPentagonal;
         const pentagonalDiff = Math.abs(existingPentagonal - newPentagonal);
 
@@ -45,5 +45,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

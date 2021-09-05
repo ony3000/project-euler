@@ -15,6 +15,7 @@ class Solution(Stopwatch):
 
     def execute(self):
         answer = None
+
         max_ratio = 0
 
         for num in range(2, 1000001):

@@ -16,12 +16,12 @@ class Solution(Stopwatch):
         answer = None
 
         permutation_dict = {}
-
         num = 0
+
         while True:
             num += 1
-            cube_num = num ** 3
 
+            cube_num = num ** 3
             digit_set = Counter(str(cube_num))
             one_of_permutations = ''.join(sorted(digit_set.elements()))
 

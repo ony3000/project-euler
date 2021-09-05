@@ -1,5 +1,4 @@
 const rootPath = require('app-root-path');
-const { range } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 const { primeFactorization } = require(`${rootPath}/lib/toolbox.js`);
@@ -10,7 +9,7 @@ class Solution extends Stopwatch {
 
     let maxCycleLength = 0;
 
-    for (let num of range(2, 1000).valueOf()) {
+    for (let num = 2; num < 1000; num += 1) {
       const primeFactors = primeFactorization(num);
       const hasRecurringCycle = primeFactors.some((factor) => (factor !== 2 && factor !== 5));
       let recurringCycleLength = 1;
@@ -41,5 +40,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

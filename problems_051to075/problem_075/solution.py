@@ -19,7 +19,6 @@ class Solution(Stopwatch):
         answer = 0
 
         max_wire_length = 1500000
-
         primitive_lengths = []
 
         for a in range(3, floor(max_wire_length / (2 + sqrt(2))) + 1):

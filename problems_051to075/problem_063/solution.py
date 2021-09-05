@@ -16,12 +16,12 @@ class Solution(Stopwatch):
         answer = 0
 
         num = 0
+
         while True:
             num += 1
 
             min_base = ceil(10 ** ((num-1) / num))
             max_base = 10
-
             base_count = max_base - min_base
 
             if base_count == 0:

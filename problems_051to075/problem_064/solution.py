@@ -83,7 +83,6 @@ class Solution(Stopwatch):
                 numerator=CombinedNumber(nonsquare_positive_integer=num, extra_integer=-integer_part),
                 denominator=1,
             )
-
             last_decimal_part = decimal_part
             period = 0
 
@@ -94,9 +93,7 @@ class Solution(Stopwatch):
                     numerator=last_decimal_part.denominator,
                     denominator=last_decimal_part.numerator,
                 )
-
                 next_integer_part = int(float(inverse))
-
                 next_decimal_part = RationalNumber(
                     numerator=CombinedNumber(
                         nonsquare_positive_integer=inverse.numerator.nonsquare_positive_integer,

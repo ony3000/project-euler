@@ -5,9 +5,11 @@ const { naturalSum } = require(`${rootPath}/lib/toolbox.js`);
 
 class Solution extends Stopwatch {
   execute() {
-    let answer = null;
+    let answer = 0;
 
-    answer = 3 * naturalSum(Math.floor(999 / 3)) + 5 * naturalSum(Math.floor(999 / 5)) - 15 * naturalSum(Math.floor(999 / 15));
+    answer += 3 * naturalSum(Math.floor(999 / 3));
+    answer += 5 * naturalSum(Math.floor(999 / 5));
+    answer -= 15 * naturalSum(Math.floor(999 / 15));
 
     return answer;
   }
@@ -18,5 +20,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

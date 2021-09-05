@@ -1,5 +1,5 @@
 const rootPath = require('app-root-path');
-const { range, setUnion, isPrime } = require('mathjs');
+const { setUnion, isPrime } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
@@ -21,13 +21,13 @@ class Solution extends Stopwatch {
     const filteredPrimes = primes.filter((prime) => !String(prime).includes('0') && !String(prime).includes('5'));
     let circularPrimes = [5];
 
-    for (let num of filteredPrimes) {
-      if (!circularPrimes.includes(num)) {
+    filteredPrimes.forEach((prime) => {
+      if (!circularPrimes.includes(prime)) {
         let isCircularPrime = true;
-        let circularPrimeCandidates = [num];
-        const temp = String(num);
+        let circularPrimeCandidates = [prime];
+        const temp = String(prime);
 
-        for (let index of range(1, temp.length).valueOf()) {
+        for (let index = 1; index < temp.length; index += 1) {
           const rotatedNum = Number(temp.slice(index) + temp.slice(0, index));
 
           if (isPrime(rotatedNum)) {
@@ -43,7 +43,7 @@ class Solution extends Stopwatch {
           circularPrimes = setUnion(circularPrimes, circularPrimeCandidates);
         }
       }
-    }
+    });
 
     answer = circularPrimes.length;
 
@@ -56,5 +56,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

@@ -10,7 +10,7 @@ class Solution extends Stopwatch {
     let count = 1;
     let num = 3;
 
-    while (true) {
+    while (answer === null) {
       if (isPrime(num)) {
         count += 1;
 
@@ -32,5 +32,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

@@ -9,7 +9,7 @@ class Solution extends Stopwatch {
 
     let num = 1;
 
-    while (true) {
+    while (answer === null) {
       const triangleNumber = naturalSum(num);
       const divisors = positiveDivisors(triangleNumber);
 
@@ -30,5 +30,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

@@ -331,24 +331,36 @@ def nth_polygonal_number(p, n):
 
 
 def nth_triangle_number(n):
+    """자연수 n에 대해, n번째 3각수를 구한다."""
+
     return nth_polygonal_number(3, n)
 
 
 def nth_square_number(n):
+    """자연수 n에 대해, n번째 4각수를 구한다."""
+
     return nth_polygonal_number(4, n)
 
 
 def nth_pentagonal_number(n):
+    """자연수 n에 대해, n번째 5각수를 구한다."""
+
     return nth_polygonal_number(5, n)
 
 
 def nth_hexagonal_number(n):
+    """자연수 n에 대해, n번째 6각수를 구한다."""
+
     return nth_polygonal_number(6, n)
 
 
 def nth_heptagonal_number(n):
+    """자연수 n에 대해, n번째 7각수를 구한다."""
+
     return nth_polygonal_number(7, n)
 
 
 def nth_octagonal_number(n):
+    """자연수 n에 대해, n번째 8각수를 구한다."""
+
     return nth_polygonal_number(8, n)
