@@ -86,15 +86,9 @@ class Solution extends Stopwatch {
 }
 
 (() => {
-  // To measure execution time, uncomment the two comments below.
-
   const solution = new Solution();
 
-  solution.start();
-
   const result = solution.execute();
-
-  solution.stop();
 
   // eslint-disable-next-line no-console
   console.log(result);
