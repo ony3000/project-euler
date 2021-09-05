@@ -9,7 +9,7 @@ class Solution extends Stopwatch {
 
     let num = 1;
 
-    while (true) {
+    while (answer === null) {
       if (numberOfIntegerPartitions(num) % 1000000n === 0n) {
         answer = num;
         break;
@@ -27,5 +27,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

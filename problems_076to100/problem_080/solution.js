@@ -1,6 +1,12 @@
 const rootPath = require('app-root-path');
 const { create, all } = require('mathjs');
-const { bignumber, sqrt, sum, isInteger } = create(all, {
+
+const {
+  bignumber,
+  sqrt,
+  sum,
+  isInteger,
+} = create(all, {
   precision: 105,
 });
 
@@ -11,13 +17,11 @@ class Solution extends Stopwatch {
     let answer = 0;
 
     for (let num = 1; num <= 100; num += 1) {
-      if (isInteger(sqrt(num))) {
-        continue;
+      if (!isInteger(sqrt(num))) {
+        const squareRootString = sqrt(bignumber(num)).toString();
+
+        answer += sum(squareRootString.replace('.', '').slice(0, 100).split(''));
       }
-
-      const squareRootString = sqrt(bignumber(num)).toString();
-
-      answer += sum(squareRootString.replace('.', '').slice(0, 100).split(''));
     }
 
     return answer;
@@ -29,5 +33,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

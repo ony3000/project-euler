@@ -36,14 +36,12 @@ class Solution extends Stopwatch {
         for (let rowIndex = FIRST_ROW_INDEX; rowIndex <= diagonalIndex; rowIndex += 1) {
           const columnIndex = diagonalIndex - rowIndex;
 
-          if (rowIndex > LAST_ROW_INDEX || columnIndex > LAST_COLUMN_INDEX) {
-            continue;
+          if (rowIndex <= LAST_ROW_INDEX && columnIndex <= LAST_COLUMN_INDEX) {
+            pathSumMatrix[rowIndex][columnIndex] = matrix[rowIndex][columnIndex] + Math.min(
+              (rowIndex === FIRST_ROW_INDEX ? Infinity : pathSumMatrix[rowIndex - 1][columnIndex]),
+              (columnIndex === FIRST_COLUMN_INDEX ? Infinity : pathSumMatrix[rowIndex][columnIndex - 1]),
+            );
           }
-
-          pathSumMatrix[rowIndex][columnIndex] = matrix[rowIndex][columnIndex] + Math.min(
-            (rowIndex === FIRST_ROW_INDEX ? Infinity : pathSumMatrix[rowIndex - 1][columnIndex]),
-            (columnIndex === FIRST_COLUMN_INDEX ? Infinity : pathSumMatrix[rowIndex][columnIndex - 1]),
-          );
         }
       }
     });
@@ -61,20 +59,18 @@ class Solution extends Stopwatch {
         for (let rowIndex = FIRST_ROW_INDEX; rowIndex <= diagonalIndex; rowIndex += 1) {
           const columnIndex = diagonalIndex - rowIndex;
 
-          if (rowIndex > LAST_ROW_INDEX || columnIndex > LAST_COLUMN_INDEX) {
-            continue;
-          }
+          if (rowIndex <= LAST_ROW_INDEX && columnIndex <= LAST_COLUMN_INDEX) {
+            const optimizedPathSum = matrix[rowIndex][columnIndex] + Math.min(
+              (rowIndex === FIRST_ROW_INDEX ? Infinity : pathSumMatrix[rowIndex - 1][columnIndex]),
+              (rowIndex === LAST_ROW_INDEX ? Infinity : pathSumMatrix[rowIndex + 1][columnIndex]),
+              (columnIndex === FIRST_COLUMN_INDEX ? Infinity : pathSumMatrix[rowIndex][columnIndex - 1]),
+              (columnIndex === LAST_COLUMN_INDEX ? Infinity : pathSumMatrix[rowIndex][columnIndex + 1]),
+            );
 
-          const optimizedPathSum = matrix[rowIndex][columnIndex] + Math.min(
-            (rowIndex === FIRST_ROW_INDEX ? Infinity : pathSumMatrix[rowIndex - 1][columnIndex]),
-            (rowIndex === LAST_ROW_INDEX ? Infinity : pathSumMatrix[rowIndex + 1][columnIndex]),
-            (columnIndex === FIRST_COLUMN_INDEX ? Infinity : pathSumMatrix[rowIndex][columnIndex - 1]),
-            (columnIndex === LAST_COLUMN_INDEX ? Infinity : pathSumMatrix[rowIndex][columnIndex + 1]),
-          );
-
-          if (pathSumMatrix[rowIndex][columnIndex] > optimizedPathSum) {
-            pathSumMatrix[rowIndex][columnIndex] = optimizedPathSum;
-            needOptimization = true;
+            if (pathSumMatrix[rowIndex][columnIndex] > optimizedPathSum) {
+              pathSumMatrix[rowIndex][columnIndex] = optimizedPathSum;
+              needOptimization = true;
+            }
           }
         }
       });
@@ -91,5 +87,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

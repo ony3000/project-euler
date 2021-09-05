@@ -60,7 +60,9 @@ class Solution extends Stopwatch {
       }
     });
 
-    answer = Math.min(...pathSumMatrix.map((row) => row[0]).filter((value) => Number.isFinite(value)));
+    answer = Math.min(
+      ...pathSumMatrix.map((row) => row[0]).filter((value) => Number.isFinite(value)),
+    );
 
     return answer;
   }
@@ -71,5 +73,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

@@ -52,7 +52,10 @@ class Solution extends Stopwatch {
       const checkableNodes = currentNode.successors.filter((node) => !checkedNodes.includes(node));
 
       if (checkableNodes.length === 0) {
-        if (currentNode === lastNode && Object.values(nodePerKey).every((node) => checkedNodes.includes(node))) {
+        if (
+          currentNode === lastNode
+            && Object.values(nodePerKey).every((node) => checkedNodes.includes(node))
+        ) {
           const possiblePasscode = checkedNodes.map((node) => node.character).join('');
 
           if (answer === null || answer.length > possiblePasscode.length) {
@@ -64,7 +67,7 @@ class Solution extends Stopwatch {
       }
 
       checkableNodes.forEach((anotherNode) => {
-        recursion(anotherNode, [ ...checkedNodes ]);
+        recursion(anotherNode, [...checkedNodes]);
       });
     };
 
@@ -79,5 +82,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();

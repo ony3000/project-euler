@@ -12,13 +12,13 @@ class Solution extends Stopwatch {
     const romans = source.toString().trim().split('\n').map((line) => line.trim());
 
     const decimalPerRoman = {
-      'I': 1,
-      'V': 5,
-      'X': 10,
-      'L': 50,
-      'C': 100,
-      'D': 500,
-      'M': 1000,
+      I: 1,
+      V: 5,
+      X: 10,
+      L: 50,
+      C: 100,
+      D: 500,
+      M: 1000,
     };
     const romanPerDecimal = {
       1: 'I',
@@ -54,24 +54,22 @@ class Solution extends Stopwatch {
         if (unit === 1000) {
           minimalForm += romanPerDecimal[unit].repeat(quotient);
         }
-        else {
-          if (quotient % 5 === 4) {
-            minimalForm += romanPerDecimal[unit];
+        else if (quotient % 5 === 4) {
+          minimalForm += romanPerDecimal[unit];
 
-            if (quotient >= 5) {
-              minimalForm += romanPerDecimal[unit * 10];
-            }
-            else {
-              minimalForm += romanPerDecimal[unit * 5];
-            }
+          if (quotient >= 5) {
+            minimalForm += romanPerDecimal[unit * 10];
           }
           else {
-            if (quotient >= 5) {
-              minimalForm += romanPerDecimal[unit * 5];
-            }
-
-            minimalForm += romanPerDecimal[unit].repeat(quotient % 5);
+            minimalForm += romanPerDecimal[unit * 5];
           }
+        }
+        else {
+          if (quotient >= 5) {
+            minimalForm += romanPerDecimal[unit * 5];
+          }
+
+          minimalForm += romanPerDecimal[unit].repeat(quotient % 5);
         }
 
         decimalValue %= unit;
@@ -89,5 +87,6 @@ class Solution extends Stopwatch {
 
   const result = solution.execute();
 
+  // eslint-disable-next-line no-console
   console.log(result);
 })();
