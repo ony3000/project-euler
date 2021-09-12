@@ -1,5 +1,8 @@
 ## 88. Product-sum numbers
 
+### Translation
+* [한국어](./translation-ko.md)
+
 A natural number, N, that can be written as the sum and product of a given set of at least two natural numbers, {<var>a</var><sub>1</sub>, <var>a</var><sub>2</sub>, ... , <var>a</var><sub><var>k</var></sub>} is called a product-sum number: N = <var>a</var><sub>1</sub> + <var>a</var><sub>2</sub> + ... + <var>a</var><sub><var>k</var></sub> = <var>a</var><sub>1</sub> &times; <var>a</var><sub>2</sub> &times; ... &times; <var>a</var><sub><var>k</var></sub>.
 
 For example, 6 = 1 + 2 + 3 = 1 &times; 2 &times; 3.
