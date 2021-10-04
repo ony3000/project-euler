@@ -4,7 +4,7 @@
 
 <p align="center">
   <img
-    src="https://projecteuler.net/project/images/p085.png"
+    src="./p085.png"
     alt="Image of rectangles"
   >
 </p>

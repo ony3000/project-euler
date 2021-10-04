@@ -7,7 +7,7 @@ Consider the following "magic" 3-gon ring, filled with the numbers 1 to 6, and e
 
 <p align="center">
   <img
-    src="https://projecteuler.net/project/images/p068_1.png"
+    src="./p068_1.png"
     alt="Filled 3-gon ring"
   >
 </p>
@@ -33,7 +33,7 @@ Using the numbers 1 to 10, and depending on arrangements, it is possible to form
 
 <p align="center">
   <img
-    src="https://projecteuler.net/project/images/p068_2.png"
+    src="./p068_2.png"
     alt="Empty 5-gon ring"
   >
 </p>

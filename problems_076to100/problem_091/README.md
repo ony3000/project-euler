@@ -4,7 +4,7 @@ The points P (<var>x</var><sub>1</sub>, <var>y</var><sub>1</sub>) and Q (<var>x<
 
 <p align="center">
   <img
-    src="https://projecteuler.net/project/images/p091_1.png"
+    src="./p091_1.png"
     alt="Image of triangle OPQ"
   >
 </p>
@@ -14,7 +14,7 @@ There are exactly fourteen triangles containing a right angle that can be formed
 
 <p align="center">
   <img
-    src="https://projecteuler.net/project/images/p091_2.png"
+    src="./p091_2.png"
     alt="Image of right angle triangles"
   >
 </p>

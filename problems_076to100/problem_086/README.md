@@ -7,7 +7,7 @@ A spider, S, sits in one corner of a cuboid room, measuring 6 by 5 by 3, and a f
 
 <p align="center">
   <img
-    src="https://projecteuler.net/project/images/p086.png"
+    src="./p086.png"
     alt="Image of cuboid room"
   >
 </p>

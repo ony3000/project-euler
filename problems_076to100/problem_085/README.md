@@ -7,7 +7,7 @@ By counting carefully it can be seen that a rectangular grid measuring 3 by 2 co
 
 <p align="center">
   <img
-    src="https://projecteuler.net/project/images/p085.png"
+    src="./p085.png"
     alt="Image of rectangles"
   >
 </p>

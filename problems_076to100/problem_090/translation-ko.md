@@ -6,7 +6,7 @@
 
 <p align="center">
   <img
-    src="https://projecteuler.net/project/images/p090.png"
+    src="./p090.png"
     alt="Image of cubes"
   >
 </p>

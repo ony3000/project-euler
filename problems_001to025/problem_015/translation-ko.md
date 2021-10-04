@@ -4,7 +4,7 @@
 
 <p align="center">
   <img
-    src="https://projecteuler.net/project/images/p015.png"
+    src="./p015.png"
     alt="Image of 6 routes"
   >
 </p>

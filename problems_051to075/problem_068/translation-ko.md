@@ -4,7 +4,7 @@
 
 <p align="center">
   <img
-    src="https://projecteuler.net/project/images/p068_1.png"
+    src="./p068_1.png"
     alt="Filled 3-gon ring"
   >
 </p>
@@ -30,7 +30,7 @@
 
 <p align="center">
   <img
-    src="https://projecteuler.net/project/images/p068_2.png"
+    src="./p068_2.png"
     alt="Empty 5-gon ring"
   >
 </p>

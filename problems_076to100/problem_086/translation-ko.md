@@ -4,7 +4,7 @@
 
 <p align="center">
   <img
-    src="https://projecteuler.net/project/images/p086.png"
+    src="./p086.png"
     alt="Image of cuboid room"
   >
 </p>

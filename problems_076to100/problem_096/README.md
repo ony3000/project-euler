@@ -4,12 +4,12 @@ Su Doku (Japanese meaning _number place_) is the name given to a popular puzzle 
 
 <p align="center">
   <img
-    src="https://projecteuler.net/project/images/p096_1.png"
+    src="./p096_1.png"
     alt="Image of starting grid"
   >
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img
-    src="https://projecteuler.net/project/images/p096_2.png"
+    src="./p096_2.png"
     alt="Image of solution grid"
   >
 </p>

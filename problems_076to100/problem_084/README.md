@@ -7,7 +7,7 @@ In the game, _Monopoly_, the standard board is set up in the following way:
 
 <p align="center">
   <img
-    src="https://projecteuler.net/project/images/p084_monopoly_board.png"
+    src="./p084_monopoly_board.png"
     alt="Image of Monopoly board"
   >
 </p>
