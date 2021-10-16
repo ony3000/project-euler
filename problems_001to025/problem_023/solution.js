@@ -2,7 +2,7 @@ const rootPath = require('app-root-path');
 const { sum } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
-const { naturalSum, positiveDivisors } = require(`${rootPath}/lib/toolbox.js`);
+const { naturalSum, properDivisorSum } = require(`${rootPath}/lib/toolbox.js`);
 
 class Solution extends Stopwatch {
   execute() {
@@ -12,8 +12,7 @@ class Solution extends Stopwatch {
     const twoAbundantSums = new Set();
 
     for (let num = 1; num <= 28123; num += 1) {
-      const properDivisors = positiveDivisors(num).slice(0, -1);
-      const divisorSum = sum(properDivisors);
+      const divisorSum = properDivisorSum(num);
 
       if (divisorSum > num) {
         abundantNumbers.push(num);

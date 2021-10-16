@@ -2,7 +2,7 @@ const rootPath = require('app-root-path');
 const { sum } = require('mathjs');
 
 const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
-const { positiveDivisors } = require(`${rootPath}/lib/toolbox.js`);
+const { properDivisorSum } = require(`${rootPath}/lib/toolbox.js`);
 
 class Solution extends Stopwatch {
   execute() {
@@ -14,8 +14,7 @@ class Solution extends Stopwatch {
     };
 
     for (let num = 1; num < 10000; num += 1) {
-      const properDivisors = positiveDivisors(num).slice(0, -1);
-      const divisorSum = sum(properDivisors);
+      const divisorSum = properDivisorSum(num);
 
       divisorSumPerNumber[num] = divisorSum;
 
