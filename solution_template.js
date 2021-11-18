@@ -1,4 +1,3 @@
-const rootPath = require('app-root-path');
 /* Import node library here. */
 const {
   bignumber,
@@ -15,7 +14,7 @@ const {
   isPrime,
 } = require('mathjs');
 
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
+const Stopwatch = require('../../lib/Stopwatch');
 /* Import custom made library here. */
 
 class Solution extends Stopwatch {

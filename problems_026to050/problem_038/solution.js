@@ -1,7 +1,6 @@
-const rootPath = require('app-root-path');
 const { range, setIsSubset } = require('mathjs');
 
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
+const Stopwatch = require('../../lib/Stopwatch');
 
 class Solution extends Stopwatch {
   execute() {

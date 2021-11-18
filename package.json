@@ -11,7 +11,6 @@
   "author": "Hyeonjong <nianelo4@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "app-root-path": "^3.0.0",
     "mathjs": "^9.3.2"
   },
   "devDependencies": {

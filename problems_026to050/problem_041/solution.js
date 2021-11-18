@@ -1,8 +1,7 @@
-const rootPath = require('app-root-path');
 const { range, isPrime } = require('mathjs');
 
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
-const { factorial, nthLexicographicPermutation } = require(`${rootPath}/lib/toolbox.js`);
+const Stopwatch = require('../../lib/Stopwatch');
+const { factorial, nthLexicographicPermutation } = require('../../lib/toolbox');
 
 class Solution extends Stopwatch {
   execute() {

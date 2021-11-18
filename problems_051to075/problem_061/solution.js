@@ -1,8 +1,7 @@
-const rootPath = require('app-root-path');
 const { range, sum } = require('mathjs');
 
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
-const { nthPolygonalNumber } = require(`${rootPath}/lib/toolbox.js`);
+const Stopwatch = require('../../lib/Stopwatch');
+const { nthPolygonalNumber } = require('../../lib/toolbox');
 
 class Solution extends Stopwatch {
   execute() {

@@ -1,8 +1,7 @@
-const rootPath = require('app-root-path');
 const fs = require('fs');
 const path = require('path');
 
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
+const Stopwatch = require('../../lib/Stopwatch');
 
 class Card {
   constructor(text) {

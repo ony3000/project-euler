@@ -1,7 +1,5 @@
-const rootPath = require('app-root-path');
-
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
-const { numberOfPartitions } = require(`${rootPath}/lib/toolbox.js`);
+const Stopwatch = require('../../lib/Stopwatch');
+const { numberOfPartitions } = require('../../lib/toolbox');
 
 class Solution extends Stopwatch {
   execute() {

@@ -1,7 +1,5 @@
-const rootPath = require('app-root-path');
-
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
-const { primeFactorization } = require(`${rootPath}/lib/toolbox.js`);
+const Stopwatch = require('../../lib/Stopwatch');
+const { primeFactorization } = require('../../lib/toolbox');
 
 class Solution extends Stopwatch {
   execute() {

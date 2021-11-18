@@ -1,6 +1,4 @@
-const rootPath = require('app-root-path');
-
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
+const Stopwatch = require('../../lib/Stopwatch');
 
 class Solution extends Stopwatch {
   execute() {
