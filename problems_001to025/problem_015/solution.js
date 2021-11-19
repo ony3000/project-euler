@@ -1,21 +1,16 @@
-const Stopwatch = require('../../lib/Stopwatch');
 const { factorial } = require('../../lib/toolbox');
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+const solution = () => {
+  let answer = null;
 
-    answer = Number(factorial(40) / (factorial(20) * factorial(20)));
+  answer = Number(factorial(40) / (factorial(20) * factorial(20)));
 
-    return answer;
-  }
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

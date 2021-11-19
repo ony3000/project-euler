@@ -1,48 +1,42 @@
 const { gcd, setDifference, setIntersect } = require('mathjs');
 
-const Stopwatch = require('../../lib/Stopwatch');
+const solution = () => {
+  let answer = null;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+  let numeratorProduct = 1;
+  let denominatorProduct = 1;
 
-    let numeratorProduct = 1;
-    let denominatorProduct = 1;
+  for (let denominator = 10; denominator <= 99; denominator += 1) {
+    for (let numerator = 10; numerator < denominator; numerator += 1) {
+      const numeratorDigits = String(numerator).split('');
+      const denominatorDigits = String(denominator).split('');
+      const commonDigits = setIntersect(numeratorDigits, denominatorDigits);
 
-    for (let denominator = 10; denominator <= 99; denominator += 1) {
-      for (let numerator = 10; numerator < denominator; numerator += 1) {
-        const numeratorDigits = String(numerator).split('');
-        const denominatorDigits = String(denominator).split('');
-        const commonDigits = setIntersect(numeratorDigits, denominatorDigits);
+      if (commonDigits.length === 1 && !commonDigits.includes('0')) {
+        const canceledNumerator = Number(...setDifference(numeratorDigits, commonDigits));
+        const canceledDenominator = Number(...setDifference(denominatorDigits, commonDigits));
 
-        if (commonDigits.length === 1 && !commonDigits.includes('0')) {
-          const canceledNumerator = Number(...setDifference(numeratorDigits, commonDigits));
-          const canceledDenominator = Number(...setDifference(denominatorDigits, commonDigits));
+        if (canceledNumerator < canceledDenominator) {
+          const originalFractionValue = numerator / denominator;
+          const canceledFractionValue = canceledNumerator / canceledDenominator;
 
-          if (canceledNumerator < canceledDenominator) {
-            const originalFractionValue = numerator / denominator;
-            const canceledFractionValue = canceledNumerator / canceledDenominator;
-
-            if (originalFractionValue === canceledFractionValue) {
-              numeratorProduct *= canceledNumerator;
-              denominatorProduct *= canceledDenominator;
-            }
+          if (originalFractionValue === canceledFractionValue) {
+            numeratorProduct *= canceledNumerator;
+            denominatorProduct *= canceledDenominator;
           }
         }
       }
     }
-
-    answer = denominatorProduct / gcd(numeratorProduct, denominatorProduct);
-
-    return answer;
   }
+
+  answer = denominatorProduct / gcd(numeratorProduct, denominatorProduct);
+
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

@@ -1,24 +1,18 @@
 const { range, sum } = require('mathjs');
 
-const Stopwatch = require('../../lib/Stopwatch');
+const solution = () => {
+  let answer = null;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+  answer = sum(
+    range(1, 1001).valueOf().map((num) => Number((BigInt(num) ** BigInt(num)) % (10n ** 10n))),
+  ) % (10 ** 10);
 
-    answer = sum(
-      range(1, 1001).valueOf().map((num) => Number((BigInt(num) ** BigInt(num)) % (10n ** 10n))),
-    ) % (10 ** 10);
+  return answer;
+};
 
-    return answer;
-  }
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

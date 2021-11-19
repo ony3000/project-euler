@@ -1,50 +1,44 @@
-const Stopwatch = require('../../lib/Stopwatch');
+const solution = () => {
+  let answer = null;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+  let maxSequenceLength = 0;
+  const lengthPerStarter = {};
 
-    let maxSequenceLength = 0;
-    const lengthPerStarter = {};
+  for (let starter = 1; starter < 1000000; starter += 1) {
+    let num = starter;
+    let length = 1;
 
-    for (let starter = 1; starter < 1000000; starter += 1) {
-      let num = starter;
-      let length = 1;
-
-      while (num > 1) {
-        if (num % 2 === 0) {
-          num /= 2;
-        }
-        else {
-          num = 3 * num + 1;
-        }
-
-        if (num in lengthPerStarter) {
-          length += lengthPerStarter[num];
-          break;
-        }
-        else {
-          length += 1;
-        }
+    while (num > 1) {
+      if (num % 2 === 0) {
+        num /= 2;
+      }
+      else {
+        num = 3 * num + 1;
       }
 
-      lengthPerStarter[starter] = length;
-
-      if (maxSequenceLength < length) {
-        maxSequenceLength = length;
-        answer = starter;
+      if (num in lengthPerStarter) {
+        length += lengthPerStarter[num];
+        break;
+      }
+      else {
+        length += 1;
       }
     }
 
-    return answer;
+    lengthPerStarter[starter] = length;
+
+    if (maxSequenceLength < length) {
+      maxSequenceLength = length;
+      answer = starter;
+    }
   }
+
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

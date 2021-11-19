@@ -2,33 +2,27 @@ const fs = require('fs');
 const path = require('path');
 const { sum } = require('mathjs');
 
-const Stopwatch = require('../../lib/Stopwatch');
+const solution = () => {
+  let answer = 0;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = 0;
+  const source = fs.readFileSync(path.resolve(__dirname, 'words.txt'));
+  const names = source.toString().trim().split(',');
 
-    const source = fs.readFileSync(path.resolve(__dirname, 'words.txt'));
-    const names = source.toString().trim().split(',');
+  names.forEach((name) => {
+    const wordValue = sum(name.slice(1, -1).split('').map((letter) => (letter.charCodeAt(0) - 'A'.charCodeAt(0) + 1)));
+    const num = Math.floor(Math.sqrt(wordValue * 2));
 
-    names.forEach((name) => {
-      const wordValue = sum(name.slice(1, -1).split('').map((letter) => (letter.charCodeAt(0) - 'A'.charCodeAt(0) + 1)));
-      const num = Math.floor(Math.sqrt(wordValue * 2));
+    if ((num * (num + 1)) / 2 === wordValue) {
+      answer += 1;
+    }
+  });
 
-      if ((num * (num + 1)) / 2 === wordValue) {
-        answer += 1;
-      }
-    });
+  return answer;
+};
 
-    return answer;
-  }
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

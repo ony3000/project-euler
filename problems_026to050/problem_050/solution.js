@@ -1,56 +1,50 @@
 const { sum, isPrime } = require('mathjs');
 
-const Stopwatch = require('../../lib/Stopwatch');
+const solution = () => {
+  let answer = null;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+  const limit = 1000000;
+  let n = 0;
+  let approximateValue = 0;
 
-    const limit = 1000000;
-    let n = 0;
-    let approximateValue = 0;
+  while (approximateValue < limit) {
+    n += 1;
+    approximateValue = ((n ** 2) * Math.log(n)) / 2;
+  }
 
-    while (approximateValue < limit) {
-      n += 1;
-      approximateValue = ((n ** 2) * Math.log(n)) / 2;
+  const primes = [2];
+  let num = 3;
+
+  while (primes.length < n) {
+    if (isPrime(num)) {
+      primes.push(num);
     }
 
-    const primes = [2];
-    let num = 3;
+    num += 2;
+  }
 
-    while (primes.length < n) {
-      if (isPrime(num)) {
-        primes.push(num);
-      }
+  for (let length = n; length > 0; length -= 1) {
+    for (let startIndex = 0; startIndex <= n - length; startIndex += 1) {
+      const endIndex = startIndex + length;
+      const consecutiveSum = sum(primes.slice(startIndex, endIndex));
 
-      num += 2;
-    }
-
-    for (let length = n; length > 0; length -= 1) {
-      for (let startIndex = 0; startIndex <= n - length; startIndex += 1) {
-        const endIndex = startIndex + length;
-        const consecutiveSum = sum(primes.slice(startIndex, endIndex));
-
-        if (consecutiveSum < limit && isPrime(consecutiveSum)) {
-          answer = consecutiveSum;
-          break;
-        }
-      }
-
-      if (answer !== null) {
+      if (consecutiveSum < limit && isPrime(consecutiveSum)) {
+        answer = consecutiveSum;
         break;
       }
     }
 
-    return answer;
+    if (answer !== null) {
+      break;
+    }
   }
+
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

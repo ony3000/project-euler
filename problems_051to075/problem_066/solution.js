@@ -1,7 +1,5 @@
 const { isInteger } = require('mathjs');
 
-const Stopwatch = require('../../lib/Stopwatch');
-
 class CombinedNumber {
   constructor(nonsquarePositiveInteger, extraInteger) {
     if (!isInteger(nonsquarePositiveInteger) || nonsquarePositiveInteger <= 0) {
@@ -71,73 +69,69 @@ class RationalNumber {
   }
 }
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+const solution = () => {
+  let answer = null;
 
-    let maxX = 0;
+  let maxX = 0;
 
-    const computeConvergents = (reversedSequence) => {
-      let numerator = 0n;
-      let denominator = 1n;
+  const computeConvergents = (reversedSequence) => {
+    let numerator = 0n;
+    let denominator = 1n;
 
-      reversedSequence.forEach((term, index) => {
-        numerator += term * denominator;
+    reversedSequence.forEach((term, index) => {
+      numerator += term * denominator;
 
-        if (index < reversedSequence.length - 1) {
-          [numerator, denominator] = [denominator, numerator];
-        }
-      });
+      if (index < reversedSequence.length - 1) {
+        [numerator, denominator] = [denominator, numerator];
+      }
+    });
 
-      return [numerator, denominator];
-    };
+    return [numerator, denominator];
+  };
 
-    for (let num = 2; num <= 1000; num += 1) {
-      const integerPart = Math.floor(Math.sqrt(num));
+  for (let num = 2; num <= 1000; num += 1) {
+    const integerPart = Math.floor(Math.sqrt(num));
 
-      if (integerPart ** 2 !== num) {
-        let decimalPart = new RationalNumber(
-          new CombinedNumber(num, -integerPart),
-          1,
+    if (integerPart ** 2 !== num) {
+      let decimalPart = new RationalNumber(
+        new CombinedNumber(num, -integerPart),
+        1,
+      );
+      const reversedSequence = [BigInt(integerPart)];
+      let [numerator, denominator] = computeConvergents(reversedSequence);
+
+      while (numerator ** 2n - BigInt(num) * denominator ** 2n !== 1n) {
+        const inverse = new RationalNumber(
+          decimalPart.denominator,
+          decimalPart.numerator,
         );
-        const reversedSequence = [BigInt(integerPart)];
-        let [numerator, denominator] = computeConvergents(reversedSequence);
+        const nextIntegerPart = Math.floor(Number(inverse));
+        const nextDecimalPart = new RationalNumber(
+          new CombinedNumber(
+            inverse.numerator.nonsquarePositiveInteger,
+            inverse.numerator.extraInteger - inverse.denominator * nextIntegerPart,
+          ),
+          inverse.denominator,
+        );
 
-        while (numerator ** 2n - BigInt(num) * denominator ** 2n !== 1n) {
-          const inverse = new RationalNumber(
-            decimalPart.denominator,
-            decimalPart.numerator,
-          );
-          const nextIntegerPart = Math.floor(Number(inverse));
-          const nextDecimalPart = new RationalNumber(
-            new CombinedNumber(
-              inverse.numerator.nonsquarePositiveInteger,
-              inverse.numerator.extraInteger - inverse.denominator * nextIntegerPart,
-            ),
-            inverse.denominator,
-          );
+        reversedSequence.unshift(BigInt(nextIntegerPart));
+        [numerator, denominator] = computeConvergents(reversedSequence);
+        decimalPart = nextDecimalPart;
+      }
 
-          reversedSequence.unshift(BigInt(nextIntegerPart));
-          [numerator, denominator] = computeConvergents(reversedSequence);
-          decimalPart = nextDecimalPart;
-        }
-
-        if (maxX < numerator) {
-          maxX = numerator;
-          answer = num;
-        }
+      if (maxX < numerator) {
+        maxX = numerator;
+        answer = num;
       }
     }
-
-    return answer;
   }
+
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

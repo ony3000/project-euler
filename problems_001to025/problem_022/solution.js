@@ -2,33 +2,27 @@ const fs = require('fs');
 const path = require('path');
 const { sum } = require('mathjs');
 
-const Stopwatch = require('../../lib/Stopwatch');
+const solution = () => {
+  let answer = 0;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = 0;
+  const source = fs.readFileSync(path.resolve(__dirname, 'names.txt'));
+  const names = source.toString().trim().split(',');
 
-    const source = fs.readFileSync(path.resolve(__dirname, 'names.txt'));
-    const names = source.toString().trim().split(',');
+  names.sort();
 
-    names.sort();
+  names.forEach((name, index) => {
+    const order = index + 1;
+    const worth = sum(name.replace(/"/g, '').split('').map((letter) => (letter.charCodeAt(0) - 'A'.charCodeAt(0) + 1)));
 
-    names.forEach((name, index) => {
-      const order = index + 1;
-      const worth = sum(name.replace(/"/g, '').split('').map((letter) => (letter.charCodeAt(0) - 'A'.charCodeAt(0) + 1)));
+    answer += order * worth;
+  });
 
-      answer += order * worth;
-    });
+  return answer;
+};
 
-    return answer;
-  }
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

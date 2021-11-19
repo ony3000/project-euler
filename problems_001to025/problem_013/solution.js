@@ -1,12 +1,9 @@
 const { bignumber, sum } = require('mathjs');
 
-const Stopwatch = require('../../lib/Stopwatch');
+const solution = () => {
+  let answer = null;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
-
-    const numbers = `
+  const numbers = `
 37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
 74324986199524741059474233309513058123726617309629
@@ -108,19 +105,16 @@ class Solution extends Stopwatch {
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690
 `.trim();
-    const total = sum(numbers.split('\n').map((line) => bignumber(line)));
+  const total = sum(numbers.split('\n').map((line) => bignumber(line)));
 
-    answer = String(total).replace('.', '').slice(0, 10);
+  answer = String(total).replace('.', '').slice(0, 10);
 
-    return answer;
-  }
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

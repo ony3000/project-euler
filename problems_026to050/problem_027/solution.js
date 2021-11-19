@@ -1,47 +1,41 @@
 const { isPrime } = require('mathjs');
 
-const Stopwatch = require('../../lib/Stopwatch');
+const solution = () => {
+  let answer = null;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+  let maxPrimeCount = 0;
+  let b = 2;
 
-    let maxPrimeCount = 0;
-    let b = 2;
+  while (b < 1001) {
+    if (isPrime(b)) {
+      for (let a = -b + 1; a < 1000; a += 1) {
+        let n = 0;
 
-    while (b < 1001) {
-      if (isPrime(b)) {
-        for (let a = -b + 1; a < 1000; a += 1) {
-          let n = 0;
-
-          while (isPrime(n ** 2 + a * n + b)) {
-            n += 1;
-          }
-
-          if (maxPrimeCount < n) {
-            maxPrimeCount = n;
-            answer = a * b;
-          }
+        while (isPrime(n ** 2 + a * n + b)) {
+          n += 1;
         }
-      }
 
-      if (b === 2) {
-        b += 1;
-      }
-      else {
-        b += 2;
+        if (maxPrimeCount < n) {
+          maxPrimeCount = n;
+          answer = a * b;
+        }
       }
     }
 
-    return answer;
+    if (b === 2) {
+      b += 1;
+    }
+    else {
+      b += 2;
+    }
   }
+
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

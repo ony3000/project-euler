@@ -4,8 +4,8 @@
   "description": "오일러 프로젝트 사이트의 문제 번역과 풀이",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint lib/*.js problems_*/**/*.js __tests__/*.js",
-    "lint:fix": "eslint --fix lib/*.js problems_*/**/*.js __tests__/*.js",
+    "lint": "eslint lib/*.js problems_*/**/*.js *.test.js",
+    "lint:fix": "eslint --fix lib/*.js problems_*/**/*.js *.test.js",
     "test": "jest --verbose"
   },
   "repository": "https://github.com/ony3000/project-euler.git",

@@ -1,10 +1,7 @@
-const Stopwatch = require('../../lib/Stopwatch');
+const solution = () => {
+  let answer = null;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
-
-    const numbers = `
+  const numbers = `
 75
 95 64
 17 47 82
@@ -21,33 +18,30 @@ class Solution extends Stopwatch {
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 `.trim();
-    const triangle = numbers.split('\n').map((row) => row.split(' ').map((num) => Number(num)));
-    const partialPathSum = [0, 0];
+  const triangle = numbers.split('\n').map((row) => row.split(' ').map((num) => Number(num)));
+  const partialPathSum = [0, 0];
 
-    for (let i = 0; i < triangle.length; i += 1) {
-      const row = triangle[i];
+  for (let i = 0; i < triangle.length; i += 1) {
+    const row = triangle[i];
 
-      for (let j = 0; j < row.length; j += 1) {
-        const leftPathSum = row[j] + partialPathSum[j];
-        const rightPathSum = row[j] + partialPathSum[j + 1];
+    for (let j = 0; j < row.length; j += 1) {
+      const leftPathSum = row[j] + partialPathSum[j];
+      const rightPathSum = row[j] + partialPathSum[j + 1];
 
-        row[j] = Math.max(leftPathSum, rightPathSum);
-      }
-
-      partialPathSum.splice(1, 0, ...row);
+      row[j] = Math.max(leftPathSum, rightPathSum);
     }
 
-    answer = Math.max(...partialPathSum);
-
-    return answer;
+    partialPathSum.splice(1, 0, ...row);
   }
+
+  answer = Math.max(...partialPathSum);
+
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

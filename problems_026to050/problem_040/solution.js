@@ -1,38 +1,32 @@
-const Stopwatch = require('../../lib/Stopwatch');
+const solution = () => {
+  let answer = 1;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = 1;
+  let num = 1;
+  let nextN = 1;
+  let digitLength = 0;
 
-    let num = 1;
-    let nextN = 1;
-    let digitLength = 0;
+  while (digitLength < 1000000) {
+    const stringified = String(num);
 
-    while (digitLength < 1000000) {
-      const stringified = String(num);
+    digitLength += stringified.length;
 
-      digitLength += stringified.length;
+    if (digitLength >= nextN) {
+      const diff = digitLength - nextN;
+      const nthDigit = Number(stringified[stringified.length - (1 + diff)]);
 
-      if (digitLength >= nextN) {
-        const diff = digitLength - nextN;
-        const nthDigit = Number(stringified[stringified.length - (1 + diff)]);
-
-        answer *= nthDigit;
-        nextN *= 10;
-      }
-
-      num += 1;
+      answer *= nthDigit;
+      nextN *= 10;
     }
 
-    return answer;
+    num += 1;
   }
+
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;
