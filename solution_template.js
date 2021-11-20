@@ -2,6 +2,7 @@ const rootPath = require('app-root-path');
 /* Import node library here. */
 const {
   bignumber,
+  floor,
   gcd,
   sqrt,
   range,
