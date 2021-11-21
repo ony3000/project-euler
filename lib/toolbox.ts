@@ -128,6 +128,28 @@ const squareSum = (n: number) => {
  */
 const prod = (numbers: number[]) => numbers.reduce((accumulator, currentValue) => accumulator * currentValue, 1);
 
+/**
+ * 주어진 실수 배열에 대해, 모든 값을 더한 결과를 구한다.
+ */
+const sum = (numbers: bigint[]) => numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0n);
+
+/**
+ * 음이 아닌 정수 n에 대해, n의 계승을 구한다.
+ */
+const factorial = (n: number) => {
+  if (!Number.isInteger(n) || n < 0) {
+    throw new Error('0 또는 양의 정수여야 합니다');
+  }
+
+  let result = 1n;
+
+  for (let num = 1; num <= n; num += 1) {
+    result *= BigInt(num);
+  }
+
+  return result;
+};
+
 export {
   naturalSum,
   primeFactorization,
@@ -135,4 +157,6 @@ export {
   gcd,
   squareSum,
   prod,
+  sum,
+  factorial,
 };
