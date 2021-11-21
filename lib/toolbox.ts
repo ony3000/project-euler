@@ -112,9 +112,27 @@ const gcd = (a: number, b: number) => {
   return larger;
 };
 
+/**
+ * 자연수 n에 대해, 1부터 n까지 제곱의 합을 구한다.
+ */
+const squareSum = (n: number) => {
+  if (!Number.isInteger(n) || n <= 0) {
+    throw new Error('자연수가 아닙니다');
+  }
+
+  return (n * (n + 1) * (2 * n + 1)) / 6;
+};
+
+/**
+ * 주어진 실수 배열에 대해, 모든 값을 곱한 결과를 구한다.
+ */
+const prod = (numbers: number[]) => numbers.reduce((accumulator, currentValue) => accumulator * currentValue, 1);
+
 export {
   naturalSum,
   primeFactorization,
   positiveDivisors,
   gcd,
+  squareSum,
+  prod,
 };
