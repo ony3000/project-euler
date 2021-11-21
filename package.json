@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "mathjs": "^9.3.2"
+    "mathjs": "^9.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
