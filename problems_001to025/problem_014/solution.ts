@@ -1,14 +1,10 @@
-import { SolutionFunction } from '../../lib/types';
-
-interface LengthPerStarter {
-  [starter: string]: number;
-}
+import { SolutionFunction, NumberDictionary } from '../../lib/types';
 
 const solution: SolutionFunction = () => {
   let answer = null;
 
   let maxSequenceLength = 0;
-  const lengthPerStarter: LengthPerStarter = {};
+  const lengthPerStarter: NumberDictionary = {};
 
   for (let starter = 1; starter < 1000000; starter += 1) {
     let num = starter;
