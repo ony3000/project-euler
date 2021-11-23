@@ -7,18 +7,25 @@ function naturalSum(n: number): number;
 function naturalSum(n: bigint): bigint;
 function naturalSum(n: number | bigint): number | bigint {
   if (typeof n === 'number') {
-    if (!Number.isInteger(n) || n <= 0) {
-      throw new Error('자연수가 아닙니다');
+    if (!Number.isInteger(n)) {
+      throw new TypeError('자연수가 아닙니다');
+    }
+
+    if (n <= 0) {
+      throw new RangeError('자연수가 아닙니다');
     }
 
     return (n * (n + 1)) / 2;
   }
-  else {
+  else if (typeof n === 'bigint') {
     if (n <= 0n) {
-      throw new Error('자연수가 아닙니다');
+      throw new RangeError('자연수가 아닙니다');
     }
 
     return (n * (n + 1n)) / 2n;
+  }
+  else {
+    throw new TypeError('자연수가 아닙니다');
   }
 }
 
@@ -27,11 +34,11 @@ function naturalSum(n: number | bigint): number | bigint {
  */
 function primeFactorization(n: number): number[] {
   if (!Number.isInteger(n)) {
-    throw new Error('정수가 아닙니다');
+    throw new TypeError('정수가 아닙니다');
   }
 
   if (Math.abs(n) <= 1) {
-    throw new Error('절대값이 1보다 커야 합니다');
+    throw new RangeError('절대값이 1보다 커야 합니다');
   }
 
   const primeFactors: number[] = [];
@@ -68,11 +75,11 @@ function primeFactorization(n: number): number[] {
  */
 function positiveDivisors(n: number): number[] {
   if (!Number.isInteger(n)) {
-    throw new Error('정수가 아닙니다');
+    throw new TypeError('정수가 아닙니다');
   }
 
   if (n === 0) {
-    throw new Error('0이 아니어야 합니다');
+    throw new RangeError('0이 아니어야 합니다');
   }
 
   if (Math.abs(n) === 1) {
@@ -115,7 +122,7 @@ function gcd(a: bigint, b: bigint): bigint;
 function gcd(a: number | bigint, b: number | bigint): number | bigint {
   if (typeof a === 'number' && typeof b === 'number') {
     if (!Number.isInteger(a) || !Number.isInteger(b)) {
-      throw new Error('정수가 아닙니다');
+      throw new TypeError('같은 타입의 정수가 아닙니다');
     }
 
     let larger = Math.max(Math.abs(a), Math.abs(b));
@@ -141,7 +148,7 @@ function gcd(a: number | bigint, b: number | bigint): number | bigint {
     return larger;
   }
   else {
-    throw new Error('같은 타입의 정수가 아닙니다');
+    throw new TypeError('같은 타입의 정수가 아닙니다');
   }
 }
 
@@ -152,18 +159,25 @@ function squareSum(n: number): number;
 function squareSum(n: bigint): bigint;
 function squareSum(n: number | bigint): number | bigint {
   if (typeof n === 'number') {
-    if (!Number.isInteger(n) || n <= 0) {
-      throw new Error('자연수가 아닙니다');
+    if (!Number.isInteger(n)) {
+      throw new TypeError('자연수가 아닙니다');
+    }
+
+    if (n <= 0) {
+      throw new RangeError('자연수가 아닙니다');
     }
 
     return (n * (n + 1) * (2 * n + 1)) / 6;
   }
-  else {
+  else if (typeof n === 'bigint') {
     if (n <= 0n) {
-      throw new Error('자연수가 아닙니다');
+      throw new RangeError('자연수가 아닙니다');
     }
 
     return (n * (n + 1n) * (2n * n + 1n)) / 6n;
+  }
+  else {
+    throw new TypeError('자연수가 아닙니다');
   }
 }
 
@@ -174,7 +188,7 @@ function prod(numbers: number[]): number;
 function prod(numbers: bigint[]): bigint;
 function prod(numbers: (number | bigint)[]): number | bigint {
   if (numbers.length === 0) {
-    throw new Error('배열이 비어있습니다');
+    throw new RangeError('배열이 비어있습니다');
   }
 
   if (isNumberArray(numbers)) {
@@ -184,7 +198,7 @@ function prod(numbers: (number | bigint)[]): number | bigint {
     return numbers.reduce((accumulator, currentValue) => accumulator * currentValue, 1n);
   }
   else {
-    throw new Error('수 타입이 아닌 값이 있습니다');
+    throw new TypeError('수 타입이 아닌 값이 있습니다');
   }
 }
 
@@ -195,7 +209,7 @@ function sum(numbers: number[]): number;
 function sum(numbers: bigint[]): bigint;
 function sum(numbers: (number | bigint)[]): number | bigint {
   if (numbers.length === 0) {
-    throw new Error('배열이 비어있습니다');
+    throw new RangeError('배열이 비어있습니다');
   }
 
   if (isNumberArray(numbers)) {
@@ -205,7 +219,7 @@ function sum(numbers: (number | bigint)[]): number | bigint {
     return numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0n);
   }
   else {
-    throw new Error('수 타입이 아닌 값이 있습니다');
+    throw new TypeError('수 타입이 아닌 값이 있습니다');
   }
 }
 
@@ -213,8 +227,12 @@ function sum(numbers: (number | bigint)[]): number | bigint {
  * 음이 아닌 정수 n에 대해, n의 계승을 구한다.
  */
 function factorial(n: number): bigint {
-  if (!Number.isInteger(n) || n < 0) {
-    throw new Error('0 또는 양의 정수여야 합니다');
+  if (!Number.isInteger(n)) {
+    throw new TypeError('0 또는 양의 정수여야 합니다');
+  }
+
+  if (n < 0) {
+    throw new RangeError('0 또는 양의 정수여야 합니다');
   }
 
   let result = 1n;
