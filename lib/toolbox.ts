@@ -1,4 +1,4 @@
-import { isNumberArray, isBigIntArray } from './type-guard';
+import { isNumberArray, isBigIntArray, isStringArray } from './type-guard';
 
 /**
  * 자연수 n에 대해, 1부터 n까지의 합을 구한다.
@@ -244,6 +244,58 @@ function factorial(n: number): bigint {
   return result;
 }
 
+/**
+ * 자연수 n에 대해, n번째 사전식 순열을 구한다.
+ *
+ * 기본적으로는 'a'부터 'z'까지의 문자들을 재배열하지만, 임의의 문자 리스트를 지정할 수도 있다.
+ */
+function nthLexicographicPermutation(n: number, elements: string[] | undefined): string {
+  if (!Number.isInteger(n)) {
+    throw new TypeError('자연수가 아닙니다');
+  }
+
+  if (n <= 0) {
+    throw new RangeError('자연수가 아닙니다');
+  }
+
+  let orderedElements: string[] | null = null;
+
+  if (elements === undefined) {
+    orderedElements = Array(26).fill(null).map((_, index) => String.fromCharCode('a'.charCodeAt(0) + index));
+  }
+  else if (isStringArray(elements)) {
+    orderedElements = elements.slice().sort();
+  }
+  else {
+    throw new TypeError('문자 리스트로만 재배열 가능합니다');
+  }
+
+  const maxPermutationCount = factorial(orderedElements.length);
+
+  if (n > maxPermutationCount) {
+    throw new RangeError(`최대 ${maxPermutationCount}가지 순열이 존재합니다`);
+  }
+
+  let result = '';
+
+  if (orderedElements.length) {
+    let index = n - 1;
+
+    for (let num = orderedElements.length - 1; num > 0; num -= 1) {
+      const permutationCount = Number(factorial(num));
+      const quotient = Math.floor(index / permutationCount);
+
+      result += orderedElements[quotient];
+      orderedElements.splice(quotient, 1);
+      index %= permutationCount;
+    }
+
+    result += orderedElements[0];
+  }
+
+  return result;
+}
+
 export {
   naturalSum,
   primeFactorization,
@@ -253,4 +305,5 @@ export {
   prod,
   sum,
   factorial,
+  nthLexicographicPermutation,
 };
