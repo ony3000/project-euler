@@ -1,11 +1,11 @@
-import { SolutionFunction, NumberDictionary } from '../../lib/types';
+import { SolutionFunction, Dictionary } from '../../lib/types';
 import { positiveDivisors, sum } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer = null;
 
   const amicableNumbers: number[] = [];
-  const divisorSumPerNumber: NumberDictionary = {
+  const divisorSumPerNumber: Dictionary<number> = {
     0: 0,
   };
 

@@ -1,15 +1,10 @@
 type SolutionFunction = () => number | string | null;
 
-interface NumberDictionary {
-  [key: string]: number;
-}
-
-interface StringDictionary {
-  [key: string]: string;
+interface Dictionary<Type> {
+  [key: string]: Type;
 }
 
 export {
   SolutionFunction,
-  NumberDictionary,
-  StringDictionary,
+  Dictionary,
 };
