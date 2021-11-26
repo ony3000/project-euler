@@ -2,10 +2,12 @@
 
 [오일러 프로젝트](https://projecteuler.net/) 사이트의 문제 번역과 풀이
 
+* 101번 문제는 12월 25일 풀이 예정입니다.
+
 ## 사용 언어
 
 * Python 3.9
-* JavaScript (Node 12)
+* Node 14
 
 ## 정답 확인 방법
 
