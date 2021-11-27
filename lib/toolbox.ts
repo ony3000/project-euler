@@ -322,6 +322,146 @@ function nthLexicographicPermutation(n: number, elements: string[] | undefined):
   return result;
 }
 
+/**
+ * 음이 아닌 정수 n에 대해, n을 분할하는 방법의 수를 구한다.
+ *
+ * 기본적으로는 1부터 n까지의 자연수들로 분할하지만, 임의의 자연수 리스트를 지정할 수도 있다.
+ */
+function numberOfPartitions(n: number, parts: number[] | undefined): number {
+  if (!Number.isInteger(n)) {
+    throw new TypeError('0 또는 양의 정수여야 합니다');
+  }
+
+  if (n < 0) {
+    throw new RangeError('0 또는 양의 정수여야 합니다');
+  }
+
+  let orderedParts: number[] | null = null;
+
+  if (parts === undefined) {
+    orderedParts = range(n, 0, -1);
+  }
+  else if (isNumberArray(parts)) {
+    orderedParts = parts.slice().sort((former, latter) => (latter - former));
+  }
+  else {
+    throw new TypeError('자연수 리스트로만 분할 가능합니다');
+  }
+
+  const recursion = (num: number, sortedParts: number[]): number => {
+    if (num === 0) {
+      return 1;
+    }
+
+    if (sortedParts.length === 0) {
+      return 0;
+    }
+
+    if (sortedParts.length === 1) {
+      const [largestPart] = sortedParts;
+
+      return (num % largestPart === 0 ? 1 : 0);
+    }
+
+    let result = 0;
+    const [largestPart] = sortedParts;
+    const maxAvailableCount = Math.floor(num / largestPart);
+
+    for (let usedCount = maxAvailableCount; usedCount >= 0; usedCount -= 1) {
+      const remainder = num - largestPart * usedCount;
+
+      result += recursion(remainder, sortedParts.slice(1));
+    }
+
+    return result;
+  };
+
+  return recursion(n, orderedParts);
+}
+
+/**
+ * 두 배열 또는 두 집합 A, B에 대해, A와 B의 차집합을 구한다.
+ */
+function setDifference(arrayA: unknown[], arrayB: unknown[]): unknown[];
+function setDifference(setA: Set<unknown>, setB: Set<unknown>): Set<unknown>;
+function setDifference(arrayOrSetA: unknown[] | Set<unknown>, arrayOrSetB: unknown[] | Set<unknown>): unknown[] | Set<unknown> {
+  const recursion = (setA: Set<unknown>, setB: Set<unknown>): Set<unknown> => {
+    const difference = new Set(setA);
+
+    for (const element of setB) {
+      difference.delete(element);
+    }
+
+    return difference;
+  };
+
+  if (Array.isArray(arrayOrSetA) && Array.isArray(arrayOrSetB)) {
+    return [...recursion(new Set(arrayOrSetA), new Set(arrayOrSetB))];
+  }
+  else if (arrayOrSetA instanceof Set && arrayOrSetB instanceof Set) {
+    return recursion(arrayOrSetA, arrayOrSetB);
+  }
+  else {
+    throw new TypeError('같은 타입의 객체가 아닙니다');
+  }
+}
+
+/**
+ * 두 배열 또는 두 집합 A, B에 대해, A와 B의 교집합을 구한다.
+ */
+function setIntersection(arrayA: unknown[], arrayB: unknown[]): unknown[];
+function setIntersection(setA: Set<unknown>, setB: Set<unknown>): Set<unknown>;
+function setIntersection(arrayOrSetA: unknown[] | Set<unknown>, arrayOrSetB: unknown[] | Set<unknown>): unknown[] | Set<unknown> {
+  const recursion = (setA: Set<unknown>, setB: Set<unknown>): Set<unknown> => {
+    const intersection = new Set();
+
+    for (const element of setB) {
+      if (setA.has(element)) {
+        intersection.add(element);
+      }
+    }
+
+    return intersection;
+  };
+
+  if (Array.isArray(arrayOrSetA) && Array.isArray(arrayOrSetB)) {
+    return [...recursion(new Set(arrayOrSetA), new Set(arrayOrSetB))];
+  }
+  else if (arrayOrSetA instanceof Set && arrayOrSetB instanceof Set) {
+    return recursion(arrayOrSetA, arrayOrSetB);
+  }
+  else {
+    throw new TypeError('같은 타입의 객체가 아닙니다');
+  }
+}
+
+/**
+ * 두 배열 또는 두 집합 A, B에 대해, A와 B의 합집합을 구한다.
+ */
+function setUnion(arrayA: unknown[], arrayB: unknown[]): unknown[];
+function setUnion(setA: Set<unknown>, setB: Set<unknown>): Set<unknown>;
+function setUnion(arrayOrSetA: unknown[] | Set<unknown>, arrayOrSetB: unknown[] | Set<unknown>): unknown[] | Set<unknown> {
+  const recursion = (setA: Set<unknown>, setB: Set<unknown>): Set<unknown> => {
+    const union = new Set(setA);
+
+    for (const element of setB) {
+      union.add(element);
+    }
+
+    return union;
+  };
+
+  if (Array.isArray(arrayOrSetA) && Array.isArray(arrayOrSetB)) {
+    return [...recursion(new Set(arrayOrSetA), new Set(arrayOrSetB))];
+  }
+  else if (arrayOrSetA instanceof Set && arrayOrSetB instanceof Set) {
+    return recursion(arrayOrSetA, arrayOrSetB);
+  }
+  else {
+    throw new TypeError('같은 타입의 객체가 아닙니다');
+  }
+}
+
 export {
   naturalSum,
   primeFactorization,
@@ -334,4 +474,8 @@ export {
   sum,
   factorial,
   nthLexicographicPermutation,
+  numberOfPartitions,
+  setDifference,
+  setIntersection,
+  setUnion,
 };
