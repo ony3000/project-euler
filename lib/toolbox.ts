@@ -71,6 +71,32 @@ function primeFactorization(n: number): number[] {
 }
 
 /**
+ * 임의의 배열에서, 주어진 원소의 개수를 구한다.
+ */
+function count(arg: unknown[], target: unknown): number {
+  if (!Array.isArray(arg)) {
+    throw new TypeError('배열이 아닙니다');
+  }
+
+  return arg.filter((element) => (element === target)).length;
+}
+
+/**
+ * 두 정수 시작값, 끝값에 대해, 시작값을 포함하고 끝값은 포함하지 않는 정수 배열을 구한다.
+ *
+ * 기본적으로 정수 배열의 원소 간격은 1이지만, 임의의 정수를 지정할 수도 있다.
+ */
+function range(start: number, end: number, step: number = 1): number[] {
+  if (!Number.isInteger(start) || !Number.isInteger(end) || !Number.isInteger(step)) {
+    throw new TypeError('정수가 아닙니다');
+  }
+
+  const rangeLength = Math.max(0, Math.ceil((end - start) / step));
+
+  return Array(rangeLength).fill(null).map((_, index) => (start + step * index));
+}
+
+/**
  * 0이 아닌 정수 n에 대해, 정수 범위 안에서 양의 약수를 구한다.
  */
 function positiveDivisors(n: number): number[] {
@@ -91,9 +117,9 @@ function positiveDivisors(n: number): number[] {
 
   while (primeFactors.length > 0) {
     const [base] = primeFactors;
-    const baseCount = primeFactors.filter((primeFactor) => (primeFactor === base)).length;
+    const baseCount = count(primeFactors, base);
 
-    involutions.push(Array(baseCount + 1).fill(null).map((_, exponent) => (base ** exponent)));
+    involutions.push(range(0, baseCount + 1).map((exponent) => (base ** exponent)));
     primeFactors.splice(0, baseCount);
   }
 
@@ -247,7 +273,7 @@ function factorial(n: number): bigint {
 /**
  * 자연수 n에 대해, n번째 사전식 순열을 구한다.
  *
- * 기본적으로는 'a'부터 'z'까지의 문자들을 재배열하지만, 임의의 문자 리스트를 지정할 수도 있다.
+ * 기본적으로 'a'부터 'z'까지의 문자들을 재배열하지만, 임의의 문자 리스트를 지정할 수도 있다.
  */
 function nthLexicographicPermutation(n: number, elements: string[] | undefined): string {
   if (!Number.isInteger(n)) {
@@ -261,7 +287,7 @@ function nthLexicographicPermutation(n: number, elements: string[] | undefined):
   let orderedElements: string[] | null = null;
 
   if (elements === undefined) {
-    orderedElements = Array(26).fill(null).map((_, index) => String.fromCharCode('a'.charCodeAt(0) + index));
+    orderedElements = range(0, 26).map((index) => String.fromCharCode('a'.charCodeAt(0) + index));
   }
   else if (isStringArray(elements)) {
     orderedElements = elements.slice().sort();
@@ -299,6 +325,8 @@ function nthLexicographicPermutation(n: number, elements: string[] | undefined):
 export {
   naturalSum,
   primeFactorization,
+  count,
+  range,
   positiveDivisors,
   gcd,
   squareSum,
