@@ -462,6 +462,55 @@ function setUnion(arrayOrSetA: unknown[] | Set<unknown>, arrayOrSetB: unknown[] 
   }
 }
 
+/**
+ * 문자열 s에 대해, s가 회문인지 판정한다.
+ */
+function isPalindrome(s: string): boolean {
+  if (typeof s !== 'string') {
+    throw new TypeError('문자열이 아닙니다');
+  }
+
+  let judgment = true;
+  const halfLength = Math.floor(s.length / 2);
+
+  for (let index = 0; index < halfLength; index += 1) {
+    const frontLetter = s[index];
+    const rearLetter = s[s.length - 1 - index];
+
+    if (frontLetter !== rearLetter) {
+      judgment = false;
+      break;
+    }
+  }
+
+  return judgment;
+}
+
+/**
+ * 두 배열 또는 두 집합 A, B에 대해, A가 B의 부분집합인지 판정한다.
+ */
+function setIsSubset(arrayOrSetA: unknown[] | Set<unknown>, arrayOrSetB: unknown[] | Set<unknown>): boolean {
+  const recursion = (setA: Set<unknown>, setB: Set<unknown>): boolean => {
+    for (const element of setA) {
+      if (!setB.has(element)) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
+  if (Array.isArray(arrayOrSetA) && Array.isArray(arrayOrSetB)) {
+    return recursion(new Set(arrayOrSetA), new Set(arrayOrSetB));
+  }
+  else if (arrayOrSetA instanceof Set && arrayOrSetB instanceof Set) {
+    return recursion(arrayOrSetA, arrayOrSetB);
+  }
+  else {
+    throw new TypeError('같은 타입의 객체가 아닙니다');
+  }
+}
+
 export {
   naturalSum,
   primeFactorization,
@@ -478,4 +527,6 @@ export {
   setDifference,
   setIntersection,
   setUnion,
+  isPalindrome,
+  setIsSubset,
 };
