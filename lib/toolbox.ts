@@ -511,6 +511,82 @@ function setIsSubset(arrayOrSetA: unknown[] | Set<unknown>, arrayOrSetB: unknown
   }
 }
 
+/**
+ * 두 배열 또는 두 집합 A, B에 대해, A, B가 '같은' 집합인지 판정한다.
+ * 여기서 두 집합이 같다는 것은, 두 집합을 구성하는 원소가 동일함을 의미한다.
+ */
+function setIsEqual(arrayOrSetA: unknown[] | Set<unknown>, arrayOrSetB: unknown[] | Set<unknown>): boolean {
+  const recursion = (setA: Set<unknown>, setB: Set<unknown>): boolean => {
+    return setIsSubset(setA, setB) && setIsSubset(setB, setA);
+  };
+
+  if (Array.isArray(arrayOrSetA) && Array.isArray(arrayOrSetB)) {
+    return recursion(new Set(arrayOrSetA), new Set(arrayOrSetB));
+  }
+  else if (arrayOrSetA instanceof Set && arrayOrSetB instanceof Set) {
+    return recursion(arrayOrSetA, arrayOrSetB);
+  }
+  else {
+    throw new TypeError('같은 타입의 객체가 아닙니다');
+  }
+}
+
+/**
+ * 자연수 n에 대해, n번째 오각수를 구한다.
+ */
+function nthPentagonalNumber(n: number): number {
+  if (!Number.isInteger(n)) {
+    throw new TypeError('자연수가 아닙니다');
+  }
+
+  if (n <= 0) {
+    throw new RangeError('자연수가 아닙니다');
+  }
+
+  return (n * (3 * n - 1)) / 2;
+}
+
+/**
+ * 자연수 n에 대해, n번째 육각수를 구한다.
+ */
+function nthHexagonalNumber(n: number): number {
+  if (!Number.isInteger(n)) {
+    throw new TypeError('자연수가 아닙니다');
+  }
+
+  if (n <= 0) {
+    throw new RangeError('자연수가 아닙니다');
+  }
+
+  return n * (2 * n - 1);
+}
+
+/**
+ * 주어진 값이 삼각수인지 판정한다.
+ */
+function isTriangleNumber(value: number): boolean {
+  if (typeof value !== 'number' || !Number.isInteger(value) || value < 0) {
+    return false;
+  }
+
+  const probablyBase = Math.floor(Math.sqrt(value * 2));
+
+  return probablyBase > 0 && probablyBase * (probablyBase + 1) / 2 === value;
+}
+
+/**
+ * 주어진 값이 오각수인지 판정한다.
+ */
+function isPentagonalNumber(value: number): boolean {
+  if (typeof value !== 'number' || !Number.isInteger(value) || value < 0) {
+    return false;
+  }
+
+  const probablyBase = Math.ceil(Math.sqrt(value * 2 / 3));
+
+  return probablyBase > 0 && probablyBase * (3 * probablyBase - 1) / 2 === value;
+}
+
 export {
   naturalSum,
   primeFactorization,
@@ -529,4 +605,9 @@ export {
   setUnion,
   isPalindrome,
   setIsSubset,
+  setIsEqual,
+  nthPentagonalNumber,
+  nthHexagonalNumber,
+  isTriangleNumber,
+  isPentagonalNumber,
 };

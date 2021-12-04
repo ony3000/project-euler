@@ -1,5 +1,5 @@
 import { SolutionFunction } from '../../lib/types';
-import { range, setIsSubset } from '../../lib/toolbox';
+import { range, setIsEqual } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer = 0;
@@ -29,11 +29,7 @@ const solution: SolutionFunction = () => {
 
     const productDigitSet = concatenatedProduct.split('');
 
-    if (
-      answer < Number(concatenatedProduct)
-        && setIsSubset(productDigitSet, pandigitalSet)
-        && setIsSubset(pandigitalSet, productDigitSet)
-    ) {
+    if (answer < Number(concatenatedProduct) && setIsEqual(productDigitSet, pandigitalSet)) {
       answer = Number(concatenatedProduct);
     }
   });
