@@ -1,7 +1,7 @@
 import { SolutionFunction } from '../../lib/types';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   let maxTriangleCount = 0;
 

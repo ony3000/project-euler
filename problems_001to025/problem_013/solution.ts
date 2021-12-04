@@ -2,7 +2,7 @@ import { SolutionFunction } from '../../lib/types';
 import { sum } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   const numbers = `
     37107287533902102798797998220837590246510135740250

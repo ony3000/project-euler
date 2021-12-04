@@ -2,7 +2,7 @@ import { SolutionFunction } from '../../lib/types';
 import { setDifference, setIsEqual } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = 0;
+  let answer: ReturnType<SolutionFunction> = 0;
 
   const pandigitalSet = '0123456789'.split('');
 

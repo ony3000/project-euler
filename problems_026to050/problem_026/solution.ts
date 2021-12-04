@@ -2,7 +2,7 @@ import { SolutionFunction } from '../../lib/types';
 import { primeFactorization, count } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   let maxCycleLength = 0;
 

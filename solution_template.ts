@@ -4,7 +4,7 @@ import { SolutionFunction } from './lib/types';
 /* Import custom made library here. */
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   /* Write code to calculate the answer here. */
 

@@ -3,7 +3,7 @@ import { isPrime } from 'mathjs';
 import { SolutionFunction } from '../../lib/types';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   let maxPrimeCount = 0;
   let b = 2;

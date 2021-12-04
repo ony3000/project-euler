@@ -4,7 +4,7 @@ import { SolutionFunction } from '../../lib/types';
 import { sum } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   const truncatablePrimes: number[] = [];
   let num = 11;

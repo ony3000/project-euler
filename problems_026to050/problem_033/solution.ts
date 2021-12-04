@@ -3,7 +3,7 @@ import { isStringArray } from '../../lib/type-guard';
 import { gcd, setDifference, setIntersection } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   let numeratorProduct = 1;
   let denominatorProduct = 1;

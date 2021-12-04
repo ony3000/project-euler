@@ -2,7 +2,7 @@ import { SolutionFunction } from '../../lib/types';
 import { primeFactorization } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   const numberOfPrimeFactors = [0, 0, 0, 0];
   let num = 2;

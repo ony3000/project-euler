@@ -1,7 +1,7 @@
 import { SolutionFunction } from '../../lib/types';
 
 const solution: SolutionFunction = () => {
-  let answer = 0;
+  let answer: ReturnType<SolutionFunction> = 0;
 
   const spiralSize = 1001;
   const contourCount = Math.floor((spiralSize + 1) / 2);

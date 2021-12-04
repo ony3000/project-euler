@@ -5,7 +5,7 @@ import { isNumberArray } from '../../lib/type-guard';
 import { setUnion } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   const primes = [2];
   let num = 3;

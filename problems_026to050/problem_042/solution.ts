@@ -5,7 +5,7 @@ import { SolutionFunction } from '../../lib/types';
 import { sum, isTriangleNumber } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = 0;
+  let answer: ReturnType<SolutionFunction> = 0;
 
   const source = fs.readFileSync(path.resolve(__dirname, 'words.txt'));
   const names: string[] = JSON.parse(`[${source.toString().trim()}]`);

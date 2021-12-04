@@ -2,7 +2,7 @@ import { SolutionFunction } from '../../lib/types';
 import { naturalSum, positiveDivisors, sum } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   const abundantNumbers: number[] = [];
   const twoAbundantSums: Set<number> = new Set();

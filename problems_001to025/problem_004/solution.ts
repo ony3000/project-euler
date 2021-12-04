@@ -2,7 +2,7 @@ import { SolutionFunction } from '../../lib/types';
 import { positiveDivisors } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   for (let num = 997; num >= 100; num -= 1) {
     const reversedNum = Number(String(num).split('').reverse().join(''));

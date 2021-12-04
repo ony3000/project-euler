@@ -2,7 +2,7 @@ import { SolutionFunction } from '../../lib/types';
 import { nthPentagonalNumber, isPentagonalNumber } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   const pentagonalNumbers: number[] = [];
   let num = 1;

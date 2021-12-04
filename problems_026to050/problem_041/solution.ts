@@ -4,7 +4,7 @@ import { SolutionFunction } from '../../lib/types';
 import { range, factorial, nthLexicographicPermutation } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = 0;
+  let answer: ReturnType<SolutionFunction> = 0;
 
   [4, 5, 7, 8].forEach((pandigitalLength) => {
     const digits = range(1, pandigitalLength + 1).map((num) => String(num));

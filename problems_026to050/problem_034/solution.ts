@@ -2,7 +2,7 @@ import { SolutionFunction } from '../../lib/types';
 import { range, sum, factorial } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = 0;
+  let answer: ReturnType<SolutionFunction> = 0;
 
   const factorialPerDigit = range(0, 10).map((index) => Number(factorial(index)));
 

@@ -2,7 +2,7 @@ import { SolutionFunction } from '../../lib/types';
 import { range } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   const integers = range(2, 101);
   const terms: Set<number> = new Set();

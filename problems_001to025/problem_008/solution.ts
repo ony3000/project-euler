@@ -2,7 +2,7 @@ import { SolutionFunction } from '../../lib/types';
 import { prod } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = 0;
+  let answer: ReturnType<SolutionFunction> = 0;
 
   const num = `
     73167176531330624919225119674426574742355349194934

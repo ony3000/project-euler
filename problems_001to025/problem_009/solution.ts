@@ -1,7 +1,7 @@
 import { SolutionFunction } from '../../lib/types';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   for (let a = 332; a > 0; a -= 1) {
     for (let b = a + 1; b < Math.ceil((1000 - a) / 2); b += 1) {

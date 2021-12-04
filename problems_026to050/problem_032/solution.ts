@@ -2,7 +2,7 @@ import { SolutionFunction } from '../../lib/types';
 import { factorial, nthLexicographicPermutation } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = 0;
+  let answer: ReturnType<SolutionFunction> = 0;
 
   const pandigitalProducts: Set<number> = new Set();
   const limit = Number(factorial(9));

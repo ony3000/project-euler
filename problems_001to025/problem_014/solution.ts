@@ -1,7 +1,7 @@
 import { SolutionFunction, Dictionary } from '../../lib/types';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   let maxSequenceLength = 0;
   const lengthPerStarter: Dictionary<number> = {};

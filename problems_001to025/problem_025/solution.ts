@@ -1,7 +1,7 @@
 import { SolutionFunction } from '../../lib/types';
 
 const solution: SolutionFunction = () => {
-  let answer = 2;
+  let answer: ReturnType<SolutionFunction> = 2;
 
   let [a, b] = [1n, 1n];
 

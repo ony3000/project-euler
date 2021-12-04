@@ -2,7 +2,7 @@ import { SolutionFunction } from '../../lib/types';
 import { naturalSum, positiveDivisors } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = null;
+  let answer: ReturnType<SolutionFunction> = null;
 
   let num = 1;
 

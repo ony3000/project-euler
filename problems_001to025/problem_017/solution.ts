@@ -1,7 +1,7 @@
 import { SolutionFunction, Dictionary } from '../../lib/types';
 
 const solution: SolutionFunction = () => {
-  let answer = 0;
+  let answer: ReturnType<SolutionFunction> = 0;
 
   const wordPerNumber: Dictionary<string> = {
     0: '',

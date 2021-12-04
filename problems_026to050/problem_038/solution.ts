@@ -2,7 +2,7 @@ import { SolutionFunction } from '../../lib/types';
 import { range, setIsEqual } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
-  let answer = 0;
+  let answer: ReturnType<SolutionFunction> = 0;
 
   const pandigitalSet = '123456789'.split('');
   const multiplicandCandidates = [
