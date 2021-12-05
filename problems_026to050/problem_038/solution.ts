@@ -14,7 +14,7 @@ const solution: SolutionFunction = () => {
     ...range(5000, 10000),
   ];
 
-  multiplicandCandidates.forEach((multiplicand) => {
+  answer = Math.max(...multiplicandCandidates.map((multiplicand) => {
     let concatenatedProduct = '';
 
     for (let n = 1; n <= 9; n += 1) {
@@ -29,10 +29,8 @@ const solution: SolutionFunction = () => {
 
     const productDigitSet = concatenatedProduct.split('');
 
-    if (answer < Number(concatenatedProduct) && setIsEqual(productDigitSet, pandigitalSet)) {
-      answer = Number(concatenatedProduct);
-    }
-  });
+    return setIsEqual(productDigitSet, pandigitalSet) ? Number(concatenatedProduct) : 0;
+  }));
 
   return answer;
 };

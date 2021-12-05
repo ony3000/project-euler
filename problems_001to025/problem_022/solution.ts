@@ -12,12 +12,12 @@ const solution: SolutionFunction = () => {
 
   names.sort();
 
-  names.forEach((name, index) => {
+  answer = sum(names.map((name, index) => {
     const order = index + 1;
     const worth = sum(name.split('').map((letter) => (letter.charCodeAt(0) - 'A'.charCodeAt(0) + 1)));
 
-    answer += order * worth;
-  });
+    return order * worth;
+  }));
 
   return answer;
 };

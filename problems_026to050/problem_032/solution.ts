@@ -1,5 +1,5 @@
 import { SolutionFunction } from '../../lib/types';
-import { factorial, nthLexicographicPermutation } from '../../lib/toolbox';
+import { sum, factorial, nthLexicographicPermutation } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = 0;
@@ -19,9 +19,7 @@ const solution: SolutionFunction = () => {
     }
   }
 
-  pandigitalProducts.forEach((product) => {
-    answer += product;
-  });
+  answer = sum([...pandigitalProducts]);
 
   return answer;
 };

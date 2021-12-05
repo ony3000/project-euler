@@ -10,13 +10,11 @@ const solution: SolutionFunction = () => {
   const source = fs.readFileSync(path.resolve(__dirname, 'words.txt'));
   const names: string[] = JSON.parse(`[${source.toString().trim()}]`);
 
-  names.forEach((name) => {
+  answer = sum(names.map((name) => {
     const wordValue = sum(name.split('').map((letter) => (letter.charCodeAt(0) - 'A'.charCodeAt(0) + 1)));
 
-    if (isTriangleNumber(wordValue)) {
-      answer += 1;
-    }
-  });
+    return isTriangleNumber(wordValue) ? 1 : 0;
+  }));
 
   return answer;
 };
