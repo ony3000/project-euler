@@ -562,6 +562,25 @@ function nthHexagonalNumber(n: number): number {
 }
 
 /**
+ * 자연수 p, n에 대해, n번째 p각수를 구한다.
+ */
+function nthPolygonalNumber(p: number, n: number): number {
+  if (!Number.isInteger(p) || !Number.isInteger(n)) {
+    throw new TypeError('자연수가 아닙니다');
+  }
+
+  if (p <= 0 || n <= 0) {
+    throw new RangeError('자연수가 아닙니다');
+  }
+
+  if (p === 1) {
+    return 1;
+  }
+
+  return (n * ((p - 2) * n + (4 - p))) / 2;
+}
+
+/**
  * 주어진 값이 삼각수인지 판정한다.
  */
 function isTriangleNumber(value: number): boolean {
@@ -608,6 +627,7 @@ export {
   setIsEqual,
   nthPentagonalNumber,
   nthHexagonalNumber,
+  nthPolygonalNumber,
   isTriangleNumber,
   isPentagonalNumber,
 };
