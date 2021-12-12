@@ -1,24 +1,18 @@
-const rootPath = require('app-root-path');
 const { sum } = require('mathjs');
 
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
-const { factorial } = require(`${rootPath}/lib/toolbox.js`);
+const { factorial } = require('../../lib/toolbox');
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+const solution = () => {
+  let answer = null;
 
-    answer = sum(String(factorial(100)).split('').map((digit) => Number(digit)));
+  answer = sum(String(factorial(100)).split('').map((digit) => Number(digit)));
 
-    return answer;
-  }
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

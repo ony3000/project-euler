@@ -1,44 +1,37 @@
-const rootPath = require('app-root-path');
 const { isPrime } = require('mathjs');
 
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
+const solution = () => {
+  let answer = null;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+  let num = 9;
 
-    let num = 9;
+  while (answer === null) {
+    if (!isPrime(num)) {
+      let isWritableAsSum = false;
+      const baseLimit = Math.floor(Math.sqrt((num - 3) / 2));
 
-    while (answer === null) {
-      if (!isPrime(num)) {
-        let isWritableAsSum = false;
-        const baseLimit = Math.floor(Math.sqrt((num - 3) / 2));
-
-        for (let squareBase = 1; squareBase <= baseLimit; squareBase += 1) {
-          if (isPrime(num - 2 * squareBase ** 2)) {
-            isWritableAsSum = true;
-            break;
-          }
-        }
-
-        if (!isWritableAsSum) {
-          answer = num;
+      for (let squareBase = 1; squareBase <= baseLimit; squareBase += 1) {
+        if (isPrime(num - 2 * squareBase ** 2)) {
+          isWritableAsSum = true;
           break;
         }
       }
 
-      num += 2;
+      if (!isWritableAsSum) {
+        answer = num;
+        break;
+      }
     }
 
-    return answer;
+    num += 2;
   }
+
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

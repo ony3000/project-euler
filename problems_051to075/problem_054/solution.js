@@ -1,8 +1,5 @@
-const rootPath = require('app-root-path');
 const fs = require('fs');
 const path = require('path');
-
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 
 class Card {
   constructor(text) {
@@ -100,33 +97,29 @@ class PokerHands {
   }
 }
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+const solution = () => {
+  let answer = null;
 
-    const source = fs.readFileSync(path.resolve(__dirname, 'poker.txt'));
-    const lines = source.toString().trim().split('\n');
+  const source = fs.readFileSync(path.resolve(__dirname, 'poker.txt'));
+  const lines = source.toString().trim().split('\n');
 
-    lines.forEach((line) => {
-      const textArray = line.trim().split(' ');
+  lines.forEach((line) => {
+    const textArray = line.trim().split(' ');
 
-      const firstHands = new PokerHands(textArray.slice(0, 5));
-      const secondHands = new PokerHands(textArray.slice(5));
+    const firstHands = new PokerHands(textArray.slice(0, 5));
+    const secondHands = new PokerHands(textArray.slice(5));
 
-      if (firstHands.score() > secondHands.score()) {
-        answer += 1;
-      }
-    });
+    if (firstHands.score() > secondHands.score()) {
+      answer += 1;
+    }
+  });
 
-    return answer;
-  }
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

@@ -1,42 +1,34 @@
-const rootPath = require('app-root-path');
+const solution = () => {
+  let answer = null;
 
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
+  const permutationDict = {};
+  let num = 0;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+  while (answer === null) {
+    num += 1;
 
-    const permutationDict = {};
-    let num = 0;
+    const cubeNum = num ** 3;
+    const oneOfPermutations = String(cubeNum).split('').sort().join('');
 
-    while (answer === null) {
-      num += 1;
-
-      const cubeNum = num ** 3;
-      const oneOfPermutations = String(cubeNum).split('').sort().join('');
-
-      if (oneOfPermutations in permutationDict) {
-        permutationDict[oneOfPermutations].push(num);
-      }
-      else {
-        permutationDict[oneOfPermutations] = [num];
-      }
-
-      if (permutationDict[oneOfPermutations].length === 5) {
-        answer = permutationDict[oneOfPermutations][0] ** 3;
-        break;
-      }
+    if (oneOfPermutations in permutationDict) {
+      permutationDict[oneOfPermutations].push(num);
+    }
+    else {
+      permutationDict[oneOfPermutations] = [num];
     }
 
-    return answer;
+    if (permutationDict[oneOfPermutations].length === 5) {
+      answer = permutationDict[oneOfPermutations][0] ** 3;
+      break;
+    }
   }
+
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

@@ -1,61 +1,54 @@
-const rootPath = require('app-root-path');
 const { setUnion, isPrime } = require('mathjs');
 
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
+const solution = () => {
+  let answer = null;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+  const primes = [2];
+  let num = 3;
 
-    const primes = [2];
-    let num = 3;
-
-    while (num < 1000000) {
-      if (isPrime(num)) {
-        primes.push(num);
-      }
-
-      num += 2;
+  while (num < 1000000) {
+    if (isPrime(num)) {
+      primes.push(num);
     }
 
-    const filteredPrimes = primes.filter((prime) => !String(prime).includes('0') && !String(prime).includes('5'));
-    let circularPrimes = [5];
+    num += 2;
+  }
 
-    filteredPrimes.forEach((prime) => {
-      if (!circularPrimes.includes(prime)) {
-        let isCircularPrime = true;
-        let circularPrimeCandidates = [prime];
-        const temp = String(prime);
+  const filteredPrimes = primes.filter((prime) => !String(prime).includes('0') && !String(prime).includes('5'));
+  let circularPrimes = [5];
 
-        for (let index = 1; index < temp.length; index += 1) {
-          const rotatedNum = Number(temp.slice(index) + temp.slice(0, index));
+  filteredPrimes.forEach((prime) => {
+    if (!circularPrimes.includes(prime)) {
+      let isCircularPrime = true;
+      let circularPrimeCandidates = [prime];
+      const temp = String(prime);
 
-          if (isPrime(rotatedNum)) {
-            circularPrimeCandidates = setUnion(circularPrimeCandidates, [rotatedNum]);
-          }
-          else {
-            isCircularPrime = false;
-            break;
-          }
+      for (let index = 1; index < temp.length; index += 1) {
+        const rotatedNum = Number(temp.slice(index) + temp.slice(0, index));
+
+        if (isPrime(rotatedNum)) {
+          circularPrimeCandidates = setUnion(circularPrimeCandidates, [rotatedNum]);
         }
-
-        if (isCircularPrime) {
-          circularPrimes = setUnion(circularPrimes, circularPrimeCandidates);
+        else {
+          isCircularPrime = false;
+          break;
         }
       }
-    });
 
-    answer = circularPrimes.length;
+      if (isCircularPrime) {
+        circularPrimes = setUnion(circularPrimes, circularPrimeCandidates);
+      }
+    }
+  });
 
-    return answer;
-  }
+  answer = circularPrimes.length;
+
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

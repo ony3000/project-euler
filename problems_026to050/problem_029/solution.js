@@ -1,32 +1,25 @@
-const rootPath = require('app-root-path');
 const { range } = require('mathjs');
 
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
+const solution = () => {
+  let answer = null;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+  const integers = range(2, 101).valueOf();
+  const terms = new Set();
 
-    const integers = range(2, 101).valueOf();
-    const terms = new Set();
-
-    integers.forEach((a) => {
-      integers.forEach((b) => {
-        terms.add(a ** b);
-      });
+  integers.forEach((a) => {
+    integers.forEach((b) => {
+      terms.add(a ** b);
     });
+  });
 
-    answer = terms.size;
+  answer = terms.size;
 
-    return answer;
-  }
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

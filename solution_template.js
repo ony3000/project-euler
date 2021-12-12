@@ -1,4 +1,3 @@
-const rootPath = require('app-root-path');
 /* Import node library here. */
 const {
   bignumber,
@@ -17,30 +16,19 @@ const {
   isPrime,
 } = require('mathjs');
 
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
 /* Import custom made library here. */
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+const solution = () => {
+  let answer = null;
 
-    /* Write code to calculate the answer here. */
+  /* Write code to calculate the answer here. */
 
-    return answer;
-  }
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  // To measure execution time, uncomment the two comments below.
-
-  const solution = new Solution();
-
-  // solution.start();
-
-  const result = solution.execute();
-
-  // solution.stop();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

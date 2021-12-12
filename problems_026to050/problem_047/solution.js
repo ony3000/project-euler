@@ -1,34 +1,27 @@
-const rootPath = require('app-root-path');
+const { primeFactorization } = require('../../lib/toolbox');
 
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
-const { primeFactorization } = require(`${rootPath}/lib/toolbox.js`);
+const solution = () => {
+  let answer = null;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+  const numberOfPrimeFactors = [0, 0, 0, 0];
+  let num = 2;
 
-    const numberOfPrimeFactors = [0, 0, 0, 0];
-    let num = 2;
+  while (answer === null) {
+    numberOfPrimeFactors[num % 4] = new Set(primeFactorization(num)).size;
 
-    while (answer === null) {
-      numberOfPrimeFactors[num % 4] = new Set(primeFactorization(num)).size;
-
-      if (numberOfPrimeFactors.every((primeFactorCount) => (primeFactorCount === 4))) {
-        answer = num - 3;
-      }
-
-      num += 1;
+    if (numberOfPrimeFactors.every((primeFactorCount) => (primeFactorCount === 4))) {
+      answer = num - 3;
     }
 
-    return answer;
+    num += 1;
   }
+
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

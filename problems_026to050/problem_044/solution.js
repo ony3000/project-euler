@@ -1,50 +1,43 @@
-const rootPath = require('app-root-path');
+const { nthPentagonalNumber } = require('../../lib/toolbox');
 
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
-const { nthPentagonalNumber } = require(`${rootPath}/lib/toolbox.js`);
+const solution = () => {
+  let answer = null;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = null;
+  const pentagonalNumbers = [];
 
-    const pentagonalNumbers = [];
+  const isPentagonalNumber = (num) => {
+    const guessedN = Math.ceil(Math.sqrt((num * 2) / 3));
 
-    const isPentagonalNumber = (num) => {
-      const guessedN = Math.ceil(Math.sqrt((num * 2) / 3));
+    return guessedN > 0 && num === nthPentagonalNumber(guessedN);
+  };
 
-      return guessedN > 0 && num === nthPentagonalNumber(guessedN);
-    };
+  let num = 1;
 
-    let num = 1;
+  while (answer === null) {
+    const newPentagonal = nthPentagonalNumber(num);
 
-    while (answer === null) {
-      const newPentagonal = nthPentagonalNumber(num);
+    pentagonalNumbers.push(newPentagonal);
 
-      pentagonalNumbers.push(newPentagonal);
+    for (let index = 0; index < pentagonalNumbers.length; index += 1) {
+      const existingPentagonal = pentagonalNumbers[index];
+      const pentagonalSum = existingPentagonal + newPentagonal;
+      const pentagonalDiff = Math.abs(existingPentagonal - newPentagonal);
 
-      for (let index = 0; index < pentagonalNumbers.length; index += 1) {
-        const existingPentagonal = pentagonalNumbers[index];
-        const pentagonalSum = existingPentagonal + newPentagonal;
-        const pentagonalDiff = Math.abs(existingPentagonal - newPentagonal);
-
-        if (isPentagonalNumber(pentagonalSum) && isPentagonalNumber(pentagonalDiff)) {
-          answer = pentagonalDiff;
-          break;
-        }
+      if (isPentagonalNumber(pentagonalSum) && isPentagonalNumber(pentagonalDiff)) {
+        answer = pentagonalDiff;
+        break;
       }
-
-      num += 1;
     }
 
-    return answer;
+    num += 1;
   }
+
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;

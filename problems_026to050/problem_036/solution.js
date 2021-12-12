@@ -1,31 +1,24 @@
-const rootPath = require('app-root-path');
+const { isPalindrome } = require('../../lib/toolbox');
 
-const Stopwatch = require(`${rootPath}/lib/Stopwatch.js`);
-const { isPalindrome } = require(`${rootPath}/lib/toolbox.js`);
+const solution = () => {
+  let answer = 0;
 
-class Solution extends Stopwatch {
-  execute() {
-    let answer = 0;
+  for (let num = 1; num < 1000000; num += 1) {
+    if (isPalindrome(String(num))) {
+      const binary = num.toString(2);
 
-    for (let num = 1; num < 1000000; num += 1) {
-      if (isPalindrome(String(num))) {
-        const binary = num.toString(2);
-
-        if (isPalindrome(binary)) {
-          answer += num;
-        }
+      if (isPalindrome(binary)) {
+        answer += num;
       }
     }
-
-    return answer;
   }
+
+  return answer;
+};
+
+if (process.env.NODE_ENV !== 'test') {
+  // eslint-disable-next-line no-console
+  console.log(solution());
 }
 
-(() => {
-  const solution = new Solution();
-
-  const result = solution.execute();
-
-  // eslint-disable-next-line no-console
-  console.log(result);
-})();
+module.exports = solution;
