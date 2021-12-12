@@ -1,3 +1,4 @@
+import { Dictionary } from './types';
 import { isNumberArray, isBigIntArray, isStringArray } from './type-guard';
 
 /**
@@ -275,7 +276,7 @@ function factorial(n: number): bigint {
  *
  * 기본적으로 'a'부터 'z'까지의 문자들을 재배열하지만, 임의의 문자 리스트를 지정할 수도 있다.
  */
-function nthLexicographicPermutation(n: number, elements: string[] | undefined): string {
+function nthLexicographicPermutation(n: number, elements: string[] | undefined = undefined): string {
   if (!Number.isInteger(n)) {
     throw new TypeError('자연수가 아닙니다');
   }
@@ -289,7 +290,7 @@ function nthLexicographicPermutation(n: number, elements: string[] | undefined):
   if (elements === undefined) {
     orderedElements = range(0, 26).map((index) => String.fromCharCode('a'.charCodeAt(0) + index));
   }
-  else if (isStringArray(elements)) {
+  else if (Array.isArray(elements) && (elements.length === 0 || isStringArray(elements))) {
     orderedElements = elements.slice().sort();
   }
   else {
@@ -327,7 +328,7 @@ function nthLexicographicPermutation(n: number, elements: string[] | undefined):
  *
  * 기본적으로는 1부터 n까지의 자연수들로 분할하지만, 임의의 자연수 리스트를 지정할 수도 있다.
  */
-function numberOfPartitions(n: number, parts: number[] | undefined): number {
+function numberOfPartitions(n: number, parts: number[] | undefined = undefined): number {
   if (!Number.isInteger(n)) {
     throw new TypeError('0 또는 양의 정수여야 합니다');
   }
@@ -341,7 +342,7 @@ function numberOfPartitions(n: number, parts: number[] | undefined): number {
   if (parts === undefined) {
     orderedParts = range(n, 0, -1);
   }
-  else if (isNumberArray(parts)) {
+  else if (Array.isArray(parts) && (parts.length === 0 || isNumberArray(parts))) {
     orderedParts = parts.slice().sort((former, latter) => (latter - former));
   }
   else {
@@ -606,6 +607,55 @@ function isPentagonalNumber(value: number): boolean {
   return probablyBase > 0 && probablyBase * (3 * probablyBase - 1) / 2 === value;
 }
 
+/**
+ * 정수 n에 대해, n을 분할하는 방법의 수를 구한다.
+ */
+const numberOfIntegerPartitions = (function () {
+  const storedResult: Dictionary<bigint> = {
+    0: 1n,
+    1: 1n,
+  };
+
+  const recursion = (n: number): bigint => {
+    if (!Number.isInteger(n)) {
+      throw new TypeError('정수가 아닙니다');
+    }
+
+    if (n < 0) {
+      return 0n;
+    }
+
+    if (storedResult[n]) {
+      return storedResult[n];
+    }
+
+    let result = 0n;
+    let index = 1;
+
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+      const alternatingIndex = (index % 2 === 0 ? index / -2 : (index + 1) / 2);
+      const generalizedPentagonalNumber = (3 * (alternatingIndex ** 2) - alternatingIndex) / 2;
+
+      if (n - generalizedPentagonalNumber < 0) {
+        break;
+      }
+
+      const sign = (Math.floor((index - 1) / 2) % 2 === 0 ? 1n : -1n);
+
+      result += (sign * recursion(n - generalizedPentagonalNumber));
+
+      index += 1;
+    }
+
+    storedResult[n] = result;
+
+    return result;
+  };
+
+  return recursion;
+})();
+
 export {
   naturalSum,
   primeFactorization,
@@ -630,4 +680,5 @@ export {
   nthPolygonalNumber,
   isTriangleNumber,
   isPentagonalNumber,
+  numberOfIntegerPartitions,
 };
