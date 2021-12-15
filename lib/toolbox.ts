@@ -656,6 +656,25 @@ const numberOfIntegerPartitions = (function () {
   return recursion;
 })();
 
+/**
+ * 자연수 n에 대해, n보다 작은 양의 약수의 합을 구한다.
+ */
+function properDivisorSum(n: number): number {
+  if (!Number.isInteger(n)) {
+    throw new TypeError('자연수가 아닙니다');
+  }
+
+  if (n <= 0) {
+    throw new RangeError('자연수가 아닙니다');
+  }
+
+  if (n === 1) {
+    return 0;
+  }
+
+  return sum(positiveDivisors(n).slice(0, -1));
+}
+
 export {
   naturalSum,
   primeFactorization,
@@ -681,4 +700,5 @@ export {
   isTriangleNumber,
   isPentagonalNumber,
   numberOfIntegerPartitions,
+  properDivisorSum,
 };
