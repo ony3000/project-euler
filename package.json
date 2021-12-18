@@ -1,6 +1,6 @@
 {
   "name": "project-euler",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "오일러 프로젝트 사이트의 문제 번역과 풀이",
   "main": "index.js",
   "scripts": {

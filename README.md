@@ -6,7 +6,7 @@
 
 ## 사용 언어
 
-* Node 14 (JavaScript에서 TypeScript로 전환 중)
+* TypeScript 4.5 (Node 14+)
 * Python 3.9 (제거 예정)
 
 ## 문제 현황
