@@ -1,4 +1,5 @@
 import { NumberPair, Dictionary } from './types';
+import { quotient } from './toolbox';
 
 class Card {
   value: number;
@@ -230,9 +231,320 @@ class Rational {
   }
 }
 
+const SUDOKU_BOARD_SIZE = 9;
+const SUDOKU_SQUARE_SIZE = 3;
+const FITTING_SQUARE_COUNT = SUDOKU_BOARD_SIZE / SUDOKU_SQUARE_SIZE;
+
+class SudokuCell {
+  id: number;
+
+  relatedRow: SudokuRow | null;
+
+  relatedColumn: SudokuColumn | null;
+
+  relatedSquare: SudokuSquare | null;
+
+  number: number | null;
+
+  markableStates: (boolean | null)[];
+
+  constructor(id: number) {
+    this.id = id;
+    this.relatedRow = null;
+    this.relatedColumn = null;
+    this.relatedSquare = null;
+    this.number = null;
+    this.markableStates = Array(SUDOKU_BOARD_SIZE + 1).fill(true);
+    this.markableStates[0] = null;
+  }
+
+  mark(number: number) {
+    if (number < 1 || number > SUDOKU_BOARD_SIZE) {
+      throw new RangeError();
+    }
+
+    this.number = number;
+    this.markableStates.forEach((...[, stateIndex]) => {
+      if (stateIndex > 0) {
+        this.markableStates[stateIndex] = false;
+      }
+    });
+
+    if (this.relatedRow instanceof SudokuRow) {
+      this.relatedRow.cells.forEach((cell) => cell.eraseMemo(number));
+    }
+
+    if (this.relatedColumn instanceof SudokuColumn) {
+      this.relatedColumn.cells.forEach((cell) => cell.eraseMemo(number));
+    }
+
+    if (this.relatedSquare instanceof SudokuSquare) {
+      this.relatedSquare.cells.forEach((cell) => cell.eraseMemo(number));
+    }
+  }
+
+  eraseMemo(number: number) {
+    this.markableStates[number] = false;
+  }
+}
+
+class SudokuRow {
+  id: number;
+
+  cells: SudokuCell[];
+
+  constructor(id: number, cells: SudokuCell[]) {
+    this.id = id;
+    this.cells = cells;
+    this.cells.forEach((cell) => {
+      // eslint-disable-next-line no-param-reassign
+      cell.relatedRow = this;
+    });
+  }
+}
+
+class SudokuColumn {
+  id: number;
+
+  cells: SudokuCell[];
+
+  constructor(id: number, cells: SudokuCell[]) {
+    this.id = id;
+    this.cells = cells;
+    this.cells.forEach((cell) => {
+      // eslint-disable-next-line no-param-reassign
+      cell.relatedColumn = this;
+    });
+  }
+}
+
+class SudokuSquare {
+  id: number;
+
+  cells: SudokuCell[];
+
+  constructor(id: number, cells: SudokuCell[]) {
+    this.id = id;
+    this.cells = cells;
+    this.cells.forEach((cell) => {
+      // eslint-disable-next-line no-param-reassign
+      cell.relatedSquare = this;
+    });
+  }
+}
+
+class SudokuBoard {
+  cells: SudokuCell[];
+
+  rows: SudokuRow[];
+
+  columns: SudokuColumn[];
+
+  squares: SudokuSquare[];
+
+  constructor(initialRows: string[]) {
+    this.cells = Array(SUDOKU_BOARD_SIZE * SUDOKU_BOARD_SIZE).fill(null).map((...[, index]) => new SudokuCell(index));
+    this.rows = Array(SUDOKU_BOARD_SIZE).fill(null).map((...[, rowIndex]) => new SudokuRow(
+      rowIndex,
+      this.cells.filter((...[, cellIndex]) => (quotient(cellIndex, SUDOKU_BOARD_SIZE) === rowIndex)),
+    ));
+    this.columns = Array(SUDOKU_BOARD_SIZE).fill(null).map((...[, columnIndex]) => new SudokuColumn(
+      columnIndex,
+      this.cells.filter((...[, cellIndex]) => (cellIndex % SUDOKU_BOARD_SIZE === columnIndex)),
+    ));
+    this.squares = Array(FITTING_SQUARE_COUNT ** 2).fill(null).map((...[, squareIndex]) => new SudokuSquare(
+      squareIndex,
+      this.cells.filter((...[, cellIndex]) => {
+        const rowIndex = quotient(cellIndex, SUDOKU_BOARD_SIZE);
+        const columnIndex = cellIndex % SUDOKU_BOARD_SIZE;
+
+        return quotient(rowIndex, SUDOKU_SQUARE_SIZE) * FITTING_SQUARE_COUNT + quotient(columnIndex, SUDOKU_SQUARE_SIZE) === squareIndex;
+      }),
+    ));
+
+    initialRows.forEach((row, rowIndex) => {
+      const columns = row.split('');
+
+      columns.forEach((digit, columnIndex) => {
+        if (digit !== '0') {
+          this.rows[rowIndex].cells[columnIndex].mark(Number(digit));
+        }
+      });
+    });
+  }
+
+  solve() {
+    let isUpdated = true;
+    let emptyCell = this.cells.find((cell) => (cell.number === null));
+    let sentinel = 0;
+
+    const markPossibleNumberInCell = (cell: SudokuCell) => {
+      const markingNumber = cell.markableStates.findIndex((isMarkable) => isMarkable);
+
+      cell.mark(markingNumber);
+      isUpdated = true;
+    };
+    const markOnlyNumberInArea = (area: SudokuRow | SudokuColumn | SudokuSquare) => {
+      const markableNumberCount: number[] = Array(SUDOKU_BOARD_SIZE + 1).fill(0);
+
+      area.cells.forEach((cell) => {
+        cell.markableStates.forEach((isMarkable, index) => {
+          if (index > 0 && isMarkable) {
+            markableNumberCount[index] += 1;
+          }
+        });
+      });
+
+      const markingNumber = markableNumberCount.findIndex((count) => (count === 1));
+
+      if (markingNumber !== -1) {
+        (area.cells.find((cell) => cell.markableStates[markingNumber]) as SudokuCell).mark(markingNumber);
+        isUpdated = true;
+      }
+    };
+    const eraseMemoFromCell = (cell: SudokuCell, number: number) => {
+      if (cell.markableStates[number]) {
+        cell.eraseMemo(number);
+        isUpdated = true;
+      }
+    };
+
+    while (isUpdated && emptyCell && sentinel < 100) {
+      isUpdated = false;
+
+      this.cells
+        .filter((cell) => (cell.markableStates.filter((isMarkable) => isMarkable).length === 1))
+        .forEach(markPossibleNumberInCell);
+
+      if (!isUpdated) {
+        this.rows.forEach(markOnlyNumberInArea);
+        this.columns.forEach(markOnlyNumberInArea);
+        this.squares.forEach(markOnlyNumberInArea);
+      }
+
+      if (!isUpdated) {
+        this.squares.forEach((square, squareIndex) => {
+          for (let number = 1; number <= SUDOKU_BOARD_SIZE; number += 1) {
+            const markableCellCountPerRow: number[] = Array(SUDOKU_SQUARE_SIZE).fill(0);
+            const markableCellCountPerColumn: number[] = Array(SUDOKU_SQUARE_SIZE).fill(0);
+
+            square.cells.forEach((cell, cellIndex) => {
+              if (cell.markableStates[number]) {
+                const rowIndex = quotient(cellIndex, SUDOKU_SQUARE_SIZE);
+                const columnIndex = cellIndex % SUDOKU_SQUARE_SIZE;
+
+                markableCellCountPerRow[rowIndex] += 1;
+                markableCellCountPerColumn[columnIndex] += 1;
+              }
+            });
+
+            if (markableCellCountPerRow.filter((count) => (count > 0)).length === 1) {
+              const rowIndex = markableCellCountPerRow.findIndex((count) => (count > 0));
+              const otherSquares = this.squares.filter((anotherSquare, anotherSquareIndex) => {
+                const isSameSquare = (anotherSquare === square);
+                const hasSameRows = quotient(anotherSquareIndex, FITTING_SQUARE_COUNT) === quotient(squareIndex, FITTING_SQUARE_COUNT);
+
+                return (!isSameSquare && hasSameRows);
+              });
+
+              otherSquares.forEach((anotherSquare) => {
+                anotherSquare.cells
+                  .filter((...[, cellIndex]) => (quotient(cellIndex, SUDOKU_SQUARE_SIZE) === rowIndex))
+                  .forEach((cell) => eraseMemoFromCell(cell, number));
+              });
+            }
+
+            if (markableCellCountPerColumn.filter((count) => (count > 0)).length === 1) {
+              const columnIndex = markableCellCountPerColumn.findIndex((count) => (count > 0));
+              const otherSquares = this.squares.filter((anotherSquare, anotherSquareIndex) => {
+                const isSameSquare = (anotherSquare === square);
+                const hasSameColumns = anotherSquareIndex % FITTING_SQUARE_COUNT === squareIndex % FITTING_SQUARE_COUNT;
+
+                return (!isSameSquare && hasSameColumns);
+              });
+
+              otherSquares.forEach((anotherSquare) => {
+                anotherSquare.cells
+                  .filter((...[, cellIndex]) => (cellIndex % SUDOKU_SQUARE_SIZE === columnIndex))
+                  .forEach((cell) => eraseMemoFromCell(cell, number));
+              });
+            }
+          }
+        });
+      }
+
+      if (!isUpdated) {
+        const partialSolutionBase = this.rows.map((row) => row.cells.map((cell) => cell.number || '0').join('')).join('');
+        const guessingSolutions: string[] = [];
+
+        for (let squareIndex = 0; squareIndex < this.squares.length; squareIndex += 1) {
+          const square = this.squares[squareIndex];
+          const markableNumberCount = Array(SUDOKU_BOARD_SIZE + 1).fill(0);
+
+          square.cells.forEach((cell) => {
+            cell.markableStates.forEach((isMarkable, index) => {
+              if (index > 0 && isMarkable) {
+                markableNumberCount[index] += 1;
+              }
+            });
+          });
+
+          markableNumberCount.forEach((count, index) => {
+            if (index > 0 && count === 2) {
+              square.cells.forEach((cell) => {
+                if (cell.markableStates[index]) {
+                  guessingSolutions.push(`${partialSolutionBase.slice(0, cell.id)}${index}${partialSolutionBase.slice(cell.id + 1)}`);
+                }
+              });
+            }
+          });
+
+          for (let index = 0; index < guessingSolutions.length; index += 1) {
+            const guessingRows = Array(SUDOKU_BOARD_SIZE).fill(null).map((...[, rowIndex]) => {
+              const startIndex = rowIndex * SUDOKU_BOARD_SIZE;
+              const endIndex = (rowIndex + 1) * SUDOKU_BOARD_SIZE;
+
+              return guessingSolutions[index].slice(startIndex, endIndex);
+            });
+            const guessingBoard = new SudokuBoard(guessingRows);
+
+            try {
+              guessingBoard.solve();
+              this.cells.forEach((cell, cellIndex) => {
+                const guessedNumber = guessingBoard.cells[cellIndex].number;
+
+                if (cell.number === null && typeof guessedNumber === 'number') {
+                  cell.mark(guessedNumber);
+                }
+              });
+
+              return;
+            }
+            catch (err) {
+              // Guessing failed. Nothing to do.
+            }
+          }
+        }
+      }
+
+      emptyCell = this.cells.find((cell) => (cell.number === null));
+      sentinel += 1;
+    }
+
+    if (sentinel >= 100) {
+      throw new Error('Prevent Infinite Loop');
+    }
+  }
+
+  toString() {
+    return `[\n${this.rows.map((row) => row.cells.map((cell) => cell.number || '.').join('')).join('\n')}\n]`;
+  }
+}
+
 export {
   Card,
   PokerHand,
   SquareRootAndInteger,
   Rational,
+  SudokuBoard,
 };

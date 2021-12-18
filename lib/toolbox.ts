@@ -675,6 +675,21 @@ function properDivisorSum(n: number): number {
   return sum(positiveDivisors(n).slice(0, -1));
 }
 
+/**
+ * 음이 아닌 정수 n, d에 대해, n을 d로 나눈 몫을 구한다.
+ */
+const quotient = (n: number, d: number): number => {
+  if (!Number.isInteger(n) || !Number.isInteger(d)) {
+    throw new TypeError('0 또는 양의 정수여야 합니다');
+  }
+
+  if (n < 0 || d < 0) {
+    throw new RangeError('0 또는 양의 정수여야 합니다');
+  }
+
+  return Math.floor(n / d);
+};
+
 export {
   naturalSum,
   primeFactorization,
@@ -701,4 +716,5 @@ export {
   isPentagonalNumber,
   numberOfIntegerPartitions,
   properDivisorSum,
+  quotient,
 };
