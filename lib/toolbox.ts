@@ -690,6 +690,13 @@ const quotient = (n: number, d: number): number => {
   return Math.floor(n / d);
 };
 
+/**
+ * 두 수 a, b에 대해, 서로 충분히 가까운지 판정한다.
+ */
+function isClose(a: number, b: number, tolerance: number = 1e-9): boolean {
+  return Math.abs(a - b) < tolerance;
+}
+
 export {
   naturalSum,
   primeFactorization,
@@ -717,4 +724,5 @@ export {
   numberOfIntegerPartitions,
   properDivisorSum,
   quotient,
+  isClose,
 };
