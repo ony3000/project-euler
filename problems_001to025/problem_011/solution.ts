@@ -1,5 +1,5 @@
 import { SolutionFunction } from '../../lib/types';
-import { prod } from '../../lib/toolbox';
+import { range, prod } from '../../lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = 0;
@@ -28,7 +28,7 @@ const solution: SolutionFunction = () => {
   `;
   const grid = numbers.trim().split('\n').map((row) => row.trim().split(' ').map((num) => Number(num)));
   const gridLength = 20;
-  const dummyArray = Array(4).fill(null);
+  const dummyArray = range(0, 4);
 
   for (let i = 0; i < gridLength; i += 1) {
     for (let j = 0; j < gridLength; j += 1) {
