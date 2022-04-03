@@ -2,7 +2,7 @@
 
 Let S(A) represent the sum of elements in set A of size <var>n</var>. We shall call it a special sum set if for any two non-empty disjoint subsets, B and C, the following properties are true:
 
-1. S(B) ≠ S(C); that is, sums of subsets cannot be equal.
+1. S(B) &ne; S(C); that is, sums of subsets cannot be equal.
 2. If B contains more elements than C then S(B) > S(C).
 
 For this problem we shall assume that a given set contains <var>n</var> strictly increasing elements and it already satisfies the second rule.

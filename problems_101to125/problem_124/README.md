@@ -1,8 +1,8 @@
 ## 124. Ordered radicals
 
-The radical of <var>n</var>, rad(<var>n</var>), is the product of the distinct prime factors of <var>n</var>. For example, 504 = 2<sup>3</sup> × 3<sup>2</sup> × 7, so rad(504) = 2 × 3 × 7 = 42.
+The radical of <var>n</var>, rad(<var>n</var>), is the product of the distinct prime factors of <var>n</var>. For example, 504 = 2<sup>3</sup> &times; 3<sup>2</sup> &times; 7, so rad(504) = 2 &times; 3 &times; 7 = 42.
 
-If we calculate rad(<var>n</var>) for 1 ≤ <var>n</var> ≤ 10, then sort them on rad(<var>n</var>), and sorting on <var>n</var> if the radical values are equal, we get:
+If we calculate rad(<var>n</var>) for 1 &le; <var>n</var> &le; 10, then sort them on rad(<var>n</var>), and sorting on <var>n</var> if the radical values are equal, we get:
 
 <table align="center">
   <thead>
@@ -106,4 +106,4 @@ If we calculate rad(<var>n</var>) for 1 ≤ <var>n</var> ≤ 10, then sort them 
 
 Let E(<var>k</var>) be the <var>k</var>th element in the sorted <var>n</var> column; for example, E(4) = 8 and E(6) = 9.
 
-If rad(<var>n</var>) is sorted for 1 ≤ <var>n</var> ≤ 100000, find E(10000).
+If rad(<var>n</var>) is sorted for 1 &le; <var>n</var> &le; 100000, find E(10000).
