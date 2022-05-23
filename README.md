@@ -4,7 +4,7 @@
 
 ## 사용 언어
 
-* TypeScript 4.5 (Node 14+)
+* TypeScript 4.5 (Node 16)
 * Python 3.9 (제거 예정)
 
 ## 문제 현황
