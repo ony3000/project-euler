@@ -1,8 +1,8 @@
 import { isPrime } from 'mathjs';
 
-import { SolutionFunction } from '../../lib/types';
-import { isNumberArray } from '../../lib/type-guard';
-import { setUnion } from '../../lib/toolbox';
+import { SolutionFunction } from '@/lib/types';
+import { isNumberArray } from '@/lib/type-guard';
+import { setUnion } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;

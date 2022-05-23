@@ -1,6 +1,6 @@
 /* Import node library here. */
 
-import { SolutionFunction } from './lib/types';
+import { SolutionFunction } from '@/lib/types';
 /* Import custom made library here. */
 
 const solution: SolutionFunction = () => {

@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-import { SolutionFunction, NumberPair } from '../../lib/types';
-import { isClose } from '../../lib/toolbox';
+import { SolutionFunction, NumberPair } from '@/lib/types';
+import { isClose } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = 0;

@@ -1,5 +1,5 @@
-import { SolutionFunction } from '../../lib/types';
-import { SquareRootAndInteger, Rational } from '../../lib/classes';
+import { SolutionFunction } from '@/lib/types';
+import { SquareRootAndInteger, Rational } from '@/lib/classes';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = 0;

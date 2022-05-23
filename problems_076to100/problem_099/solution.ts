@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { SolutionFunction, NumberPair } from '../../lib/types';
+import { SolutionFunction, NumberPair } from '@/lib/types';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;

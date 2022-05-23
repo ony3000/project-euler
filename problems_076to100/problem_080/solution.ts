@@ -1,7 +1,7 @@
 import type { MathJsStatic } from 'mathjs';
 import { create, all } from 'mathjs';
 
-import { SolutionFunction } from '../../lib/types';
+import { SolutionFunction } from '@/lib/types';
 
 const { bignumber, sqrt, sum, isInteger } = create(all, {
   precision: 105,

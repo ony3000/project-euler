@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-import { SolutionFunction } from '../../lib/types';
-import { range } from '../../lib/toolbox';
+import { SolutionFunction } from '@/lib/types';
+import { range } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;

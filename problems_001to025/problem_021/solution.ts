@@ -1,5 +1,5 @@
-import { SolutionFunction, Dictionary } from '../../lib/types';
-import { positiveDivisors, sum } from '../../lib/toolbox';
+import { SolutionFunction, Dictionary } from '@/lib/types';
+import { positiveDivisors, sum } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;

@@ -1,5 +1,5 @@
-import { SolutionFunction } from '../../lib/types';
-import { naturalSum } from '../../lib/toolbox';
+import { SolutionFunction } from '@/lib/types';
+import { naturalSum } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = 0;

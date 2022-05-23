@@ -1,5 +1,5 @@
-import { SolutionFunction, Dictionary } from '../../lib/types';
-import { primeFactorization } from '../../lib/toolbox';
+import { SolutionFunction, Dictionary } from '@/lib/types';
+import { primeFactorization } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = 0;

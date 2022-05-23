@@ -1,6 +1,6 @@
 import { bignumber, floor, sqrt } from 'mathjs';
 
-import { SolutionFunction } from '../../lib/types';
+import { SolutionFunction } from '@/lib/types';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;

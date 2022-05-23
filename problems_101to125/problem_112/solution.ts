@@ -1,4 +1,4 @@
-import { SolutionFunction } from '../../lib/types';
+import { SolutionFunction } from '@/lib/types';
 
 enum DigitTendency {
   NONE,

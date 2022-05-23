@@ -1,6 +1,6 @@
-import { SolutionFunction } from '../../lib/types';
-import { isStringArray } from '../../lib/type-guard';
-import { gcd, setDifference, setIntersection } from '../../lib/toolbox';
+import { SolutionFunction } from '@/lib/types';
+import { isStringArray } from '@/lib/type-guard';
+import { gcd, setDifference, setIntersection } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;

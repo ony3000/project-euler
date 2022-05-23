@@ -1,4 +1,4 @@
-import { SolutionFunction, Dictionary } from '../../lib/types';
+import { SolutionFunction, Dictionary } from '@/lib/types';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = 0;

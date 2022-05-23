@@ -1,7 +1,7 @@
 import { isPrime } from 'mathjs';
 
-import { SolutionFunction } from '../../lib/types';
-import { numberOfPartitions } from '../../lib/toolbox';
+import { SolutionFunction } from '@/lib/types';
+import { numberOfPartitions } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;

@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-import { SolutionFunction } from '../../lib/types';
-import { range, sum } from '../../lib/toolbox';
+import { SolutionFunction } from '@/lib/types';
+import { range, sum } from '@/lib/toolbox';
 
 interface SubsetSummary {
   size: number;

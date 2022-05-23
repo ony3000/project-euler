@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-import { SolutionFunction } from '../../lib/types';
-import { SudokuBoard } from '../../lib/classes';
+import { SolutionFunction } from '@/lib/types';
+import { SudokuBoard } from '@/lib/classes';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = 0;
