@@ -1,11 +1,11 @@
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 import { properDivisorSum } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = Infinity;
 
   const upperBound = 1000000;
-  const divisorSumPerNumber: Dictionary<number> = {
+  const divisorSumPerNumber: Dict<number> = {
     0: 0,
   };
   let longestChainLength = 0;

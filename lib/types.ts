@@ -1,13 +1,11 @@
 type SolutionFunction = () => number | string | null;
 
-type NumberPair = [number, number];
+type Dict<T = unknown> = Record<string, T>;
 
-interface Dictionary<Type> {
-  [key: string]: Type;
-}
+type NumberPair = [number, number];
 
 export {
   SolutionFunction,
+  Dict,
   NumberPair,
-  Dictionary,
 };

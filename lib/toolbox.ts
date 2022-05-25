@@ -1,4 +1,4 @@
-import { Dictionary } from './types';
+import { Dict } from './types';
 import { isNumberArray, isBigIntArray, isStringArray } from './type-guard';
 
 /**
@@ -611,7 +611,7 @@ function isPentagonalNumber(value: number): boolean {
  * 정수 n에 대해, n을 분할하는 방법의 수를 구한다.
  */
 const numberOfIntegerPartitions = (function () {
-  const storedResult: Dictionary<bigint> = {
+  const storedResult: Dict<bigint> = {
     0: 1n,
     1: 1n,
   };

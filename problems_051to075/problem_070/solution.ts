@@ -1,4 +1,4 @@
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 import { primeFactorization } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
@@ -8,7 +8,7 @@ const solution: SolutionFunction = () => {
 
   for (let num = 2; num < 10 ** 7; num += 1) {
     const primeFactors = primeFactorization(num);
-    const counter: Dictionary<number> = {};
+    const counter: Dict<number> = {};
 
     primeFactors.forEach((prime) => {
       counter[prime] = (counter[prime] || 0) + 1;

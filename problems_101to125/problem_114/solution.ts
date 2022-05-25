@@ -1,10 +1,10 @@
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;
 
   const numberOfFillingWays = (function () {
-    const storedResult: Dictionary<number> = {};
+    const storedResult: Dict<number> = {};
 
     const recursion = (n: number): number => {
       if (n < 3) {

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = 0;
@@ -9,7 +9,7 @@ const solution: SolutionFunction = () => {
   const source = fs.readFileSync(path.resolve(__dirname, 'roman.txt'));
   const romans = source.toString().trim().split('\n').map((line) => line.trim());
 
-  const decimalPerRoman: Dictionary<number> = {
+  const decimalPerRoman: Dict<number> = {
     I: 1,
     V: 5,
     X: 10,
@@ -18,7 +18,7 @@ const solution: SolutionFunction = () => {
     D: 500,
     M: 1000,
   };
-  const romanPerDecimal: Dictionary<string> = {
+  const romanPerDecimal: Dict<string> = {
     1: 'I',
     5: 'V',
     10: 'X',

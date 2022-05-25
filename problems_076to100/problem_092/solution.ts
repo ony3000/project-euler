@@ -1,10 +1,10 @@
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 import { sum } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = 0;
 
-  const storedResult: Dictionary<boolean> = {
+  const storedResult: Dict<boolean> = {
     1: false,
     89: true,
   };

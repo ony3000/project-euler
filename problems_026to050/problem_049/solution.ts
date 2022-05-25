@@ -1,11 +1,11 @@
 import { isPrime } from 'mathjs';
 
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;
 
-  const primesPerDigits: Dictionary<number[]> = {};
+  const primesPerDigits: Dict<number[]> = {};
 
   for (let num = 3; num < 10000; num += 2) {
     if (num >= 1000 && isPrime(num)) {

@@ -1,10 +1,10 @@
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;
 
   let maxSequenceLength = 0;
-  const lengthPerStarter: Dictionary<number> = {};
+  const lengthPerStarter: Dict<number> = {};
 
   for (let starter = 1; starter < 1000000; starter += 1) {
     let num = starter;

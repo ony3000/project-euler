@@ -1,9 +1,9 @@
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = 0;
 
-  const wordPerNumber: Dictionary<string> = {
+  const wordPerNumber: Dict<string> = {
     0: '',
     1: 'one',
     2: 'two',

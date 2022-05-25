@@ -1,11 +1,11 @@
 import { isPrime } from 'mathjs';
 
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;
 
-  const primeCountPerPattern: Dictionary<number> = {};
+  const primeCountPerPattern: Dict<number> = {};
   let num = 9;
 
   while (answer === null) {

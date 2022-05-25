@@ -1,10 +1,10 @@
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 import { sum, factorial } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = 0;
 
-  const lengthPerStarter: Dictionary<number> = {};
+  const lengthPerStarter: Dict<number> = {};
 
   for (let num = 1; num < 1000000; num += 1) {
     let target = num;

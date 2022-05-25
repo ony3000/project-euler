@@ -1,9 +1,9 @@
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;
 
-  const permutationDict: Dictionary<number[]> = {};
+  const permutationDict: Dict<number[]> = {};
   let num = 0;
 
   while (answer === null) {

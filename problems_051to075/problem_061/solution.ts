@@ -1,10 +1,10 @@
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 import { range, sum, nthPolygonalNumber } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;
 
-  const polygonalNumbers: Dictionary<number[]> = {};
+  const polygonalNumbers: Dict<number[]> = {};
 
   const findCyclicNumbers = (overlappingNumbers: number[], polygonalAngles: number[]): number[] => {
     const [lastNumber] = overlappingNumbers.slice(-1);

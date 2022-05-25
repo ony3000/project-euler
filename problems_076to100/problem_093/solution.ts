@@ -1,4 +1,4 @@
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 import { nthLexicographicPermutation } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
@@ -11,7 +11,7 @@ const solution: SolutionFunction = () => {
     for (let b = a + 1; b <= 7; b += 1) {
       for (let c = b + 1; c <= 8; c += 1) {
         for (let d = c + 1; d <= 9; d += 1) {
-          const targets: Dictionary<boolean> = {};
+          const targets: Dict<boolean> = {};
           const digitSet = [a, b, c, d].map((digit) => String(digit));
 
           for (let digitOrder = 1; digitOrder <= 24; digitOrder += 1) {

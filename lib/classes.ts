@@ -1,4 +1,4 @@
-import { NumberPair, Dictionary } from './types';
+import { Dict, NumberPair } from './types';
 import { quotient } from './toolbox';
 
 class Card {
@@ -10,14 +10,14 @@ class Card {
    * 길이가 2 이상인 문자열에 대해, 첫 번째 문자는 카드 숫자를, 두 번째 문자는 카드 무늬를 표현하는 카드 객체를 만든다.
    */
   constructor(text: string) {
-    const valueDictionary: Dictionary<number> = {
+    const valueDictionary: Dict<number> = {
       T: 10,
       J: 11,
       Q: 12,
       K: 13,
       A: 14,
     };
-    const suitDictionary: Dictionary<string> = {
+    const suitDictionary: Dict<string> = {
       C: 'clubs',
       D: 'diamonds',
       H: 'hearts',
@@ -56,8 +56,8 @@ class PokerHand {
   constructor(textArray: string[]) {
     this.cards = textArray.map((text) => new Card(text));
 
-    const valueCounter: Dictionary<number> = {};
-    const suitCounter: Dictionary<number> = {};
+    const valueCounter: Dict<number> = {};
+    const suitCounter: Dict<number> = {};
 
     this.cards.forEach((card) => {
       valueCounter[card.value] = (valueCounter[card.value] || 0) + 1;

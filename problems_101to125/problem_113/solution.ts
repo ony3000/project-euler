@@ -1,4 +1,4 @@
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = 0;
@@ -6,7 +6,7 @@ const solution: SolutionFunction = () => {
   const LARGEST_DIGIT = 9;
   const SMALLEST_DIGIT = 0;
 
-  const storedCount: Dictionary<number> = {};
+  const storedCount: Dict<number> = {};
 
   const countIncreasingNumber = (digitLength: number, startingDigit: number): number => {
     if (digitLength < 1 || !Number.isInteger(digitLength)) {

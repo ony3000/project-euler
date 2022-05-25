@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;
@@ -9,7 +9,7 @@ const solution: SolutionFunction = () => {
   const source = fs.readFileSync(path.resolve(__dirname, 'words.txt'));
   const words: string[] = JSON.parse(`[${source.toString().trim()}]`);
 
-  const classifiedAnagrams: Dictionary<string[]>[] = [];
+  const classifiedAnagrams: Dict<string[]>[] = [];
 
   words.forEach((word) => {
     const wordLength = word.length;
@@ -52,8 +52,8 @@ const solution: SolutionFunction = () => {
           return;
         }
 
-        const usedDigitPerLetter: Dictionary<string> = {};
-        const usedLetterPerDigit: Dictionary<string> = {};
+        const usedDigitPerLetter: Dict<string> = {};
+        const usedLetterPerDigit: Dict<string> = {};
         let isValidMatching = true;
 
         firstAnagram.split('').forEach((letter, index) => {

@@ -1,12 +1,12 @@
 import { isPrime } from 'mathjs';
 
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 import { sum } from '@/lib/toolbox';
 
 const solution: SolutionFunction = () => {
   let answer: ReturnType<SolutionFunction> = null;
 
-  const primeDict: Dictionary<boolean> = {
+  const primeDict: Dict<boolean> = {
     2: true,
   };
   const primeSetSize = 5;

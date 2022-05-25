@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { SolutionFunction, Dictionary } from '@/lib/types';
+import { SolutionFunction, Dict } from '@/lib/types';
 
 class Node {
   character: string;
@@ -23,7 +23,7 @@ const solution: SolutionFunction = () => {
   const source = fs.readFileSync(path.resolve(__dirname, 'keylog.txt'));
   const keylogs = source.toString().trim().split('\n');
 
-  const nodePerKey: Dictionary<Node> = {};
+  const nodePerKey: Dict<Node> = {};
 
   keylogs.forEach((keylog) => {
     const keys = keylog.trim().split('');
