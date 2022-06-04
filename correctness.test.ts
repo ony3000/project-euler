@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const ProblemCountPerGroup = 25;
-const solvedProblemCount = 123;
+const solvedProblemCount = 124;
 
 for (let number = 1; number <= solvedProblemCount; number += 1) {
   const groupNumber = Math.floor((number - 1) / ProblemCountPerGroup) + 1;
