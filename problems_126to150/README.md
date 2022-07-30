@@ -1,6 +1,6 @@
 ## 문제 목록
 
-번호 | 제목 | 난이도<a id="footnote-ref-1" href="#footnote-1">[1]</a>
+번호 | 제목 | 난이도[^1]
 --- | --- | ---
 126 | [Cuboid layers](./problem_126) | 55%
 127 | [abc-hits](./problem_127) | 50%
@@ -28,6 +28,4 @@
 149 | [Searching for a maximum-sum subsequence](./problem_149) | 50%
 150 | [Searching a triangular array for a sub-triangle having minimum-sum](./problem_150) | 55%
 
----
-
-<a id="footnote-1" href="#footnote-ref-1">**[1]**</a> 오일러 프로젝트 사이트의 표기를 그대로 사용했다. 5% 단위로 표기되어 있으며, 최고 난이도는 100%.
+[^1]: 오일러 프로젝트 사이트의 표기를 그대로 사용했다. 5% 단위로 표기되어 있으며, 최고 난이도는 100%.

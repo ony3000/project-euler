@@ -1,6 +1,6 @@
 ## 문제 목록
 
-번호 | 제목 | 난이도<a id="footnote-ref-1" href="#footnote-1">[1]</a>
+번호 | 제목 | 난이도[^1]
 --- | --- | ---
 51 | [Prime digit replacements](./problem_051) | 15%
 52 | [Permuted multiples](./problem_052) | 5%
@@ -28,6 +28,4 @@
 74 | [Digit factorial chains](./problem_074) | 15%
 75 | [Singular integer right triangles](./problem_075) | 25%
 
----
-
-<a id="footnote-1" href="#footnote-ref-1">**[1]**</a> 오일러 프로젝트 사이트의 표기를 그대로 사용했다. 5% 단위로 표기되어 있으며, 최고 난이도는 100%.
+[^1]: 오일러 프로젝트 사이트의 표기를 그대로 사용했다. 5% 단위로 표기되어 있으며, 최고 난이도는 100%.

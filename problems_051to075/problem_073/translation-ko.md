@@ -1,6 +1,8 @@
 ## 73. Counting fractions in a range
 
-양의 정수 <var>n</var>과 <var>d</var>에 대해서, 분수 <var>n</var>/<var>d</var>을 생각해보자. 만약 <var>n</var><<var>d</var> 이고 HCF<a id="footnote-ref-1" href="#footnote-1">[1]</a>(<var>n</var>,<var>d</var>)=1 이면, 그 때의 분수를 기약 진분수라고 한다.
+양의 정수 <var>n</var>과 <var>d</var>에 대해서, 분수 <var>n</var>/<var>d</var>을 생각해보자. 만약 <var>n</var><<var>d</var> 이고 HCF[^1](<var>n</var>,<var>d</var>)=1 이면, 그 때의 분수를 기약 진분수라고 한다.
+
+[^1]: 최대 공약수. 보통 GCD(Greatest Common Divisor)라는 표현을 많이 쓰는데, 여기서는 HCF(Highest Common Factor)를 사용했다.
 
 <var>d</var> &le; 8 인 기약 진분수들을 오름차순으로 나열하면 다음과 같다.
 
@@ -11,7 +13,3 @@
 여기서 1/3과 1/2 사이의 기약 진분수가 세 개임을 알 수 있다.
 
 <var>d</var> &le; 12,000 인 기약 진분수들을 오름차순으로 나열했을 때, 1/3과 1/2 사이의 기약 진분수들의 개수를 구하여라.
-
----
-
-<a id="footnote-1" href="#footnote-ref-1">**[1]**</a> 최대 공약수. 보통 GCD(Greatest Common Divisor)라는 표현을 많이 쓰는데, 여기서는 HCF(Highest Common Factor)를 사용했다.

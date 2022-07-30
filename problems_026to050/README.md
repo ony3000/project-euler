@@ -1,6 +1,6 @@
 ## 문제 목록
 
-번호 | 제목 | 난이도<a id="footnote-ref-1" href="#footnote-1">[1]</a>
+번호 | 제목 | 난이도[^1]
 --- | --- | ---
 26 | [Reciprocal cycles](./problem_026) | 5%
 27 | [Quadratic primes](./problem_027) | 5%
@@ -28,6 +28,4 @@
 49 | [Prime permutations](./problem_049) | 5%
 50 | [Consecutive prime sum](./problem_050) | 5%
 
----
-
-<a id="footnote-1" href="#footnote-ref-1">**[1]**</a> 오일러 프로젝트 사이트의 표기를 그대로 사용했다. 5% 단위로 표기되어 있으며, 최고 난이도는 100%.
+[^1]: 오일러 프로젝트 사이트의 표기를 그대로 사용했다. 5% 단위로 표기되어 있으며, 최고 난이도는 100%.

@@ -1,6 +1,6 @@
 ## 문제 목록
 
-번호 | 제목 | 난이도<a id="footnote-ref-1" href="#footnote-1">[1]</a>
+번호 | 제목 | 난이도[^1]
 --- | --- | ---
 76 | [Counting summations](./problem_076) | 10%
 77 | [Prime summations](./problem_077) | 25%
@@ -28,6 +28,4 @@
 99 | [Largest exponential](./problem_099) | 10%
 100 | [Arranged probability](./problem_100) | 30%
 
----
-
-<a id="footnote-1" href="#footnote-ref-1">**[1]**</a> 오일러 프로젝트 사이트의 표기를 그대로 사용했다. 5% 단위로 표기되어 있으며, 최고 난이도는 100%.
+[^1]: 오일러 프로젝트 사이트의 표기를 그대로 사용했다. 5% 단위로 표기되어 있으며, 최고 난이도는 100%.
